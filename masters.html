@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nihan Malkoç — Masters</title>
+  <meta name="description" content="Nihan Malkoç — Master in Advanced Computation for Architecture & Design, IAAC." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="pixel-bg" aria-hidden="true"></canvas>
+
+  <header class="site-header" id="top">
+    <div class="header-left">
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <a href="index.html" class="logo" aria-label="nim! — home">n<span class="li" aria-hidden="true"><i class="i-dot"></i><i class="i-stem"></i></span>m<span class="excl" aria-hidden="true"><i class="excl-bar"></i><i class="excl-dot"></i></span></a>
+    </div>
+    <a class="cv-back" href="index.html">← Home</a>
+  </header>
+
+  <nav class="menu-overlay" aria-hidden="true">
+    <ul>
+      <li><a href="index.html#about"><span>01</span> Who I Am</a></li>
+      <li><a href="masters.html"><span>02</span> Masters</a></li>
+      <li><a href="professional.html"><span>03</span> Professional</a></li>
+      <li><a href="bachelors.html"><span>04</span> Bachelors</a></li>
+      <li><a href="cv.html"><span>05</span> Résumé</a></li>
+      <li><a href="index.html#contact"><span>06</span> Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="section screen" id="masters">
+      <div class="section-head">
+        <span class="section-index">02</span>
+        <h2 class="section-title">Masters</h2>
+      </div>
+      <div class="entry-grid">
+        <article class="card" data-reveal>
+          <p class="card-label">MaCAD · IAAC</p>
+          <h3 class="entry-title">Master in Advanced Computation for Architecture &amp; Design</h3>
+          <p class="card-meta">Barcelona · 2025 – 2026</p>
+          <p class="card-body">
+            Reframed my understanding of architecture through computational
+            thinking, AI, data-driven methodologies, and emerging technologies.
+            The program encouraged experimentation, interdisciplinary
+            collaboration, and the development of intelligent design workflows
+            for the future of the built environment.
+          </p>
+          <span class="card-plus" aria-hidden="true"></span>
+        </article>
+        <div class="media" aria-hidden="true"><div class="media-fill" data-label="Image"></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="section cv-foot">
+    <p class="colophon">© <span id="year"></span> Nihan Malkoç · <a href="index.html">back to portfolio</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

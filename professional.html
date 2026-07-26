@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nihan Malkoç — Professional</title>
+  <meta name="description" content="Nihan Malkoç — Design Architect at NKY Architects & Engineers · selected projects." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="pixel-bg" aria-hidden="true"></canvas>
+
+  <header class="site-header" id="top">
+    <div class="header-left">
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <a href="index.html" class="logo" aria-label="nim! — home">n<span class="li" aria-hidden="true"><i class="i-dot"></i><i class="i-stem"></i></span>m<span class="excl" aria-hidden="true"><i class="excl-bar"></i><i class="excl-dot"></i></span></a>
+    </div>
+    <a class="cv-back" href="index.html">← Home</a>
+  </header>
+
+  <nav class="menu-overlay" aria-hidden="true">
+    <ul>
+      <li><a href="index.html#about"><span>01</span> Who I Am</a></li>
+      <li><a href="masters.html"><span>02</span> Masters</a></li>
+      <li><a href="professional.html"><span>03</span> Professional</a></li>
+      <li><a href="bachelors.html"><span>04</span> Bachelors</a></li>
+      <li><a href="cv.html"><span>05</span> Résumé</a></li>
+      <li><a href="index.html#contact"><span>06</span> Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="section works" id="professional">
+      <div class="section-head">
+        <span class="section-index">03</span>
+        <h2 class="section-title">Professional</h2>
+        <span class="works-sub">NKY Architects &amp; Engineers · Ankara · 2022 – present</span>
+      </div>
+
+      <div class="bach-intro" data-reveal>
+        <p class="card-label">Design Architect · NKY Architects &amp; Engineers</p>
+        <p class="bach-lead">
+          Working on large-scale international projects across healthcare,
+          diplomatic, research, office, mixed-use and public sectors. My work
+          spans concept design, BIM coordination, computational design
+          integration and technical documentation, contributing to complex
+          projects from early design stages through project development.
+        </p>
+      </div>
+
+      <h3 class="works-heading">Selected Projects</h3>
+
+      <!-- Tek galeri: büyütünce tüm projeler arasında gezilir · 00 → 10 -->
+      <div class="work-images work-images--stack">
+        <img src="nky/kule-1.jpg" alt="Office Headquarters — Central Bank of the Gambia" loading="lazy" />
+        <img src="nky/kule-2.jpg" alt="Office Headquarters — Central Bank of the Gambia" loading="lazy" />
+
+        <img src="nky/hbmp-1.jpg" alt="National Technology & Science Museum" loading="lazy" />
+        <img src="nky/hbmp-2.jpg" alt="National Technology & Science Museum" loading="lazy" />
+        <img src="nky/hbmp-3.gif" alt="National Technology & Science Museum — animation" loading="lazy" />
+
+        <img src="nky/lctp-1.jpg" alt="Information Technology City Communication Tower" loading="lazy" />
+        <img src="nky/lctp-2.gif" alt="Information Technology City Communication Tower — animation" loading="lazy" />
+
+        <img src="nky/tpsk-1.jpg" alt="TPAO Campus" loading="lazy" />
+        <img src="nky/tpsk-2.jpg" alt="TPAO Campus" loading="lazy" />
+
+        <img src="nky/belkepa-1.jpg" alt="Başkent Electricity Headquarters" loading="lazy" />
+        <img src="nky/belkepa-2.jpg" alt="Başkent Electricity Headquarters" loading="lazy" />
+
+        <img src="nky/gtrp-1.gif" alt="VR Krtsanisi Resort Residence — animation" loading="lazy" />
+        <img src="nky/gtrp-2.jpg" alt="VR Krtsanisi Resort Residence" loading="lazy" />
+        <img src="nky/gtrp-3.jpg" alt="VR Krtsanisi Resort Residence" loading="lazy" />
+
+        <img src="nky/sebp-1.jpg" alt="Chancery Building & Residential Complex" loading="lazy" />
+        <img src="nky/sebp-2.jpg" alt="Chancery Building & Residential Complex" loading="lazy" />
+
+        <img src="nky/bkcp-1.jpg" alt="Adaptive Reuse for Enriching the Heritage" loading="lazy" />
+        <img src="nky/bkcp-2.gif" alt="Adaptive Reuse for Enriching the Heritage — animation" loading="lazy" />
+
+        <img src="nky/auhp-1.jpg" alt="Ankara University State Hospital" loading="lazy" />
+        <img src="nky/auhp-2.gif" alt="Ankara University State Hospital — animation" loading="lazy" />
+        <img src="nky/auhp-3.gif" alt="Ankara University State Hospital — animation" loading="lazy" />
+
+        <img src="nky/gbmp-1.jpg" alt="A Ministry: Rooted from Local Values" loading="lazy" />
+        <img src="nky/gbmp-2.gif" alt="A Ministry: Rooted from Local Values — animation" loading="lazy" />
+
+        <img src="nky/tbhb-1.jpg" alt="Municipality Additional Service Building" loading="lazy" />
+        <img src="nky/tbhb-2.jpg" alt="Municipality Additional Service Building" loading="lazy" />
+      </div>
+    </section>
+  </main>
+
+  <footer class="section cv-foot">
+    <p class="colophon">© <span id="year"></span> Nihan Malkoç · <a href="index.html">back to portfolio</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
