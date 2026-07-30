@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nihan Malkoç — Terra Pilot (AIA)</title>
+  <meta name="description" content="Terra Pilot — an AI design agent. AIA studio, MaCAD, IAAC." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="pixel-bg" aria-hidden="true"></canvas>
+
+  <header class="site-header" id="top">
+    <div class="header-left">
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <a href="index.html" class="logo" aria-label="nim! — home">n<span class="li" aria-hidden="true"><i class="i-dot"></i><i class="i-stem"></i></span>m<span class="excl" aria-hidden="true"><i class="excl-bar"></i><i class="excl-dot"></i></span></a>
+    </div>
+    <a class="cv-back" href="masters.html">← Masters</a>
+  </header>
+
+  <nav class="menu-overlay" aria-hidden="true">
+    <ul>
+      <li><a href="index.html#about"><span>01</span> Who I Am</a></li>
+      <li><a href="masters.html"><span>02</span> Masters</a></li>
+      <li><a href="professional.html"><span>03</span> Professional</a></li>
+      <li><a href="bachelors.html"><span>04</span> Bachelors</a></li>
+      <li><a href="cv.html"><span>05</span> Résumé</a></li>
+      <li><a href="index.html#contact"><span>06</span> Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="section works">
+      <div class="section-head">
+        <span class="section-index">03</span>
+        <h2 class="section-title">Terra Pilot</h2>
+        <span class="works-sub">AIA Studio · Term 3</span>
+      </div>
+
+      <!-- Intro + küçük ikonlar + watch -->
+      <div class="tp-intro" data-reveal>
+        <p class="tp-lead-big">
+          TerraPilot is an <b>AI design agent</b> that works with your site — its sun,
+          wind, roads and neighbours — turning plain-word intent into site-aware,
+          editable and explainable massing.
+        </p>
+        <a class="tp-watch" href="#demo">▶ Watch the demo</a>
+
+        <ul class="feat-row">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="13" r="7"/><path d="M12 13V9" stroke-linecap="round"/><path d="M9 2h6M18.6 6.8l1.2-1.2" stroke-linecap="round"/></svg>
+            <div><strong>Explore in minutes</strong><span>dozens of options in a studio's time</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4" stroke-linecap="round"/></svg>
+            <div><strong>Site-aware from minute one</strong><span>sun, wind, noise &amp; roads in the loop</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 5h16v11H8l-4 3z" stroke-linejoin="round"/><circle cx="9" cy="10.5" r="1" fill="currentColor" stroke="none"/><circle cx="12.5" cy="10.5" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="10.5" r="1" fill="currentColor" stroke="none"/></svg>
+            <div><strong>No software to learn</strong><span>talk to it in plain words</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div><strong>Decisions you can defend</strong><span>every move shows its why + score</span></div>
+          </li>
+        </ul>
+
+        <p class="tp-team">
+          <b>Team:</b> David Agudelo · Daniel Shuai Zhang · Nihan Malkoç · Sushmitha Ravi · Tue Minh
+          &nbsp;·&nbsp; <b>Faculty:</b> Joao Silva · Scott Lebow · Bao Q. Trinh
+        </p>
+      </div>
+
+      <!-- Old → New -->
+      <h3 class="works-heading">Old method → New method</h3>
+      <div class="oldnew">
+        <div class="on-card on-old">
+          <p class="on-label">Old method</p>
+          <ul>
+            <li>Days of modelling for a handful of options</li>
+            <li>Context gathered and drawn by hand</li>
+            <li>Trade-offs judged by feel</li>
+            <li>Choices that are hard to defend</li>
+          </ul>
+        </div>
+        <div class="on-card on-new">
+          <p class="on-label">New method — with TerraPilot</p>
+          <img src="masters/aia/img/interface.jpg" alt="TerraPilot in use — options generated and scored live" loading="lazy" />
+          <ul>
+            <li>Dozens of scored options in minutes</li>
+            <li>Site context loaded automatically</li>
+            <li>Every option scored live</li>
+            <li>Every decision explainable</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Dashboard (başlıksız görsel) -->
+      <h3 class="works-heading">The Dashboard</h3>
+      <div class="work-images"><img src="masters/aia/img/dashboard.jpg" alt="Dashboard — 3D viewport, project explorer, copilot, prompt box, stages, levels, live update" loading="lazy" /></div>
+
+      <!-- Workflow -->
+      <h3 class="works-heading">The Workflow · one guided flow</h3>
+      <p class="tp-p">A single, guided journey from an empty plot to an exportable, site-fitted design.</p>
+      <div class="flow">
+        <div class="flow-step"><img src="masters/aia/img/w1-site.jpg" alt="Site & boundary" loading="lazy" /><div class="flow-cap"><span class="flow-num">01</span><div class="flow-title">Site &amp; Boundary</div><p class="flow-text">Geocode, drop a pin, draw the plot.</p></div></div>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <div class="flow-step"><img src="masters/aia/img/w2-context.jpg" alt="Context" loading="lazy" /><div class="flow-cap"><span class="flow-num">02</span><div class="flow-title">Context</div><p class="flow-text">Fetch roads, sun, wind &amp; neighbours as layers.</p></div></div>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <div class="flow-step"><img src="masters/aia/img/w3-shape.jpg" alt="Shape" loading="lazy" /><div class="flow-cap"><span class="flow-num">03</span><div class="flow-title">Shape</div><p class="flow-text">Intent → ranked, site-fitted typologies.</p></div></div>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <div class="flow-step"><img src="masters/aia/img/w4-optimize.jpg" alt="Optimize" loading="lazy" /><div class="flow-cap"><span class="flow-num">04</span><div class="flow-title">Optimize</div><p class="flow-text">Generate &amp; rank variants by objective.</p></div></div>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <div class="flow-step"><img src="masters/aia/img/w5-compare.jpg" alt="Compare" loading="lazy" /><div class="flow-cap"><span class="flow-num">05</span><div class="flow-title">Compare</div><p class="flow-text">Trade-offs, side by side.</p></div></div>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <div class="flow-step"><img src="masters/aia/img/w6-export.jpg" alt="Export" loading="lazy" /><div class="flow-cap"><span class="flow-num">06</span><div class="flow-title">Export</div><p class="flow-text">GeoJSON / Rhino / IFC for BIM.</p></div></div>
+      </div>
+
+      <!-- Live Demo -->
+      <h3 class="works-heading" id="demo">Live Demo · the agent in action</h3>
+      <video class="tp-video" controls muted preload="none" poster="masters/aia/img/dashboard.jpg">
+        <source src="masters/aia/terra-pilot-demo.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </section>
+  </main>
+
+  <footer class="section cv-foot">
+    <p class="colophon">© <span id="year"></span> Nihan Malkoç · <a href="masters.html">back to Masters</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -64,10 +64,96 @@ function drawDots(ctx, dots, alpha) {
 }
 
 // =========================================================
+// Masters — dönem modülü piksel illüstrasyonları (statik)
+// =========================================================
+(() => {
+  const canvases = document.querySelectorAll(".term-pix");
+  if (!canvases.length) return;
+
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  const rect = (x, y, w, h) => [[x, y], [x + w, y], [x + w, y + h], [x, y + h], [x, y]];
+  const arc = (cx, cy, r, a0, a1, st) => {
+    const p = []; for (let a = a0; a <= a1; a += st) p.push([cx + r * Math.cos(a), cy - r * Math.sin(a)]); return p;
+  };
+
+  const shapes = {
+    // ACESD — kabuk/tonoz + kolonlar + güneş ışınları
+    structural() {
+      const s = [];
+      s.push(arc(0, 0.2, 0.62, 0, Math.PI, 0.1));
+      s.push([[-0.62, 0.2], [-0.62, 0.6]]);
+      s.push([[0.62, 0.2], [0.62, 0.6]]);
+      s.push([[-0.3, 0.04], [-0.3, 0.6]]);
+      s.push([[0.3, 0.04], [0.3, 0.6]]);
+      s.push([[-0.62, 0.6], [0.62, 0.6]]);
+      for (const x of [-0.45, -0.15, 0.15, 0.45]) s.push([[x, -0.72], [x, -0.5]]);
+      return s;
+    },
+    // BIM — katmanlı bina + grid
+    bim() {
+      const s = [];
+      for (let k = 0; k < 4; k++) { const y = -0.55 + k * 0.34; s.push(rect(-0.58, y, 1.16, 0.24)); }
+      for (const x of [-0.2, 0.18]) s.push([[x, -0.55], [x, 0.51]]);
+      return s;
+    },
+    // AIA — sinir ağı
+    neural() {
+      const s = [];
+      const cols = [-0.58, 0, 0.58];
+      const ys = [[-0.42, 0, 0.42], [-0.55, -0.18, 0.18, 0.55], [-0.26, 0.26]];
+      for (let c = 0; c < cols.length - 1; c++)
+        for (const y1 of ys[c]) for (const y2 of ys[c + 1]) s.push([[cols[c], y1], [cols[c + 1], y2]]);
+      for (let c = 0; c < cols.length; c++)
+        for (const y of ys[c]) { const q = 0.06; s.push(rect(cols[c] - q, y - q, 2 * q, 2 * q)); }
+      return s;
+    },
+  };
+
+  function sample(strokes, n) {
+    const segs = []; let total = 0;
+    for (const st of strokes)
+      for (let i = 0; i < st.length - 1; i++) {
+        const a = st[i], b = st[i + 1];
+        const len = Math.hypot(b[0] - a[0], b[1] - a[1]);
+        if (len > 0) { segs.push({ a, b, len }); total += len; }
+      }
+    const pts = [];
+    for (let k = 0; k < n; k++) {
+      const d = (k / n) * total;
+      let acc = 0, seg = segs[segs.length - 1], t = 0;
+      for (const sg of segs) { if (acc + sg.len >= d) { seg = sg; t = (d - acc) / sg.len; break; } acc += sg.len; }
+      pts.push([seg.a[0] + (seg.b[0] - seg.a[0]) * t, seg.a[1] + (seg.b[1] - seg.a[1]) * t]);
+    }
+    return pts;
+  }
+
+  function draw(cv) {
+    const gen = shapes[cv.dataset.shape] || shapes.neural;
+    const pts = sample(gen(), 280);
+    const w = cv.clientWidth || 220, h = cv.clientHeight || w;
+    cv.width = w * dpr; cv.height = h * dpr;
+    const ctx = cv.getContext("2d");
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+    const scale = Math.min(w, h) * 0.42, cx = w / 2, cy = h / 2;
+    pts.forEach((p, i) => {
+      ctx.fillStyle = i % 6 === 0 ? "rgba(255,212,0,1)" : "rgba(15,15,15,.9)";
+      const sz = 2.6;
+      ctx.fillRect(cx + p[0] * scale - sz / 2, cy + p[1] * scale - sz / 2, sz, sz);
+    });
+  }
+
+  const render = () => canvases.forEach(draw);
+  render();
+  let rt;
+  window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(render, 150); });
+})();
+
+// =========================================================
 // Proje galerileri — sürükle-kaydır + tam ekran lightbox
 // =========================================================
 (() => {
-  const galleries = document.querySelectorAll(".work-images");
+  const galleries = document.querySelectorAll(".work-images, .feat-grid, .flow, .img-row");
   if (!galleries.length) return;
 
   // Lightbox katmanı

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nihan Malkoç — BioSpatial Intelligence (Data Encoding)</title>
+  <meta name="description" content="BioSpatial Intelligence — ML-driven plant placement for adaptive architecture. Data Encoding & ML, MaCAD, IAAC." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="pixel-bg" aria-hidden="true"></canvas>
+
+  <header class="site-header" id="top">
+    <div class="header-left">
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <a href="index.html" class="logo" aria-label="nim! — home">n<span class="li" aria-hidden="true"><i class="i-dot"></i><i class="i-stem"></i></span>m<span class="excl" aria-hidden="true"><i class="excl-bar"></i><i class="excl-dot"></i></span></a>
+    </div>
+    <a class="cv-back" href="masters.html">← Masters</a>
+  </header>
+
+  <nav class="menu-overlay" aria-hidden="true">
+    <ul>
+      <li><a href="index.html#about"><span>01</span> Who I Am</a></li>
+      <li><a href="masters.html"><span>02</span> Masters</a></li>
+      <li><a href="professional.html"><span>03</span> Professional</a></li>
+      <li><a href="bachelors.html"><span>04</span> Bachelors</a></li>
+      <li><a href="cv.html"><span>05</span> Résumé</a></li>
+      <li><a href="index.html#contact"><span>06</span> Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="section works">
+      <div class="section-head">
+        <span class="section-index">03</span>
+        <h2 class="section-title">BioSpatial Intelligence</h2>
+        <span class="works-sub">Data Encoding &amp; ML · Term 3</span>
+      </div>
+
+      <!-- Intro + küçük ikonlar + watch -->
+      <div class="tp-intro" data-reveal>
+        <p class="tp-lead-big">
+          BioSpatial Intelligence is a <b>machine-learning model</b> that reads a floor's
+          microclimate — sun, radiation and daylight per tile — and places the best-fit
+          plants for it, deployed live in Grasshopper.
+        </p>
+        <a class="tp-watch" href="#demo">▶ Watch the mockup</a>
+
+        <ul class="feat-row">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 6.7l10 4M7 17.3l10-4" stroke-linecap="round"/></svg>
+            <div><strong>ML classification</strong><span>every floor tile → best-fit plants</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4" stroke-linecap="round"/></svg>
+            <div><strong>Environment-aware</strong><span>sun · radiation · daylight per tile</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 19c0-8 6-14 14-14 0 8-6 14-14 14z" stroke-linejoin="round"/><path d="M5 19C9 15 13 11 17 8" stroke-linecap="round"/></svg>
+            <div><strong>7 plant clusters</strong><span>grouped by environmental need</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="4" width="16" height="16"/><path d="M4 9.3h16M4 14.6h16M9.3 4v16M14.6 4v16"/></svg>
+            <div><strong>Live in Grasshopper</strong><span>colored suitability map in Rhino</span></div>
+          </li>
+        </ul>
+
+        <p class="tp-team">
+          <b>Team:</b> Nihan Malkoç · Sushmitha Ravi
+          &nbsp;·&nbsp; <b>Faculty:</b> Dr. Gabriella Rossi &nbsp;·&nbsp; <b>Assistant:</b> Georgios Bekakos
+        </p>
+      </div>
+
+      <!-- Pipeline overview -->
+      <h3 class="works-heading">The Pipeline</h3>
+      <p class="tp-p">The whole project is a data story — generate it, clean it, cluster it, label it, learn it, then deploy it.</p>
+      <div class="flow">
+        <div class="flow-step"><img src="masters/dataencoding/img/building-geometry.gif" alt="Building geometry" loading="lazy" /><div class="flow-cap"><span class="flow-num">01</span><div class="flow-title">Dataset</div><p class="flow-text">Parametric geometry + climate simulation.</p></div></div>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <div class="flow-step"><img src="masters/dataencoding/img/families.jpg" alt="Plant dataset" loading="lazy" /><div class="flow-cap"><span class="flow-num">02</span><div class="flow-title">Clean</div><p class="flow-text">Validate &amp; scale the plant data.</p></div></div>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <div class="flow-step"><img src="masters/dataencoding/img/clusters.jpg" alt="Clustering" loading="lazy" /><div class="flow-cap"><span class="flow-num">03</span><div class="flow-title">Cluster</div><p class="flow-text">7 plant varieties (C0–C6).</p></div></div>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <div class="flow-step"><img src="masters/dataencoding/img/zscore.jpg" alt="Labeling" loading="lazy" /><div class="flow-cap"><span class="flow-num">04</span><div class="flow-title">Label</div><p class="flow-text">Score &amp; label every tile.</p></div></div>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <div class="flow-step"><img src="masters/dataencoding/img/benchmark.jpg" alt="Learning" loading="lazy" /><div class="flow-cap"><span class="flow-num">05</span><div class="flow-title">Learn</div><p class="flow-text">Train the model to predict it.</p></div></div>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <div class="flow-step"><img src="masters/dataencoding/img/deploy-map.jpg" alt="Deploy" loading="lazy" /><div class="flow-cap"><span class="flow-num">06</span><div class="flow-title">Deploy</div><p class="flow-text">Live suitability map in Rhino.</p></div></div>
+      </div>
+
+      <!-- 01 Environment dataset -->
+      <h3 class="works-heading">01 · Building the Dataset</h3>
+      <p class="tp-p">A Grasshopper + Python + Honeybee scenario generator builds every building configuration (window ratios 0–0.8, orientation 0–270°). Each floor is a 10×10 grid of 100 tiles, and every tile is simulated for its own <b>sun, radiation and UDI</b>. These are then engineered into a <b>light index</b> and a <b>humidity proxy</b> — a common language to compare tiles to plants.</p>
+      <div class="img-row">
+        <img src="masters/dataencoding/img/building-geometry.gif" alt="Parametric building scenarios (animated)" loading="lazy" />
+      </div>
+
+      <!-- 02 Plant dataset cleaning -->
+      <h3 class="works-heading">02 · Plant Dataset &amp; Cleaning</h3>
+      <p class="tp-p">The plant dataset was imported and <b>validated</b> — counts, datatypes, missing values and required columns all checked. The <b>top-20 botanical families</b> were reviewed for over-representation and bias; <b>12 environmental features</b> were median-filled for the gaps. Finally <b>StandardScaler</b> put every feature on equal footing, so a huge value like lux and a 0–1 drought-tolerance score count equally.</p>
+      <div class="img-row">
+        <img src="masters/dataencoding/img/families.jpg" alt="Top-20 plant families" loading="lazy" />
+        <img src="masters/dataencoding/img/plant-features.jpg" alt="Plant environmental feature distributions" loading="lazy" />
+      </div>
+
+      <!-- 03 Clustering -->
+      <h3 class="works-heading">03 · Clustering into 7 Varieties</h3>
+      <p class="tp-p">k was tested from 2 to 15 using <b>elbow + silhouette</b> scores; <b>7 clusters</b> gave the best balance of detail and meaning. A 12-D → 2-D <b>PCA</b> shows the groups separating cleanly, and the clusters were validated against real botanical families.</p>
+      <div class="img-row">
+        <img src="masters/dataencoding/img/elbow.jpg" alt="Elbow + silhouette plots" loading="lazy" />
+        <img src="masters/dataencoding/img/clusters.jpg" alt="PCA of plant varieties" loading="lazy" />
+      </div>
+      <p class="tp-p" style="margin-top:1rem">The 7 varieties (C0–C6), each with a distinct environmental profile:</p>
+      <div class="cluster-grid">
+        <div class="cl-card"><img src="masters/dataencoding/img/c0.jpg" alt="" /><div><div class="cl-code">C0</div><div class="cl-names">Golden Pothos · Snake Plant</div></div></div>
+        <div class="cl-card"><img src="masters/dataencoding/img/c1.jpg" alt="" /><div><div class="cl-code">C1</div><div class="cl-names">Jade Plant · Blue Agave</div></div></div>
+        <div class="cl-card"><img src="masters/dataencoding/img/c2.jpg" alt="" /><div><div class="cl-code">C2</div><div class="cl-names">Chinese Evergreen · Anthurium</div></div></div>
+        <div class="cl-card"><img src="masters/dataencoding/img/c3.jpg" alt="" /><div><div class="cl-code">C3</div><div class="cl-names">Areca Palm · Rubber Plant</div></div></div>
+        <div class="cl-card"><img src="masters/dataencoding/img/c4.jpg" alt="" /><div><div class="cl-code">C4</div><div class="cl-names">Peace Lily · Birdnest Fern</div></div></div>
+        <div class="cl-card"><img src="masters/dataencoding/img/c5.jpg" alt="" /><div><div class="cl-code">C5</div><div class="cl-names">Boston Fern · Staghorn Fern</div></div></div>
+        <div class="cl-card"><img src="masters/dataencoding/img/c6.jpg" alt="" /><div><div class="cl-code">C6</div><div class="cl-names">Peperomia · Silver Lace Fern</div></div></div>
+      </div>
+
+      <!-- 04 Matching & labeling -->
+      <h3 class="works-heading">04 · Matching &amp; Labeling</h3>
+      <p class="tp-p">Tiles and clusters were expressed in the <b>same units</b>, so a <b>suitability score</b> (0.50 sun + 0.30 light + 0.20 humidity) could be computed directly. A key fix — <b>per-cluster z-score normalization</b> — stopped one high-scoring cluster from winning everywhere, so all 7 are assigned fairly. <b>argmax</b> gives each tile its label; <b>softmax</b> gives a confidence. The final dataset: <b>43,100 tiles × 32 columns</b>.</p>
+      <div class="img-row">
+        <img src="masters/dataencoding/img/zscore.jpg" alt="Before/after per-cluster z-score balancing" loading="lazy" />
+        <img src="masters/dataencoding/img/env-cluster.jpg" alt="Environmental variables vs plant-cluster scores" loading="lazy" />
+      </div>
+
+      <!-- 05 Learning -->
+      <h3 class="works-heading">05 · Learning the Data</h3>
+      <p class="tp-p">The model predicts the plant-cluster label from 8 environmental &amp; geometric inputs. Both a <b>logistic regression</b> and a <b>Keras neural network</b> were trained and compared. The neural network is more accurate (~97.8%) but needs TensorFlow; <b>logistic regression</b> (~87.4%) is portable and dependency-free — so it is the model <b>deployed live in Grasshopper</b>, trading ~10 points of accuracy for one that runs anywhere.</p>
+      <p class="tp-p">Predictions compared per cluster (C0–C6) — logistic regression (deployed) vs the neural network (reference):</p>
+      <div class="img-row">
+        <img src="masters/dataencoding/img/benchmark.jpg" alt="Benchmark — logistic regression (deployed) vs neural network" loading="lazy" />
+        <img src="masters/dataencoding/img/logreg-confusion.jpg" alt="Logistic Regression confusion matrix (deployed) — acc 0.874" loading="lazy" />
+        <img src="masters/dataencoding/img/confusion.jpg" alt="Neural Network confusion matrix (reference) — acc 0.975" loading="lazy" />
+      </div>
+
+      <!-- 06 Deployment -->
+      <h3 class="works-heading">06 · Deployment</h3>
+      <p class="tp-p">The trained <b>logistic regression</b> and its <b>StandardScaler</b> are exported as small <b>.pkl</b> files and loaded inside a Grasshopper <b>Python component</b> — logistic regression is the model we deploy because it is tiny and dependency-free (no TensorFlow), so it runs directly in Rhino / Grasshopper, painting a colored 10×10 suitability map per scenario.</p>
+      <div class="work-images"><img src="masters/dataencoding/img/deployment.gif" alt="Live in Grasshopper — GH Python component loads the saved model & scaler and paints the animated colored floor mesh in Rhino" loading="lazy" /></div>
+
+      <!-- 07 SHAP -->
+      <h3 class="works-heading">07 · Explainable AI · SHAP</h3>
+      <p class="tp-p">SHAP confirms <b>sun &amp; radiation</b> drive the predictions, followed by daylight, while window ratios are negligible — matching the environmental analysis, so the model stays explainable, not a black box.</p>
+      <div class="img-row">
+        <img src="masters/dataencoding/img/shap.jpg" alt="SHAP — feature importance and direction" loading="lazy" />
+      </div>
+
+      <!-- Next phase / demo -->
+      <h3 class="works-heading" id="demo">Next Phase · Interactive Interface</h3>
+      <p class="tp-p">The final phase wraps the model in an interface: a designer sets building parameters and gets real-time planting suggestions — no code, no Grasshopper required.</p>
+      <video class="tp-video" controls muted preload="none" poster="masters/dataencoding/img/interface.jpg">
+        <source src="masters/dataencoding/mockup.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </section>
+  </main>
+
+  <footer class="section cv-foot">
+    <p class="colophon">© <span id="year"></span> Nihan Malkoç · <a href="masters.html">back to Masters</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

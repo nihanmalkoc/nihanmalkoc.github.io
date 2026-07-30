@@ -5,3 +5,12 @@ nky portfolio/
 # Sistem dosyaları
 Thumbs.db
 .DS_Store
+
+# Ham teslim dosyaları (yayınlanmaz — sadece optimize img/ ve video kalır)
+masters/**/*.pptx
+masters/**/media/
+masters/**/_slides.txt
+masters/**/_montage.png
+masters/**/_picks.png
+masters/aia/AIA_DEMO@.mp4
+masters/dataencoding/Mockup..mp4

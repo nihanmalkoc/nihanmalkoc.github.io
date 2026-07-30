@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nihan Malkoç — BIMSC · Term 2</title>
+  <meta name="description" content="Building Information Modelling & Smart Construction — MaCAD, IAAC, Term 2." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="pixel-bg" aria-hidden="true"></canvas>
+
+  <header class="site-header" id="top">
+    <div class="header-left">
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <a href="index.html" class="logo" aria-label="nim! — home">n<span class="li" aria-hidden="true"><i class="i-dot"></i><i class="i-stem"></i></span>m<span class="excl" aria-hidden="true"><i class="excl-bar"></i><i class="excl-dot"></i></span></a>
+    </div>
+    <a class="cv-back" href="masters.html">← Masters</a>
+  </header>
+
+  <nav class="menu-overlay" aria-hidden="true">
+    <ul>
+      <li><a href="index.html#about"><span>01</span> Who I Am</a></li>
+      <li><a href="masters.html"><span>02</span> Masters</a></li>
+      <li><a href="professional.html"><span>03</span> Professional</a></li>
+      <li><a href="bachelors.html"><span>04</span> Bachelors</a></li>
+      <li><a href="cv.html"><span>05</span> Résumé</a></li>
+      <li><a href="index.html#contact"><span>06</span> Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="section works">
+      <div class="section-head">
+        <span class="section-index">02</span>
+        <h2 class="section-title">Building Information Modelling &amp; Smart Construction</h2>
+        <span class="works-sub">BIMSC · Term 2 · 20 ECTS</span>
+      </div>
+
+      <div class="term-detail" data-reveal>
+        <div>
+          <p class="card-label">Studio Module</p>
+          <p class="bach-lead">
+            The recent BIM paradigm across three key aspects — integrative modelling,
+            collaborative workflows, and cloud-based data management — with the most
+            advanced tools to address the challenges architects face today.
+          </p>
+        </div>
+        <canvas class="term-pix" data-shape="bim" role="img" aria-label="Layered building pixel illustration"></canvas>
+      </div>
+
+      <h3 class="works-heading">Courses</h3>
+      <div class="course-line">
+        <div class="course" data-ects="8"><span class="course-pix"></span><span class="course-name">BIM &amp; Smart Construction — Studio</span><span class="course-ects">8 ECTS</span></div>
+        <div class="course" data-ects="3"><span class="course-pix"></span><span class="course-name">Digital Tools for Integrative Modelling</span><span class="course-ects">3 ECTS</span></div>
+        <div class="course" data-ects="3"><span class="course-pix"></span><span class="course-name">Digital Tools for Collaborative Workflows</span><span class="course-ects">3 ECTS</span></div>
+        <div class="course" data-ects="3"><span class="course-pix"></span><span class="course-name">Digital Tools for Cloud-Based Management</span><span class="course-ects">3 ECTS</span></div>
+      </div>
+
+      <h3 class="works-heading">Projects</h3>
+      <div class="media"><div class="media-fill" data-label="Deliverables — coming soon"></div></div>
+    </section>
+  </main>
+
+  <footer class="section cv-foot">
+    <p class="colophon">© <span id="year"></span> Nihan Malkoç · <a href="masters.html">back to Masters</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
