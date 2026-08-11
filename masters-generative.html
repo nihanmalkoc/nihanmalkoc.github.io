@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nihan Malkoç — MUTAVERSE (Generative AI)</title>
+  <meta name="description" content="MUTAVERSE — a mutation engine that reimagines the world around a building. Generative AI, MaCAD, IAAC." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="pixel-bg" aria-hidden="true"></canvas>
+
+  <header class="site-header" id="top">
+    <div class="header-left">
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <a href="index.html" class="logo" aria-label="nim! — home">n<span class="li" aria-hidden="true"><i class="i-dot"></i><i class="i-stem"></i></span>m<span class="excl" aria-hidden="true"><i class="excl-bar"></i><i class="excl-dot"></i></span></a>
+    </div>
+    <a class="cv-back" href="masters.html">← Masters</a>
+  </header>
+
+  <nav class="menu-overlay" aria-hidden="true">
+    <ul>
+      <li><a href="index.html#about"><span>01</span> Who I Am</a></li>
+      <li><a href="masters.html"><span>02</span> Masters</a></li>
+      <li><a href="professional.html"><span>03</span> Professional</a></li>
+      <li><a href="bachelors.html"><span>04</span> Bachelors</a></li>
+      <li><a href="cv.html"><span>05</span> Résumé</a></li>
+      <li><a href="index.html#contact"><span>06</span> Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="section works">
+      <div class="section-head">
+        <span class="section-index">03</span>
+        <h2 class="section-title">MUTAVERSE</h2>
+        <span class="works-sub">Generative AI · Term 3</span>
+      </div>
+
+      <!-- Intro + küçük ikonlar + watch -->
+      <div class="tp-intro" data-reveal>
+        <p class="tp-lead-big">
+          Instead of asking “what should this building look like?”, MUTAVERSE asks a
+          different question — <b>what if the building stayed the same, but the world
+          around it changed?</b> A mutation engine that turns one architectural design
+          into four completely different worlds, while preserving its identity.
+        </p>
+        <a class="tp-watch" href="#demo">▶ Watch the demo</a>
+
+        <ul class="feat-row">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="6" y="3" width="12" height="18"/><path d="M6 8h12M6 13h12M6 18h12" stroke-linecap="round"/></svg>
+            <div><strong>Identity preserved</strong><span>the building stays recognizable</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3.5 3 3.5 15 0 18M12 3c-3.5 3-3.5 15 0 18" stroke-linecap="round"/></svg>
+            <div><strong>The world mutates</strong><span>environment, not appearance</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 8h9M17 8h3M4 16h4M12 16h8" stroke-linecap="round"/><circle cx="15" cy="8" r="2.2"/><circle cx="10" cy="16" r="2.2"/></svg>
+            <div><strong>Control the distance</strong><span>subtle change → new universe</span></div>
+          </li>
+        </ul>
+
+        <p class="tp-team">
+          <b>Team:</b> Nihan Malkoç · Sushmitha Ravi
+          &nbsp;·&nbsp; <b>Faculty:</b> James McBennett · Aymeric Brouez
+        </p>
+      </div>
+
+      <!-- Four worlds -->
+      <h3 class="works-heading">One Building, Four Worlds</h3>
+      <p class="tp-p">A single design mutates into four distinct universes — each a different environment, same architectural identity.</p>
+      <div class="world-grid">
+        <div class="world"><span class="emoji">🌿</span><h4>Terra Lumora</h4><p>A living, biophilic world.</p></div>
+        <div class="world"><span class="emoji">🌊</span><h4>Aqua Lumora</h4><p>An underwater civilization.</p></div>
+        <div class="world"><span class="emoji">☁️</span><h4>Aether Lumora</h4><p>A floating sky city.</p></div>
+        <div class="world"><span class="emoji">🪐</span><h4>Xeno Lumora</h4><p>An alien landscape.</p></div>
+      </div>
+
+      <!-- How it works -->
+      <h3 class="works-heading">How It Works</h3>
+      <p class="tp-p">Unlike traditional AI image generation that changes a building's appearance, MUTAVERSE keeps the building recognizable and reimagines the environment around it. Powered by <b>FLUX.1-dev</b>, a custom-trained <b>LoRA</b> and <b>ControlNet</b>, users control how far reality mutates — from subtle environmental shifts to entirely new universes. One guided flow: upload → analyze → generate four worlds → mutate → compare → export.</p>
+      <div class="img-row">
+        <img src="masters/generative-ai/img/how.jpg" alt="How it works — pipeline" loading="lazy" />
+      </div>
+
+      <!-- Interface -->
+      <h3 class="works-heading">The Interface</h3>
+      <p class="tp-p">Upload once, then explore many futures — mutate the world, dial the reality slider, and compare the variants side by side.</p>
+      <div class="img-row">
+        <img src="masters/generative-ai/img/interface.jpg" alt="MUTAVERSE interface — reality mutation dashboard" loading="lazy" />
+        <img src="masters/generative-ai/img/worlds.jpg" alt="MUTAVERSE — generated world variants" loading="lazy" />
+      </div>
+
+      <!-- Under the hood -->
+      <h3 class="works-heading">Under the Hood</h3>
+      <p class="tp-p">A custom <b>Lumora LoRA</b> was trained on FLUX to teach the four worlds, and the pipeline was benchmarked across a Colab GPU and a local GPU for generation speed.</p>
+      <div class="img-row">
+        <img src="masters/generative-ai/img/training.jpg" alt="Training the Lumora LoRA" loading="lazy" />
+        <img src="masters/generative-ai/img/benchmark.jpg" alt="Performance benchmarking" loading="lazy" />
+      </div>
+
+      <!-- Demo -->
+      <h3 class="works-heading" id="demo">Live Demo</h3>
+      <p class="tp-p">If you could drop your next building anywhere, where would it be? 🌍🌊☁️🪐</p>
+      <video class="tp-video" controls muted preload="none" poster="masters/generative-ai/img/interface.jpg">
+        <source src="masters/generative-ai/mutaverse-demo.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </section>
+  </main>
+
+  <footer class="section cv-foot">
+    <p class="colophon">© <span id="year"></span> Nihan Malkoç · <a href="masters.html">back to Masters</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
