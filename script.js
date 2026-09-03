@@ -1,5 +1,5 @@
 // =========================================================
-// Nihan Malkoç — Portfolyo etkileşimleri
+// Nihan Malkoç, Portfolyo etkileşimleri
 // =========================================================
 
 // ---- Yıl ----
@@ -64,7 +64,7 @@ function drawDots(ctx, dots, alpha) {
 }
 
 // =========================================================
-// Masters — dönem modülü piksel illüstrasyonları (statik)
+// Masters, dönem modülü piksel illüstrasyonları (statik)
 // =========================================================
 (() => {
   const canvases = document.querySelectorAll(".term-pix");
@@ -77,7 +77,7 @@ function drawDots(ctx, dots, alpha) {
   };
 
   const shapes = {
-    // ACESD — kabuk/tonoz + kolonlar + güneş ışınları
+    // ACESD, kabuk/tonoz + kolonlar + güneş ışınları
     structural() {
       const s = [];
       s.push(arc(0, 0.2, 0.62, 0, Math.PI, 0.1));
@@ -89,14 +89,14 @@ function drawDots(ctx, dots, alpha) {
       for (const x of [-0.45, -0.15, 0.15, 0.45]) s.push([[x, -0.72], [x, -0.5]]);
       return s;
     },
-    // BIM — katmanlı bina + grid
+    // BIM, katmanlı bina + grid
     bim() {
       const s = [];
       for (let k = 0; k < 4; k++) { const y = -0.55 + k * 0.34; s.push(rect(-0.58, y, 1.16, 0.24)); }
       for (const x of [-0.2, 0.18]) s.push([[x, -0.55], [x, 0.51]]);
       return s;
     },
-    // AIA — sinir ağı
+    // AIA, sinir ağı
     neural() {
       const s = [];
       const cols = [-0.58, 0, 0.58];
@@ -150,10 +150,10 @@ function drawDots(ctx, dots, alpha) {
 })();
 
 // =========================================================
-// Proje galerileri — sürükle-kaydır + tam ekran lightbox
+// Proje galerileri, sürükle-kaydır + tam ekran lightbox
 // =========================================================
 (() => {
-  const galleries = document.querySelectorAll(".work-images, .feat-grid, .flow, .img-row");
+  const galleries = document.querySelectorAll(".work-images, .feat-grid, .flow, .img-row, .wide-img, .collage-wrap, .side-by-side");
   if (!galleries.length) return;
 
   // Lightbox katmanı
@@ -196,7 +196,7 @@ function drawDots(ctx, dots, alpha) {
 })();
 
 // =========================================================
-// Ana sayfa piksel ızgarası — STATİK
+// Ana sayfa piksel ızgarası, STATİK
 // =========================================================
 (() => {
   const canvas = document.getElementById("pixel-bg");
@@ -217,7 +217,7 @@ function drawDots(ctx, dots, alpha) {
 })();
 
 // =========================================================
-// Profil fotoğrafı — SİYAH-BEYAZ + yan yankılar
+// Profil fotoğrafı, SİYAH-BEYAZ + yan yankılar
 // =========================================================
 (() => {
   const canvas = document.querySelector(".photo-canvas");
@@ -270,7 +270,7 @@ function drawDots(ctx, dots, alpha) {
 
 // =========================================================
 // AÇILIŞ: pikseller yaratıcı mimari çizimlere dönüşür
-//   (yazılı etiket yok — anlam grafiğin kendisinde)
+//   (yazılı etiket yok, anlam grafiğin kendisinde)
 //   Ankara silüeti → plan → teknik çizim → 3D model
 //   → parametrik yüzey → grasshopper → AI ağı
 // =========================================================
@@ -302,7 +302,7 @@ function drawDots(ctx, dots, alpha) {
     const p = []; for (let a = a0; a <= a1; a += st) p.push([cx + r * Math.cos(a), cy - r * Math.sin(a)]); return p;
   };
 
-  // 1) Dubai silüeti — Burj Khalifa · Burj Al Arab · kule kümesi
+  // 1) Dubai silüeti, Burj Khalifa · Burj Al Arab · kule kümesi
   function dubai() {
     const s = [], g = 0.55;
     s.push([[-0.98, g], [0.98, g]]);                              // zemin
@@ -312,7 +312,7 @@ function drawDots(ctx, dots, alpha) {
     [[-0.86, 0.12, 0.4], [-0.73, 0.1, 0.6], [-0.61, 0.12, 0.34], [-0.49, 0.09, 0.5]]
       .forEach(([x, w, h]) => { s.push(rect(x - w / 2, g - h, w, h)); win(x, w, h); });
 
-    // Burj Khalifa (merkez-sol) — kademeli sivrilen kule
+    // Burj Khalifa (merkez-sol), kademeli sivrilen kule
     const bx = -0.18;
     const prof = [[0.15, g], [0.15, 0.18], [0.115, 0.18], [0.115, -0.06], [0.085, -0.06],
                   [0.085, -0.3], [0.058, -0.3], [0.058, -0.5], [0.032, -0.5], [0.02, -0.66]];
@@ -330,7 +330,7 @@ function drawDots(ctx, dots, alpha) {
     [[0.16, 0.11, 0.66], [0.3, 0.1, 0.44]]
       .forEach(([x, w, h]) => { s.push(rect(x - w / 2, g - h, w, h)); win(x, w, h); });
 
-    // Burj Al Arab (sağ) — yelken
+    // Burj Al Arab (sağ), yelken
     const sx = 0.64, sTop = -0.4;
     s.push([[sx - 0.14, g], [sx - 0.14, sTop]]);                  // ön direk
     s.push([[sx - 0.14, sTop], [sx - 0.14, sTop - 0.06]]);        // anten
@@ -369,7 +369,7 @@ function drawDots(ctx, dots, alpha) {
     return s;
   }
 
-  // 3) Bina kesiti — döşemeler, merdiven, zemin taraması (teknik çizim)
+  // 3) Bina kesiti, döşemeler, merdiven, zemin taraması (teknik çizim)
   function section() {
     const s = [], g = 0.5;
     s.push([[-0.85, g], [0.85, g]]);                              // zemin
@@ -387,7 +387,7 @@ function drawDots(ctx, dots, alpha) {
     return s;
   }
 
-  // 4) Burgulu kule — dönerek yükselen kareler (parametrik / 3D)
+  // 4) Burgulu kule, dönerek yükselen kareler (parametrik / 3D)
   function twist() {
     const s = [], levels = 11, botY = 0.62, topY = -0.62;
     let prev = null;
@@ -409,7 +409,7 @@ function drawDots(ctx, dots, alpha) {
     return s;
   }
 
-  // 5) Tel-kafes küre — boylam/enlem (3D modelling)
+  // 5) Tel-kafes küre, boylam/enlem (3D modelling)
   function sphere3d() {
     const s = [], R = 0.62;
     s.push(arc(0, 0, R, 0, Math.PI * 2 + 0.001, 0.13));

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nihan Malkoç, Lattice Continuum (Structural Optimization)</title>
+  <meta name="description" content="Lattice Continuum, a temporary pavilion optimized as a single continuous lattice shell. Structural Optimization, MaCAD, IAAC." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="pixel-bg" aria-hidden="true"></canvas>
+
+  <header class="site-header" id="top">
+    <div class="header-left">
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <a href="index.html" class="logo" aria-label="nim!, home">n<span class="li" aria-hidden="true"><i class="i-dot"></i><i class="i-stem"></i></span>m<span class="excl" aria-hidden="true"><i class="excl-bar"></i><i class="excl-dot"></i></span></a>
+    </div>
+    <a class="cv-back" href="masters.html">← Masters</a>
+  </header>
+
+  <nav class="menu-overlay" aria-hidden="true">
+    <ul>
+      <li><a href="index.html#about"><span>01</span> Who I Am</a></li>
+      <li><a href="masters.html"><span>02</span> Masters</a></li>
+      <li><a href="professional.html"><span>03</span> Professional</a></li>
+      <li><a href="bachelors.html"><span>04</span> Bachelors</a></li>
+      <li><a href="cv.html"><span>05</span> Résumé</a></li>
+      <li><a href="index.html#contact"><span>06</span> Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="section works">
+      <div class="section-head">
+        <span class="section-index">02</span>
+        <h2 class="section-title">Lattice Continuum</h2>
+        <span class="works-sub">Structural Optimization</span>
+      </div>
+
+      <div class="tp-intro" data-reveal>
+        <p class="tp-lead-big">
+          A temporary pavilion designed as a <b>single continuous lattice shell</b>,
+          every beam tuned so the structure carries itself with the least material.
+          Built in <b>Karamba</b> and pushed through <b>Galapagos</b>, the form negotiates
+          three competing goals at once: minimum mass, minimum displacement, and
+          balanced utilization.
+        </p>
+
+        <ul class="feat-row">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 18c2-9 14-9 16 0" stroke-linecap="round"/><path d="M7 15l3-4 3 4 3-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div><strong>Lattice shell</strong><span>one continuous beam network</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke-linecap="round"/><circle cx="12" cy="12" r="4"/></svg>
+            <div><strong>Karamba FEA</strong><span>loads, supports, displacement</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 19V7M5 7l6-3 8 3-6 3zM11 4v3M11 10v9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div><strong>Galapagos</strong><span>multi-objective optimization</span></div>
+          </li>
+        </ul>
+
+        <p class="tp-team">
+          <b>Structural Optimization</b> &nbsp;·&nbsp; MaCAD · IAAC · 2025–26
+        </p>
+      </div>
+
+      <div class="wide-img" data-reveal>
+        <img src="masters/structural/img/hero.jpg" alt="Lattice Continuum, inside the optimized pavilion shell" loading="lazy" />
+      </div>
+
+      <!-- Design process -->
+      <h3 class="works-heading">Design Process</h3>
+      <p class="tp-p">The shell starts from a simple move: a bounding box, control points, a scale, a rotation and a loft, a geometry that later doubles as the brick form. Circulation and the relationship to the bounding box are resolved before any structure is added.</p>
+      <div class="img-row">
+        <img src="masters/structural/img/process.jpg" alt="Design process, bounding box to lofted shell" loading="lazy" />
+      </div>
+
+      <!-- Supports & loads -->
+      <h3 class="works-heading">Supports &amp; Loads</h3>
+      <p class="tp-p">The pavilion is anchored by <b>204 fixed supports</b> at its base and loaded in Karamba, so every optimization run is judged against a realistic set of boundary conditions.</p>
+      <div class="img-row">
+        <img src="masters/structural/img/supports.jpg" alt="204 fixed supports at the base" loading="lazy" />
+        <img src="masters/structural/img/loads.jpg" alt="Load definition in Karamba" loading="lazy" />
+      </div>
+
+      <!-- Strategies -->
+      <h3 class="works-heading">Optimization Strategies</h3>
+      <p class="tp-p">The lattice is modelled as beam elements and explored along three strategies, <b>minimize total mass</b>, <b>minimize maximum displacement</b>, and <b>balanced utilization</b>, each pulling the design toward a different structural priority.</p>
+      <div class="img-row">
+        <img src="masters/structural/img/strategies.jpg" alt="Beam elements and three optimization strategies" loading="lazy" />
+      </div>
+
+      <!-- Cases -->
+      <h3 class="works-heading">Case Studies</h3>
+      <p class="tp-p">Successive cases trade the variables off against each other. Adjusting the form improves stiffness at a small mass cost but leaves the structure under-utilized; increasing member density lifts utilization; growing beam diameters cuts displacement sharply, at a steep mass penalty. Each case is read through <b>mass, displacement and utilization</b> together.</p>
+      <div class="img-row">
+        <img src="masters/structural/img/case-a.jpg" alt="Case A, playing the form" loading="lazy" />
+        <img src="masters/structural/img/case-b.jpg" alt="Case B, number of lattice beams" loading="lazy" />
+        <img src="masters/structural/img/case-c.jpg" alt="Case C, beam diameters" loading="lazy" />
+      </div>
+
+      <!-- Galapagos -->
+      <h3 class="works-heading">Galapagos Optimization</h3>
+      <p class="tp-p">Because manual tuning alone couldn't reach the target performance, the evaluation was handed to <b>Galapagos</b> for a systematic search, confirming that the choice of initial configuration is decisive in guiding multi-objective optimization toward meaningful solutions.</p>
+      <div class="img-row">
+        <img src="masters/structural/img/galapagos.jpg" alt="Galapagos running the optimization" loading="lazy" />
+        <img src="masters/structural/img/result.gif" alt="Result, displacement across the optimized shell (animated)" loading="lazy" />
+      </div>
+
+      <!-- Manufacturing -->
+      <h3 class="works-heading">Toward Manufacturing</h3>
+      <p class="tp-p">The last step asks how the shell gets built. Drawing on the <b>KnitNervi</b> flexible-formwork research and <b>KUKA</b> robotic constraints (after ACADIA 2019), the structure is imagined as a steel lattice prefabricated in strips and folded, an assembly logic driven by the robot's reachability and collision limits.</p>
+      <div class="img-row">
+        <img src="masters/structural/img/manu-1.jpg" alt="Manufacturing research, KnitNervi and prefabricated strips" loading="lazy" />
+        <img src="masters/structural/img/manu-2.jpg" alt="Manufacturing research, KUKA robotic constraints" loading="lazy" />
+      </div>
+    </section>
+  </main>
+
+  <footer class="section cv-foot">
+    <p class="colophon">© <span id="year"></span> Nihan Malkoç · <a href="masters.html">back to Masters</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

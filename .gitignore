@@ -8,7 +8,10 @@ Thumbs.db
 
 # Ham teslim dosyaları (yayınlanmaz — sadece optimize img/ ve video kalır)
 masters/**/*.pptx
+masters/**/*.docx
 masters/**/media/
+masters/**/slides/
+masters/**/YEDEKLEME/
 masters/**/_slides.txt
 masters/**/_montage.png
 masters/**/_picks.png

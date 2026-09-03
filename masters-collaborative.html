@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nihan Malkoç, Program Sync (Collaborative Workflows)</title>
+  <meta name="description" content="Program Sync, a one-click BIM automation that validates program distribution and generates KPI reports. Collaborative Workflows, MaCAD, IAAC." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="pixel-bg" aria-hidden="true"></canvas>
+
+  <header class="site-header" id="top">
+    <div class="header-left">
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <a href="index.html" class="logo" aria-label="nim!, home">n<span class="li" aria-hidden="true"><i class="i-dot"></i><i class="i-stem"></i></span>m<span class="excl" aria-hidden="true"><i class="excl-bar"></i><i class="excl-dot"></i></span></a>
+    </div>
+    <a class="cv-back" href="masters.html">← Masters</a>
+  </header>
+
+  <nav class="menu-overlay" aria-hidden="true">
+    <ul>
+      <li><a href="index.html#about"><span>01</span> Who I Am</a></li>
+      <li><a href="masters.html"><span>02</span> Masters</a></li>
+      <li><a href="professional.html"><span>03</span> Professional</a></li>
+      <li><a href="bachelors.html"><span>04</span> Bachelors</a></li>
+      <li><a href="cv.html"><span>05</span> Résumé</a></li>
+      <li><a href="index.html#contact"><span>06</span> Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="section works">
+      <div class="section-head">
+        <span class="section-index">02</span>
+        <h2 class="section-title">Program Sync</h2>
+        <span class="works-sub">Collaborative Workflows</span>
+      </div>
+
+      <div class="tp-intro" data-reveal>
+        <p class="tp-lead-big">
+          A <b>one-click automation</b> that reads a BIM model and validates its program.
+          It extracts area and occupancy data across every floor, computes area-based
+          KPIs, and pushes structured reports straight to Excel or Google Sheets, so
+          coordination stops depending on manual spreadsheets and every team reads from
+          the <b>same live source of truth</b>.
+        </p>
+
+        <ul class="feat-row">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3v10M8 9l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 21h14" stroke-linecap="round"/></svg>
+            <div><strong>One click</strong><span>model in, report out</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="6" cy="6" r="2.4"/><circle cx="18" cy="18" r="2.4"/><path d="M8 7.6c4 1 6 3 8 8.4M6 8.4V18h9" stroke-linecap="round"/></svg>
+            <div><strong>Speckle automation</strong><span>runs on every model update</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 12V4a8 8 0 0 1 7 4z" stroke-linejoin="round"/><path d="M12 12l6 5" stroke-linecap="round"/></svg>
+            <div><strong>Live dashboard</strong><span>program KPIs in a Vue app</span></div>
+          </li>
+        </ul>
+
+        <p class="tp-team">
+          <b>Team:</b> Sushmitha Ravi · Nihan Malkoç · Marina Osmolovska
+          &nbsp;·&nbsp; <b>Faculty:</b> Libny Pacheco · Vladimir Ondejcik · Christoph Berkmiller
+        </p>
+      </div>
+
+      <!-- Problem -->
+      <h3 class="works-heading">The Problem</h3>
+      <p class="tp-p">On a live project, program data is scattered: time-consuming manual workflows, spreadsheets maintained by hand, inconsistent reporting formats and delayed decisions, all with no real-time way to monitor whether the model still meets its program.</p>
+      <div class="img-row">
+        <img src="masters/colloborative/img/problem.jpg" alt="Problem statement, manual, fragmented program data" loading="lazy" />
+        <img src="masters/colloborative/img/users.jpg" alt="Target users, BIM coordinators and design teams" loading="lazy" />
+      </div>
+
+      <!-- Solution -->
+      <h3 class="works-heading">The Solution</h3>
+      <p class="tp-p">One automation analyses the BIM model to validate program distribution across floors and calculate area-based KPIs, then extracts program area and occupancy data and generates a structured report, in Excel or Google Sheets, at the press of a button.</p>
+      <div class="img-row">
+        <img src="masters/colloborative/img/solution.jpg" alt="Proposed solution, one-click program validation" loading="lazy" />
+      </div>
+
+      <!-- How it works -->
+      <h3 class="works-heading">How It Works</h3>
+      <p class="tp-p">The pipeline chains the tools each team already uses: <b>Revit → Rhino.Inside.Revit → Speckle → Python → Speckle Automation → a custom Vue website</b>. Family blocks and types set the parameters up front; the automation reads them, generates the program blocks and pie-chart breakdowns, and serves the results to the web, front end and back end kept in lockstep.</p>
+      <div class="img-row">
+        <img src="masters/colloborative/img/frontend.jpg" alt="How it works, front-end pipeline" loading="lazy" />
+        <img src="masters/colloborative/img/backend.jpg" alt="How it works, back-end pipeline" loading="lazy" />
+      </div>
+      <div class="img-row">
+        <img src="masters/colloborative/img/generator.jpg" alt="Pie-chart generator and program blocks" loading="lazy" />
+      </div>
+
+      <!-- Speckle + Vue -->
+      <h3 class="works-heading">Speckle + Custom Vue App</h3>
+      <p class="tp-p">The custom Vue app sits alongside the Speckle 3D window, so the live automation results can be previewed the instant the model changes, program areas, floor breakdowns and occupancy, all next to the model they describe.</p>
+      <div class="img-row">
+        <img src="masters/colloborative/img/vue.jpg" alt="Speckle plus custom Vue app, live preview" loading="lazy" />
+      </div>
+
+      <!-- Results -->
+      <h3 class="works-heading">Automation Results</h3>
+      <p class="tp-p">The output organises program data from the BIM model into clean tables and charts, easy to track areas and floors, and reliable enough for other teams to build on. What used to take hours of manual processing collapses to a few minutes, with consistent, repeatable results on every model version.</p>
+      <div class="img-row">
+        <img src="masters/colloborative/img/results.jpg" alt="Automation results, program tables and charts" loading="lazy" />
+        <img src="masters/colloborative/img/success.jpg" alt="Success criteria" loading="lazy" />
+      </div>
+    </section>
+  </main>
+
+  <footer class="section cv-foot">
+    <p class="colophon">© <span id="year"></span> Nihan Malkoç · <a href="masters.html">back to Masters</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

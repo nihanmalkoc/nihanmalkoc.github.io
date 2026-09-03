@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nihan Malkoç, Reviving Bab Al-Louq (Complex Geometries)</title>
+  <meta name="description" content="Reviving Bab Al-Louq, a hexagonal gridshell grown over a historic market hall. Complex Geometries, MaCAD, IAAC." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="pixel-bg" aria-hidden="true"></canvas>
+
+  <header class="site-header" id="top">
+    <div class="header-left">
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <a href="index.html" class="logo" aria-label="nim!, home">n<span class="li" aria-hidden="true"><i class="i-dot"></i><i class="i-stem"></i></span>m<span class="excl" aria-hidden="true"><i class="excl-bar"></i><i class="excl-dot"></i></span></a>
+    </div>
+    <a class="cv-back" href="masters.html">← Masters</a>
+  </header>
+
+  <nav class="menu-overlay" aria-hidden="true">
+    <ul>
+      <li><a href="index.html#about"><span>01</span> Who I Am</a></li>
+      <li><a href="masters.html"><span>02</span> Masters</a></li>
+      <li><a href="professional.html"><span>03</span> Professional</a></li>
+      <li><a href="bachelors.html"><span>04</span> Bachelors</a></li>
+      <li><a href="cv.html"><span>05</span> Résumé</a></li>
+      <li><a href="index.html#contact"><span>06</span> Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="section works">
+      <div class="section-head">
+        <span class="section-index">02</span>
+        <h2 class="section-title">Reviving Bab Al-Louq</h2>
+        <span class="works-sub">Complex Geometries</span>
+      </div>
+
+      <div class="tp-intro" data-reveal>
+        <p class="tp-lead-big">
+          A <b>hexagonal gridshell</b> grown over the existing frame of a historic market
+          hall, a lightweight lattice roof that revives Bab Al-Louq. An
+          <b>attractor-driven pattern</b> thickens where the structure needs to carry and
+          opens where light should fall, turning a flat market into a luminous,
+          column-light hall while keeping its old walls intact.
+        </p>
+
+        <ul class="feat-row">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3l7 4v8l-7 4-7-4V7z" stroke-linejoin="round"/></svg>
+            <div><strong>Attractor pattern</strong><span>density follows structure &amp; light</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 16c3-8 13-8 16 0" stroke-linecap="round"/><path d="M4 16v3M20 16v3M12 12v7" stroke-linecap="round"/></svg>
+            <div><strong>Form finding</strong><span>graph-mapped shell geometry</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3l7 4v8l-7 4-7-4V7zM12 3v18M5 7l7 4 7-4" stroke-linejoin="round"/></svg>
+            <div><strong>Panelization</strong><span>from surface to buildable panels</span></div>
+          </li>
+        </ul>
+
+        <p class="tp-team">
+          <b>Complex Geometries</b> &nbsp;·&nbsp; MaCAD · IAAC · 2025–26
+        </p>
+      </div>
+
+      <!-- Concept + Process (side by side) -->
+      <h3 class="works-heading">Concept &amp; Process</h3>
+      <p class="tp-p">The concept reads the site, its urban texture, its contrast, and the tension between <b>old and new</b>. From there the gridshell is generated over the existing frame: a roof surface divided into hexagonal cells and scaled by an <b>attractor curve</b>, dense where structure is needed, open where light falls, then projected and panelised.</p>
+      <div class="side-by-side" data-reveal>
+        <div class="sbs-collage">
+          <img src="masters/complex/img/collage.jpg" alt="Concept, urban texture, contrast, old and new at Bab Al-Louq" loading="lazy" />
+        </div>
+        <div class="sbs-gif">
+          <img src="masters/complex/img/build.gif" alt="Generating the gridshell, build-up animation" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- Section -->
+      <h3 class="works-heading">The Section</h3>
+      <p class="tp-p">In section, the new canopy floats over the existing structure: the roof trusses, the bubble-like observatory volumes emerging from the roof, and the tunnel-like extended circulation below, until light pours through the lattice and casts its hexagonal print across the floor.</p>
+      <div class="wide-img" data-reveal>
+        <img src="masters/complex/img/section-build.gif" alt="The section, roof, volumes, circulation and light revealed in sequence" loading="lazy" />
+      </div>
+    </section>
+  </main>
+
+  <footer class="section cv-foot">
+    <p class="colophon">© <span id="year"></span> Nihan Malkoç · <a href="masters.html">back to Masters</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

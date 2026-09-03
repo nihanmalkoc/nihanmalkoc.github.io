@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nihan Malkoç, Interior Wall Configurator (CBDM)</title>
+  <meta name="description" content="Interior Wall Configurator, a cloud-based parametric web tool. Cloud Based Data Management, MaCAD, IAAC." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="pixel-bg" aria-hidden="true"></canvas>
+
+  <header class="site-header" id="top">
+    <div class="header-left">
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <a href="index.html" class="logo" aria-label="nim!, home">n<span class="li" aria-hidden="true"><i class="i-dot"></i><i class="i-stem"></i></span>m<span class="excl" aria-hidden="true"><i class="excl-bar"></i><i class="excl-dot"></i></span></a>
+    </div>
+    <a class="cv-back" href="masters.html">← Masters</a>
+  </header>
+
+  <nav class="menu-overlay" aria-hidden="true">
+    <ul>
+      <li><a href="index.html#about"><span>01</span> Who I Am</a></li>
+      <li><a href="masters.html"><span>02</span> Masters</a></li>
+      <li><a href="professional.html"><span>03</span> Professional</a></li>
+      <li><a href="bachelors.html"><span>04</span> Bachelors</a></li>
+      <li><a href="cv.html"><span>05</span> Résumé</a></li>
+      <li><a href="index.html#contact"><span>06</span> Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="section works">
+      <div class="section-head">
+        <span class="section-index">02</span>
+        <h2 class="section-title">Interior Wall Configurator</h2>
+        <span class="works-sub">Cloud Based Data Management</span>
+      </div>
+
+      <div class="tp-intro" data-reveal>
+        <p class="tp-lead-big">
+          A parametric <b>web tool</b> that lets anyone configure a custom interior wall
+          panel system, pick the material, pattern, dimensions and colour, and watch
+          geometry and cost update in real time. Selections travel to <b>Grasshopper in
+          the cloud</b> and come back as a live 3D preview and a costed output dashboard,
+          so the design logic stays in the browser and no CAD is required.
+        </p>
+
+        <ul class="feat-row">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3.5 3 3.5 15 0 18M12 3c-3.5 3-3.5 15 0 18" stroke-linecap="round"/></svg>
+            <div><strong>Browser-based</strong><span>configure without CAD</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 18a4 4 0 0 1 0-8 5 5 0 0 1 9.6-1.5A3.5 3.5 0 0 1 17 18H7z" stroke-linejoin="round"/></svg>
+            <div><strong>Grasshopper in the cloud</strong><span>geometry computed server-side</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="1.5"/><path d="M3 9h18M8 18v2M16 18v2" stroke-linecap="round"/></svg>
+            <div><strong>Real-time output</strong><span>live geometry &amp; cost</span></div>
+          </li>
+        </ul>
+
+        <p class="tp-team">
+          <b>Cloud Based Data Management</b>
+          &nbsp;·&nbsp; <b>Faculty:</b> Justyna Szychowska · Chuck Driesler · Sophie Moore
+        </p>
+      </div>
+
+      <!-- How it works -->
+      <h3 class="works-heading">How It Works</h3>
+      <p class="tp-p">One guided flow, from browser to dashboard: the user opens the web interface, then selects <b>material → pattern → wall dimensions → colour</b>. Those choices are packed into object properties and sent to the cloud, where Grasshopper generates the panel geometry and a <b>Three.js</b> viewer renders it back live, ending in an output dashboard.</p>
+      <div class="img-row">
+        <img src="masters/cbdm/img/flow.jpg" alt="Interior Wall Configurator, data flow from web interface to cloud" loading="lazy" />
+      </div>
+
+      <!-- Dashboard -->
+      <h3 class="works-heading">The Output Dashboard</h3>
+      <p class="tp-p">The final screen turns raw object properties into a readable dashboard, the configured wall in 3D alongside its computed metrics and cost, ready to compare options and export. The whole round-trip, from a click to a priced panel, happens without ever leaving the web page.</p>
+      <div class="img-row">
+        <img src="masters/cbdm/img/dashboard.jpg" alt="Interior Wall Configurator, output dashboard" loading="lazy" />
+      </div>
+    </section>
+  </main>
+
+  <footer class="section cv-foot">
+    <p class="colophon">© <span id="year"></span> Nihan Malkoç · <a href="masters.html">back to Masters</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
