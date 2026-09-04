@@ -153,7 +153,7 @@ function drawDots(ctx, dots, alpha) {
 // Proje galerileri, sürükle-kaydır + tam ekran lightbox
 // =========================================================
 (() => {
-  const galleries = document.querySelectorAll(".work-images, .feat-grid, .flow, .img-row, .wide-img, .collage-wrap, .side-by-side");
+  const galleries = document.querySelectorAll(".work-images, .feat-grid, .flow, .img-row, .wide-img, .collage-wrap, .side-by-side, .hscroll");
   if (!galleries.length) return;
 
   // Lightbox katmanı
@@ -191,7 +191,34 @@ function drawDots(ctx, dots, alpha) {
   // Her galeri: görsele tıkla → lightbox aç (o proje içinde gezinir)
   galleries.forEach((g) => {
     const imgs = Array.from(g.querySelectorAll("img"));
-    imgs.forEach((im, i) => im.addEventListener("click", () => open(imgs, i)));
+    let dragged = false;
+    imgs.forEach((im, i) =>
+      im.addEventListener("click", () => { if (!dragged) open(imgs, i); })
+    );
+
+    // Yatay kaydırılabilir galerilerde mouse ile sürükle-kaydır
+    if (g.classList.contains("flow") || g.classList.contains("hscroll")) {
+      let down = false, startX = 0, startLeft = 0;
+      g.addEventListener("dragstart", (e) => e.preventDefault());
+      g.addEventListener("pointerdown", (e) => {
+        if (e.pointerType !== "mouse") return;   // dokunmatik native scroll
+        down = true; dragged = false;
+        startX = e.clientX; startLeft = g.scrollLeft;
+        g.classList.add("dragging");
+      });
+      window.addEventListener("pointermove", (e) => {
+        if (!down) return;
+        const dx = e.clientX - startX;
+        if (Math.abs(dx) > 4) dragged = true;
+        g.scrollLeft = startLeft - dx;
+      });
+      window.addEventListener("pointerup", () => {
+        if (!down) return;
+        down = false;
+        g.classList.remove("dragging");
+        setTimeout(() => { dragged = false; }, 0);
+      });
+    }
   });
 })();
 

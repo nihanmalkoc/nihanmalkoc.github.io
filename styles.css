@@ -507,6 +507,13 @@ main, .site-header, .menu-overlay, .contact { position: relative; z-index: 1; }
 .wide-img { margin: 1rem 0 .4rem; }
 .wide-img img { width: 100%; height: auto; display: block; border: 1px solid var(--line); background: #fff; cursor: zoom-in; }
 
+/* yatay kaydirmali galeri (case paftalari), mouse ile surukle-kaydir */
+.hscroll { display: flex; gap: 1rem; overflow-x: auto; margin: 1rem 0 .4rem; padding-bottom: 1rem; scrollbar-width: thin; cursor: grab; -webkit-overflow-scrolling: touch; }
+.hscroll img { flex: 0 0 auto; width: min(78vw, 540px); height: auto; display: block; border: 1px solid var(--line); background: #fff; cursor: zoom-in; -webkit-user-drag: none; user-select: none; }
+.flow { cursor: grab; }
+.hscroll.dragging, .flow.dragging { cursor: grabbing; }
+.hscroll.dragging img, .flow.dragging img { cursor: grabbing; }
+
 /* dikey konsept kolajı, ortalı, sınırlı genişlik */
 .collage-wrap { max-width: 540px; margin: 1.3rem auto .5rem; }
 .collage-wrap img { width: 100%; height: auto; display: block; border: 1px solid var(--line); background: #fff; cursor: zoom-in; }
