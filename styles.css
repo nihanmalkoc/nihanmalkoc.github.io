@@ -510,6 +510,9 @@ main, .site-header, .menu-overlay, .contact { position: relative; z-index: 1; }
 /* yatay kaydirmali galeri (case paftalari), mouse ile surukle-kaydir */
 .hscroll { display: flex; gap: 1rem; overflow-x: auto; margin: 1rem 0 .4rem; padding-bottom: 1rem; scrollbar-width: thin; cursor: grab; -webkit-overflow-scrolling: touch; }
 .hscroll img { flex: 0 0 auto; width: min(78vw, 540px); height: auto; display: block; border: 1px solid var(--line); background: #fff; cursor: zoom-in; -webkit-user-drag: none; user-select: none; }
+/* buyuk varyant: tek tek buyuk gorsel, yana kaydirarak degisir */
+.hscroll.lg { scroll-snap-type: x proximity; }
+.hscroll.lg img { width: min(90vw, 940px); scroll-snap-align: center; }
 .flow { cursor: grab; }
 .hscroll.dragging, .flow.dragging { cursor: grabbing; }
 .hscroll.dragging img, .flow.dragging img { cursor: grabbing; }
