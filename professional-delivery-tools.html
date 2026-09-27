@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nihan Malkoç, AutoCAD Delivery Tools</title>
+  <meta name="description" content="AutoCAD Delivery Tools, headless batch checking, fixing and binding of drawing delivery sets. PowerShell + AutoLISP." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="pixel-bg" aria-hidden="true"></canvas>
+
+  <header class="site-header" id="top">
+    <div class="header-left">
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <a href="index.html" class="logo" aria-label="nim!, home">n<span class="li" aria-hidden="true"><i class="i-dot"></i><i class="i-stem"></i></span>m<span class="excl" aria-hidden="true"><i class="excl-bar"></i><i class="excl-dot"></i></span></a>
+    </div>
+    <a class="cv-back" href="professional.html">← Professional</a>
+  </header>
+
+  <nav class="menu-overlay" aria-hidden="true">
+    <ul>
+      <li><a href="index.html#about"><span>01</span> Who I Am</a></li>
+      <li><a href="masters.html"><span>02</span> Masters</a></li>
+      <li><a href="professional.html"><span>03</span> Professional</a></li>
+      <li><a href="bachelors.html"><span>04</span> Bachelors</a></li>
+      <li><a href="cv.html"><span>05</span> Résumé</a></li>
+      <li><a href="index.html#contact"><span>06</span> Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="section works">
+      <div class="section-head">
+        <span class="section-index">03</span>
+        <h2 class="section-title">AutoCAD Delivery Tools</h2>
+        <span class="works-sub">Practice automation · PowerShell + AutoLISP</span>
+      </div>
+
+      <div class="tp-intro" data-reveal>
+        <p class="tp-lead-big">
+          A batch toolkit that keeps hundreds of AutoCAD <b>delivery sets</b> consistent:
+          which base drawings each sheet references, how files, layouts and xrefs are named,
+          title block date and revision, and <b>bound, xref-free copies</b> for issue.
+          It runs headless through AutoCAD's console, so a full re-issue takes
+          <b>minutes instead of a day of clicking</b>.
+        </p>
+
+        <a class="tp-watch" href="https://github.com/nihanmalkoc/autocad-delivery-tools" target="_blank" rel="noopener">View code on GitHub →</a>
+
+        <ul class="feat-row">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 8h8M8 12h8M8 16h5" stroke-linecap="round"/></svg>
+            <div><strong>One rule file</strong><span>office conventions in JSON</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.5"/><path d="M7 10l3 2-3 2M12 15h5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div><strong>Headless AutoCAD</strong><span>accoreconsole, 4 in parallel</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6l8-3z" stroke-linejoin="round"/><path d="M8.5 12l2.5 2.5 4.5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div><strong>Plan before change</strong><span>review, then apply</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" stroke-linecap="round"/></svg>
+            <div><strong>Team reports</strong><span>rules &amp; status in Excel</span></div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Problem -->
+      <h3 class="works-heading">The Problem</h3>
+      <p class="tp-p">
+        On large projects every sheet is its own drawing that overlays a stack of base drawings
+        (plan, structure, facade, rooms, dimensions, doors, FFE …) plus a sheet border. Each package
+        needs a different stack, and over months of revisions sets drift: a missing xref here, a
+        duplicate there, an old border, a layout still named after a copied file. Before every issue
+        someone opened hundreds of drawings by hand to check them, update the title block and bind a
+        clean copy, which was slow and easy to get wrong under deadline pressure.
+      </p>
+
+      <!-- How it works -->
+      <h3 class="works-heading">How It Works</h3>
+      <p class="tp-p">
+        The office agrees on its rules once, in a single JSON config: naming patterns, which base
+        drawings each package references, title block tags and draw order. A PowerShell module then
+        generates AutoLISP scripts and runs them through <b>accoreconsole</b>, with no AutoCAD window,
+        several drawings at a time.
+      </p>
+      <div class="tp-loop">
+        <span>Config</span><i>→</i>
+        <span>Xref report</span><i>→</i>
+        <span>Fix plan</span><i>→</i>
+        <span>Review</span><i>→</i>
+        <span>Apply</span><i>→</i>
+        <span>Title block</span><i>→</i>
+        <span>Bound delivery set</span>
+      </div>
+      <!-- Buraya ekran görüntüleri: plan dosyası, konsol çıktısı, Excel status raporu (örnek proje ile) -->
+      <!--
+      <div class="img-row">
+        <img src="nky/tools/plan.jpg" alt="Generated fix plan" loading="lazy" />
+        <img src="nky/tools/status.jpg" alt="Delivery status workbook" loading="lazy" />
+      </div>
+      -->
+
+      <!-- Safety -->
+      <h3 class="works-heading">Designed to Be Safe</h3>
+      <p class="tp-p">
+        Nothing changes until a human has read the plan. Drawings open in AutoCAD are skipped, a
+        drawing whose report is incomplete is never planned, and bound copies are written only when
+        every xref bound cleanly and never over an existing file. The source sets always stay unbound.
+      </p>
+
+      <!-- Results -->
+      <h3 class="works-heading">Results</h3>
+      <p class="tp-p">
+        Measured on a real re-issue of about <b>330 sheets</b> over a network share, 4 parallel processes:
+        title block update ≈ <b>7.5 min</b>, bind and save ≈ <b>10 min</b>, checking the few failures ≈ <b>10 min</b>,
+        roughly half an hour for work that used to take a full day. The Excel rules and status workbooks
+        also gave the team one shared view of what every package should contain and where each set stands.
+      </p>
+
+      <p class="tp-team">
+        <b>Stack</b> &nbsp;·&nbsp; PowerShell 5.1 · AutoLISP · AutoCAD accoreconsole · Excel
+        &nbsp;·&nbsp; <b>Open source</b> (MIT) &nbsp;·&nbsp;
+        <a href="https://github.com/nihanmalkoc/autocad-delivery-tools" target="_blank" rel="noopener">github.com/nihanmalkoc/autocad-delivery-tools</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="section cv-foot">
+    <p class="colophon">© <span id="year"></span> Nihan Malkoç · <a href="professional.html">back to Professional</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

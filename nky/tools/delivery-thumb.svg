@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 220">
+  <rect width="280" height="220" fill="#fafafa"/>
+  <!-- stacked sheets -->
+  <g fill="#fff" stroke="#0a0a0a" stroke-width="3">
+    <rect x="34" y="62" width="70" height="92"/>
+    <rect x="26" y="70" width="70" height="92"/>
+    <rect x="18" y="78" width="70" height="92"/>
+  </g>
+  <g stroke="#0a0a0a" stroke-width="2.5">
+    <path d="M30 96h46M30 110h46M30 124h30"/>
+  </g>
+  <rect x="58" y="144" width="24" height="18" fill="#ffd400" stroke="#0a0a0a" stroke-width="2.5"/>
+  <!-- arrow -->
+  <path d="M114 116h46" stroke="#0a0a0a" stroke-width="4"/>
+  <path d="M152 104l14 12-14 12" fill="none" stroke="#0a0a0a" stroke-width="4"/>
+  <!-- checked set -->
+  <rect x="178" y="70" width="84" height="92" fill="#ffd400" stroke="#0a0a0a" stroke-width="3"/>
+  <path d="M198 116l14 14 30-32" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+</svg>
