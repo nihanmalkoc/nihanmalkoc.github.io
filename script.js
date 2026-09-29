@@ -190,10 +190,15 @@ function drawDots(ctx, dots, alpha) {
 
   // Her galeri: görsele tıkla → lightbox aç (o proje içinde gezinir)
   galleries.forEach((g) => {
-    const imgs = Array.from(g.querySelectorAll("img"));
+    const own = Array.from(g.querySelectorAll("img"));
+    // aynı data-gallery değerini taşıyan kapsayıcılar tek lightbox grubu olur
+    const key = g.dataset.gallery;
+    const imgs = key
+      ? Array.from(document.querySelectorAll(`[data-gallery="${key}"] img`))
+      : own;
     let dragged = false;
-    imgs.forEach((im, i) =>
-      im.addEventListener("click", () => { if (!dragged) open(imgs, i); })
+    own.forEach((im) =>
+      im.addEventListener("click", () => { if (!dragged) open(imgs, imgs.indexOf(im)); })
     );
 
     // Yatay kaydırılabilir galerilerde mouse ile sürükle-kaydır

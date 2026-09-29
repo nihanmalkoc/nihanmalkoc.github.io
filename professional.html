@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=case3" />
 </head>
 <body>
   <canvas id="pixel-bg" aria-hidden="true"></canvas>
@@ -66,43 +66,771 @@
 
       <h3 class="works-heading">Selected Projects</h3>
 
-      <!-- Tek galeri: büyütünce tüm projeler arasında gezilir · 00 → 10 -->
-      <div class="work-images work-images--stack">
-        <img src="nky/kule-1.jpg" alt="Office Headquarters, Central Bank of the Gambia" loading="lazy" />
-        <img src="nky/kule-2.jpg" alt="Office Headquarters, Central Bank of the Gambia" loading="lazy" />
+      <!-- Her proje: baslik + kunye + sorumluluklar, altinda temiz gorseller yatay galeride (nky/clean);
+           computational logic paneli galeriden sonra. data-gallery="nky": lightbox tum projelerde tek grup · 01 → 11 -->
 
-        <img src="nky/hbmp-1.jpg" alt="National Technology & Science Museum" loading="lazy" />
-        <img src="nky/hbmp-2.jpg" alt="National Technology & Science Museum" loading="lazy" />
-        <img src="nky/hbmp-3.gif" alt="National Technology & Science Museum, animation" loading="lazy" />
+      <div class="proj-head" data-reveal>
+        <span class="proj-num">01</span>
+        <h4 class="proj-name">Information Technology City Communication Tower</h4>
+        <div class="proj-info">
+          <dl class="proj-facts">
+            <div><dt>Location</dt><dd>Lahore, Pakistan</dd></div>
+            <div><dt>Area</dt><dd>26,500 sqm</dd></div>
+            <div><dt>Type</dt><dd>Multifunctional</dd></div>
+            <div><dt>Status</dt><dd>Concept</dd></div>
+            <div><dt>Client</dt><dd>Asian Consulting Engineers</dd></div>
+          </dl>
+          <div class="proj-resp">
+            <p class="proj-resp-h">Responsibilities</p>
+            <ul>
+              <li>Developed 3D models in Rhino and Grasshopper</li>
+              <li>Produced analytical and presentation diagrams</li>
+              <li>Designed and organized architectural plan layouts</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="hscroll proj-gal" data-gallery="nky">
+        <img src="nky/clean/lctp-1.jpg" alt="Information Technology City Communication Tower" loading="lazy" />
+        <img src="nky/clean/lctp-2.gif" alt="Information Technology City Communication Tower, animation" loading="lazy" />
+      </div>
 
-        <img src="nky/lctp-1.jpg" alt="Information Technology City Communication Tower" loading="lazy" />
-        <img src="nky/lctp-2.gif" alt="Information Technology City Communication Tower, animation" loading="lazy" />
+      <div class="proj-logic case" data-reveal>
+        <h4 class="case-title">From three circles to a tower</h4>
+        <p class="case-sub">Computational Logic · Rhino + Grasshopper</p>
+        <p class="tp-p">The whole tower comes from one Grasshopper definition I built in Rhino. Three circles set 120 degrees apart each become a lobe with its own floor stack, and a Gaussian graph curve scales every lobe floor by floor, so the three swell by different amounts at different heights and form the asymmetric bulb above a straight shaft. The scaled circles are lofted into glass and dressed with slabs, a mullion grid, sine-depth fins and a stepped antenna core. The functions stacked in the bulb are design intent from the board, not modelled.</p>
+        <p class="tp-team"><b>Tools:</b> Rhino · Grasshopper &nbsp;·&nbsp; <b>Definition:</b> six graph mappers, 10 lofts, one 540 floor module &nbsp;·&nbsp; <b>My role:</b> parametric 3D model, analytical diagrams, plan layouts</p>
 
-        <img src="nky/tpsk-1.jpg" alt="TPAO Campus" loading="lazy" />
-        <img src="nky/tpsk-2.jpg" alt="TPAO Campus" loading="lazy" />
+        <div class="case-stats">
+          <div><b>3</b><span>lobes at 120°</span></div>
+          <div><b>20 · 19 · 21</b><span>levels per lobe</span></div>
+          <div><b>2.38×</b><span>peak lobe swell</span></div>
+          <div><b>135 × 40</b><span>mullion grid</span></div>
+        </div>
 
-        <img src="nky/belkepa-1.jpg" alt="Başkent Electricity Headquarters" loading="lazy" />
-        <img src="nky/belkepa-2.jpg" alt="Başkent Electricity Headquarters" loading="lazy" />
+        <div class="case-body">
+          <figure class="case-render"><img src="nky/lctp-tower.jpg" style="object-position: 76% 50%" alt="Communication Tower render, the three lobes swelling above the shaft" loading="lazy" /></figure>
+          <div class="flow case-grid">
+          <div class="flow-step">
+            <svg class="flow-fig" viewBox="0 0 120 90" role="img" aria-label="Three circles set 120 degrees apart around the tower axis">
+              <circle class="gh dash" cx="60" cy="42" r="34"/>
+              <circle class="ln" cx="45.3" cy="33.5" r="17"/>
+              <circle class="ln" cx="74.7" cy="33.5" r="17"/>
+              <circle class="ac" cx="60" cy="59" r="17"/>
+              <path class="gh dash" d="M60 42L45.3 33.5M60 42L74.7 33.5"/>
+              <path class="ac" d="M53.9 38.5L54.6 37.5L55.5 36.6L56.5 35.9L57.6 35.4L58.8 35.1L60 35L61.2 35.1L62.4 35.4L63.5 35.9L64.5 36.6L65.4 37.5L66.1 38.5"/>
+              <circle class="dt" cx="60" cy="42" r="1.6"/>
+              <text class="k" x="60" y="22.5" text-anchor="middle">120°</text>
+              <text x="60" y="86" text-anchor="middle">plan · three circles</text>
+            </svg>
+            <div class="flow-cap"><span class="flow-num">01</span><div class="flow-title">Three circles</div><p class="flow-text">Three circles set 120 degrees apart, each passing through the tower axis and together filling one bounding circle. The lobes run on three circles referenced from the Rhino model.</p></div>
+          </div>
 
-        <img src="nky/gtrp-1.gif" alt="VR Krtsanisi Resort Residence, animation" loading="lazy" />
-        <img src="nky/gtrp-2.jpg" alt="VR Krtsanisi Resort Residence" loading="lazy" />
-        <img src="nky/gtrp-3.jpg" alt="VR Krtsanisi Resort Residence" loading="lazy" />
+          <div class="flow-step">
+            <svg class="flow-fig" viewBox="0 0 120 90" role="img" aria-label="Three core arcs in plan, extruded to three staggered heights">
+              <circle class="gh" cx="30" cy="51" r="9"/>
+              <circle class="gh" cx="22.2" cy="37.5" r="9"/>
+              <circle class="gh" cx="37.8" cy="37.5" r="9"/>
+              <path class="ac" d="M37.8 46.5L38.3 47.6L38.7 48.8L39 50.1L39 51.3L38.9 52.6L38.6 53.8L38.1 54.9L37.5 56L36.7 57L35.8 57.9L34.8 58.6L33.7 59.2L32.5 59.7L31.3 59.9L30 60L28.7 59.9L27.5 59.7L26.3 59.2L25.2 58.6L24.2 57.9L23.3 57L22.5 56L21.9 54.9L21.4 53.8L21.1 52.6L21 51.3L21 50.1L21.3 48.8L21.7 47.6L22.2 46.5M22.2 46.5L21 46.4L19.7 46.2L18.5 45.7L17.4 45.1L16.4 44.4L15.5 43.5L14.7 42.5L14.1 41.4L13.6 40.3L13.3 39.1L13.2 37.8L13.3 36.6L13.5 35.3L13.9 34.1L14.4 33L15.1 32L16 31L16.9 30.2L18 29.6L19.1 29L20.3 28.7L21.6 28.5L22.8 28.5L24.1 28.7L25.3 29L26.4 29.6L27.5 30.2L28.5 31L29.3 32L30 33M30 33L30.7 32L31.5 31L32.5 30.2L33.6 29.6L34.7 29L35.9 28.7L37.2 28.5L38.4 28.5L39.7 28.7L40.9 29L42 29.6L43.1 30.2L44 31L44.9 32L45.6 33L46.1 34.1L46.5 35.3L46.7 36.6L46.8 37.8L46.7 39.1L46.4 40.3L45.9 41.4L45.3 42.5L44.5 43.5L43.6 44.4L42.6 45.1L41.5 45.7L40.3 46.2L39 46.4L37.8 46.5"/>
+              <path class="gh" d="M64 82H116"/>
+              <path class="gh dash" d="M58 12V80"/>
+              <rect class="ln" x="72" y="19.3" width="8" height="62.7"/>
+              <rect class="ln" x="84" y="22.6" width="8" height="59.4"/>
+              <rect class="af" x="96" y="16" width="8" height="66"/>
+              <rect class="ac" x="96" y="16" width="8" height="66"/>
+              <text x="30" y="86" text-anchor="middle">plan</text>
+              <text x="88" y="89" text-anchor="middle">core</text>
+            </svg>
+            <div class="flow-cap"><span class="flow-num">02</span><div class="flow-title">Supercore</div><p class="flow-text">Three core pieces from the Rhino plan, one per lobe, are extruded up their own lobe's floor stack, so the core tops step at different heights.</p></div>
+          </div>
 
-        <img src="nky/sebp-1.jpg" alt="Chancery Building & Residential Complex" loading="lazy" />
-        <img src="nky/sebp-2.jpg" alt="Chancery Building & Residential Complex" loading="lazy" />
+          <div class="flow-step">
+            <svg class="flow-fig" viewBox="0 0 120 90" role="img" aria-label="Three floor stacks of 20, 19 and 21 levels at one floor height">
+              <path class="gh" d="M8 84H112"/>
+              <path class="ln" d="M26 80H44M26 76.5H44M26 73H44M26 69.5H44M26 66H44M26 62.5H44M26 59H44M26 55.5H44M26 52H44M26 48.5H44M26 45H44M26 41.5H44M26 38H44M26 34.5H44M26 31H44M26 27.5H44M26 24H44M26 20.5H44M26 17H44M26 13.5H44"/>
+              <path class="ln" d="M52 80H70M52 76.5H70M52 73H70M52 69.5H70M52 66H70M52 62.5H70M52 59H70M52 55.5H70M52 52H70M52 48.5H70M52 45H70M52 41.5H70M52 38H70M52 34.5H70M52 31H70M52 27.5H70M52 24H70M52 20.5H70M52 17H70"/>
+              <path class="ln" d="M78 80H96M78 76.5H96M78 73H96M78 69.5H96M78 66H96M78 62.5H96M78 59H96M78 55.5H96M78 52H96M78 48.5H96M78 45H96M78 41.5H96M78 38H96M78 34.5H96M78 31H96M78 27.5H96M78 24H96M78 20.5H96M78 17H96M78 13.5H96M78 10H96"/>
+              <path class="ac" d="M15 80V17M12 22L15 16L18 22"/>
+              <text x="15" y="11" text-anchor="middle">z</text>
+              <text class="k" x="35" y="9.5" text-anchor="middle">20</text>
+              <text class="k" x="61" y="13" text-anchor="middle">19</text>
+              <text class="k" x="87" y="6" text-anchor="middle">21</text>
+            </svg>
+            <div class="flow-cap"><span class="flow-num">03</span><div class="flow-title">Floor stacks</div><p class="flow-text">Each lobe circle is copied up at one shared floor height: 20, 19 and 21 levels, which gives the three lobes their stepped tops.</p></div>
+          </div>
 
-        <img src="nky/bkcp-1.jpg" alt="Adaptive Reuse for Enriching the Heritage" loading="lazy" />
-        <img src="nky/bkcp-2.gif" alt="Adaptive Reuse for Enriching the Heritage, animation" loading="lazy" />
+          <div class="flow-step">
+            <svg class="flow-fig" viewBox="0 0 120 90" role="img" aria-label="Nested lobe circles in plan and three Gaussian scale curves peaking at 2.38, 1.84 and 1.48">
+              <circle class="ln" cx="24" cy="49" r="5"/>
+              <circle class="ln" cx="24" cy="51" r="7"/>
+              <circle class="ln" cx="24" cy="53" r="9"/>
+              <circle class="ln" cx="24" cy="55" r="11"/>
+              <circle class="ac" cx="24" cy="57" r="13"/>
+              <circle class="gh" cx="19.7" cy="41.5" r="5"/>
+              <circle class="gh" cx="18.4" cy="40.8" r="6.5"/>
+              <circle class="gh" cx="17.1" cy="40" r="8"/>
+              <circle class="gh" cx="15.8" cy="39.2" r="9.5"/>
+              <circle class="gh" cx="28.3" cy="41.5" r="5"/>
+              <circle class="gh" cx="29.2" cy="41" r="6"/>
+              <circle class="gh" cx="30.1" cy="40.5" r="7"/>
+              <circle class="gh" cx="30.9" cy="40" r="8"/>
+              <circle class="dt" cx="24" cy="44" r="1.4"/>
+              <path class="gh" d="M58 12V82H116"/>
+              <path class="ln" d="M58 80L58 78.9L58.1 77.9L58.1 76.8L58.2 75.7L58.2 74.7L58.3 73.6L58.5 72.5L58.7 71.5L59 70.4L59.4 69.3L59.9 68.3L60.5 67.2L61.2 66.1L62 65.1L63 64L64.1 62.9L65.3 61.9L66.6 60.8L67.9 59.7L69.2 58.7L70.4 57.6L71.4 56.5L72.3 55.5L72.9 54.4L73.3 53.3L73.3 52.3L73.1 51.2L72.6 50.1L71.8 49.1L70.8 48L69.6 46.9L68.4 45.9L67.1 44.8L65.8 43.7L64.6 42.7L63.4 41.6L62.4 40.5L61.5 39.5L60.7 38.4L60.1 37.3L59.5 36.3L59.1 35.2L58.8 34.1L58.6 33.1L58.4 32L58.3 30.9L58.2 29.9L58.1 28.8L58.1 27.7L58 26.7L58 25.6L58 24.5L58 23.5L58 22.4L58 21.3L58 20.3L58 19.2L58 18.1L58 17.1L58 16"/>
+              <path class="ln" d="M58 80L58 78.9L58.1 77.9L58.1 76.8L58.1 75.7L58.2 74.7L58.3 73.6L58.5 72.5L58.7 71.5L59 70.4L59.4 69.3L60 68.3L60.7 67.2L61.6 66.1L62.6 65.1L64 64L65.5 62.9L67.3 61.9L69.2 60.8L71.3 59.7L73.5 58.7L75.8 57.6L78 56.5L80 55.5L81.8 54.4L83.2 53.3L84.2 52.3L84.8 51.2L84.8 50.1L84.4 49.1L83.5 48L82.1 46.9L80.4 45.9L78.4 44.8L76.2 43.7L74 42.7L71.8 41.6L69.6 40.5L67.6 39.5L65.8 38.4L64.3 37.3L62.9 36.3L61.8 35.2L60.8 34.1L60.1 33.1L59.5 32L59.1 30.9L58.8 29.9L58.5 28.8L58.3 27.7L58.2 26.7L58.1 25.6L58.1 24.5L58.1 23.5L58 22.4L58 21.3L58 20.3L58 19.2L58 18.1L58 17.1L58 16"/>
+              <path class="ac" d="M58 80L58 78.9L58 77.9L58 76.8L58 75.7L58 74.7L58 73.6L58 72.5L58 71.5L58 70.4L58 69.3L58 68.3L58 67.2L58 66.1L58 65.1L58.1 64L58.1 62.9L58.2 61.9L58.3 60.8L58.5 59.7L58.9 58.7L59.4 57.6L60.1 56.5L61.2 55.5L62.6 54.4L64.6 53.3L67 52.3L70 51.2L73.6 50.1L77.7 49.1L82.1 48L86.6 46.9L91 45.9L95.1 44.8L98.4 43.7L100.8 42.7L102 41.6L102 40.5L100.7 39.5L98.3 38.4L94.9 37.3L90.9 36.3L86.4 35.2L81.9 34.1L77.5 33.1L73.5 32L69.9 30.9L66.9 29.9L64.5 28.8L62.6 27.7L61.1 26.7L60.1 25.6L59.4 24.5L58.9 23.5L58.5 22.4L58.3 21.3L58.2 20.3L58.1 19.2L58.1 18.1L58 17.1L58 16"/>
+              <circle class="dy" cx="102.2" cy="41.1" r="1.8"/>
+              <circle class="dt" cx="84.9" cy="50.6" r="1.4"/>
+              <circle class="dt" cx="73.4" cy="52.6" r="1.4"/>
+              <text class="k" x="102.2" y="37.1" text-anchor="middle">2.38</text>
+              <text x="90" y="58">1.84</text>
+              <text x="70" y="69">1.48</text>
+              <text x="61" y="10">level</text>
+              <text x="87" y="89" text-anchor="middle">scale factor</text>
+            </svg>
+            <div class="flow-cap"><span class="flow-num">04</span><div class="flow-title">Scale factors</div><p class="flow-text">Floor by floor, a Gaussian graph curve scales each lobe outward from its anchor on the axis. Peaks of 2.38, 1.84 and 1.48 at different levels give a straight shaft, an uneven bulb and a slim top.</p></div>
+          </div>
 
-        <img src="nky/auhp-1.jpg" alt="Ankara University State Hospital" loading="lazy" />
-        <img src="nky/auhp-2.gif" alt="Ankara University State Hospital, animation" loading="lazy" />
-        <img src="nky/auhp-3.gif" alt="Ankara University State Hospital, animation" loading="lazy" />
+          <div class="flow-step">
+            <svg class="flow-fig" viewBox="0 0 120 90" role="img" aria-label="Three lobe skins lofted from the scaled circles, extended four floors below">
+              <path class="gh" d="M4 72H116"/>
+              <path class="gh" d="M51 72L51 69L50.9 66L50.6 63L49.9 60L48.6 57L46.6 54L44.6 51L43.5 48L43.8 45L45.5 42L47.5 39L49.2 36L50.3 33L50.8 30L50.9 27L51 24L51 21L51 18L63 18L63 21L63 24L63 27L63.1 30L63.2 33L63.6 36L64.2 39L64.8 42L65.4 45L65.5 48L65.1 51L64.5 54L63.8 57L63.4 60L63.1 63L63 66L63 69L63 72Z"/>
+              <path class="gh" d="M51 72L51 69L50.9 66L50.7 63L50.3 60L49.6 57L48.6 54L47.5 51L46.8 48L46.8 45L47.4 42L48.4 39L49.5 36L50.2 33L50.7 30L50.9 27L51 24L51 21L51 18L51 15L51 12L63 12L63 15L63 18L63 21L63 24L63 27L63.1 30L63.3 33L63.5 36L63.9 39L64.2 42L64.4 45L64.4 48L64.2 51L63.8 54L63.5 57L63.2 60L63.1 63L63 66L63 69L63 72Z"/>
+              <path class="af" d="M60 72L60 69L60 66L60 63L60 60L60 57L60 54L60 51L60 48L60 45L60 42L60 39L60 36L60 33L60 30L60 27L60 24L60 21L60 18L60 15L72 15L72 18L72.2 21L73 24L75 27L79 30L84.2 33L88.1 36L87.8 39L83.7 42L78.5 45L74.7 48L72.8 51L72.2 54L72 57L72 60L72 63L72 66L72 69L72 72Z"/>
+              <path class="ln" d="M60 69H72M60 60H72M60 51H72.8M60 42H83.7M60 33H84.2M60 24H73M60 15H72"/>
+              <path class="ac" d="M60 72L60 69L60 66L60 63L60 60L60 57L60 54L60 51L60 48L60 45L60 42L60 39L60 36L60 33L60 30L60 27L60 24L60 21L60 18L60 15M72 72L72 69L72 66L72 63L72 60L72 57L72.2 54L72.8 51L74.7 48L78.5 45L83.7 42L87.8 39L88.1 36L84.2 33L79 30L75 27L73 24L72.2 21L72 18L72 15"/>
+              <path class="ac dash" d="M60 72V85M72 72V85"/>
+              <text x="76" y="81">4 floors down</text>
+              <text class="k" x="97" y="36">glass</text>
+            </svg>
+            <div class="flow-cap"><span class="flow-num">05</span><div class="flow-title">Glass loft</div><p class="flow-text">Each lobe's scaled circles are lofted into its own glass skin: three overlapping tubes, continued four floors below the first level.</p></div>
+          </div>
 
-        <img src="nky/gbmp-1.jpg" alt="A Ministry: Rooted from Local Values" loading="lazy" />
-        <img src="nky/gbmp-2.gif" alt="A Ministry: Rooted from Local Values, animation" loading="lazy" />
+          <div class="flow-step">
+            <svg class="flow-fig" viewBox="0 0 120 90" role="img" aria-label="Floor edge section: slab set back from the glass, thin ledge ring beyond it">
+              <path class="gh dash" d="M60 12V84"/>
+              <rect class="ln" x="16" y="22" width="40" height="8"/>
+              <rect class="af" x="56" y="22" width="14" height="2"/>
+              <rect class="ac" x="56" y="22" width="14" height="2"/>
+              <rect class="ln" x="16" y="44" width="40" height="8"/>
+              <rect class="af" x="56" y="44" width="14" height="2"/>
+              <rect class="ac" x="56" y="44" width="14" height="2"/>
+              <rect class="ln" x="16" y="66" width="40" height="8"/>
+              <rect class="af" x="56" y="66" width="14" height="2"/>
+              <rect class="ac" x="56" y="66" width="14" height="2"/>
+              <text x="60" y="8" text-anchor="middle">glass</text>
+              <text x="36" y="18" text-anchor="middle">slab 100</text>
+              <text class="k" x="73" y="25">ledge</text>
+              <text x="54" y="40" text-anchor="end">40 in</text>
+              <text x="73" y="47">100 out</text>
+            </svg>
+            <div class="flow-cap"><span class="flow-num">06</span><div class="flow-title">Slabs + ledge</div><p class="flow-text">On every level a slab 100 thick is set back 40 inside the glass line, and a thin ledge ring reaches 100 beyond it, where the fins start.</p></div>
+          </div>
 
-        <img src="nky/tbhb-1.jpg" alt="Municipality Additional Service Building" loading="lazy" />
-        <img src="nky/tbhb-2.jpg" alt="Municipality Additional Service Building" loading="lazy" />
+          <div class="flow-step">
+            <svg class="flow-fig" viewBox="0 0 120 90" role="img" aria-label="Glass skin divided 135 by 40 into a mullion and transom grid">
+              <path class="gh" d="M4 80H116"/>
+              <path class="ln" d="M40 80H58M40 73.2H58M40 66.4H58M40 59.6H58.3M40 52.8H62M40 46H75.6M40 39.2H82.1M40 32.4H68.5M40 25.6H59.4M40 18.8H58.1"/>
+              <path class="ac" d="M42.6 80L42.6 76.6L42.6 73.2L42.6 69.8L42.6 66.4L42.6 63L42.6 59.6L42.8 56.2L43.1 52.8L44 49.4L45.1 46L46 42.6L46 39.2L45.2 35.8L44.1 32.4L43.2 29L42.8 25.6L42.6 22.2L42.6 18.8L42.6 15.4M45.1 80L45.1 76.6L45.1 73.2L45.1 69.8L45.1 66.4L45.2 63L45.2 59.6L45.5 56.2L46.3 52.8L47.9 49.4L50.2 46L51.9 42.6L52 39.2L50.4 35.8L48.1 32.4L46.4 29L45.6 25.6L45.2 22.2L45.2 18.8L45.1 15.4M47.7 80L47.7 76.6L47.7 73.2L47.7 69.8L47.7 66.4L47.7 63L47.8 59.6L48.3 56.2L49.4 52.8L51.9 49.4L55.2 46L57.9 42.6L58.1 39.2L55.6 35.8L52.2 32.4L49.6 29L48.3 25.6L47.9 22.2L47.7 18.8L47.7 15.4M50.3 80L50.3 76.6L50.3 73.2L50.3 69.8L50.3 66.4L50.3 63L50.5 59.6L51 56.2L52.6 52.8L55.8 49.4L60.3 46L63.9 42.6L64.1 39.2L60.8 35.8L56.3 32.4L52.8 29L51.1 25.6L50.5 22.2L50.3 18.8L50.3 15.4M52.9 80L52.9 76.6L52.9 73.2L52.9 69.8L52.9 66.4L52.9 63L53.1 59.6L53.8 56.2L55.7 52.8L59.8 49.4L65.4 46L69.8 42.6L70.1 39.2L66 35.8L60.3 32.4L56.1 29L53.9 25.6L53.1 22.2L52.9 18.8L52.9 15.4M55.4 80L55.4 76.6L55.4 73.2L55.4 69.8L55.4 66.4L55.5 63L55.7 59.6L56.5 56.2L58.9 52.8L63.8 49.4L70.5 46L75.8 42.6L76.1 39.2L71.2 35.8L64.4 32.4L59.3 29L56.7 25.6L55.7 22.2L55.5 18.8L55.4 15.4"/>
+              <path class="gh" d="M40 80L40 76.6L40 73.2L40 69.8L40 66.4L40 63L40 59.6L40 56.2L40 52.8L40 49.4L40 46L40 42.6L40 39.2L40 35.8L40 32.4L40 29L40 25.6L40 22.2L40 18.8L40 15.4L58 15.4L58.1 18.8L58.3 22.2L59.4 25.6L62.5 29L68.5 32.4L76.4 35.8L82.1 39.2L81.8 42.6L75.6 46L67.7 49.4L62 52.8L59.3 56.2L58.3 59.6L58.1 63L58 66.4L58 69.8L58 73.2L58 76.6L58 80Z"/>
+              <text class="k" x="60" y="10" text-anchor="middle">135 × 40</text>
+              <text x="60" y="88" text-anchor="middle">pipes r 3</text>
+            </svg>
+            <div class="flow-cap"><span class="flow-num">07</span><div class="flow-title">Mullion grid</div><p class="flow-text">Each glass skin is divided 135 by 40 and the cell edges are piped into one continuous mullion and transom grid.</p></div>
+          </div>
+
+          <div class="flow-step">
+            <svg class="flow-fig" viewBox="0 0 120 90" role="img" aria-label="Radial fins on one lobe arc, depth following a sine curve">
+              <circle class="gh" cx="46" cy="46" r="20"/>
+              <path class="gh dash" d="M46 46L36 28.7M46 46L66 46M46 46L36 63.3"/>
+              <path class="ln" d="M35 26.9L37.1 25.9L39.2 25.1L41.4 24.5L43.7 24.1L46 24L48.3 24.1L50.6 24.5L52.8 25.1L54.9 25.9L57 26.9L58.9 28.2L60.7 29.7L62.3 31.3L63.8 33.1L65.1 35L66.1 37.1L66.9 39.2L67.5 41.4L67.9 43.7L68 46L67.9 48.3L67.5 50.6L66.9 52.8L66.1 54.9L65.1 57L63.8 58.9L62.3 60.7L60.7 62.3L58.9 63.8L57 65.1L54.9 66.1L52.8 66.9L50.6 67.5L48.3 67.9L46 68L43.7 67.9L41.4 67.5L39.2 66.9L37.1 66.1L35 65.1"/>
+              <path class="ac" d="M35 26.9L33 23.5M43.7 24.1L43 17.1M52.8 25.1L55.9 15.7M60.7 29.7L68.8 20.7M66.1 37.1L78.4 31.6M68 46L82 46M66.1 54.9L78.4 60.4M60.7 62.3L68.8 71.3M52.8 66.9L55.9 76.3M43.7 67.9L43 74.9M35 65.1L33 68.5"/>
+              <circle class="dt" cx="46" cy="46" r="1.4"/>
+              <path class="gh" d="M92 8V22H115"/>
+              <path class="ac" d="M92 22L93.1 20.4L94.2 18.9L95.3 17.5L96.4 16.1L97.5 14.9L98.6 13.9L99.7 13.1L100.8 12.5L101.9 12.1L103 12L104.1 12.1L105.2 12.5L106.3 13.1L107.4 13.9L108.5 14.9L109.6 16.1L110.7 17.5L111.8 18.9L112.9 20.4L114 22"/>
+              <text x="103.5" y="30" text-anchor="middle">sine depth</text>
+              <text class="k" x="90" y="64">22</text>
+              <text x="46" y="88" text-anchor="middle">plan · one lobe</text>
+            </svg>
+            <div class="flow-cap"><span class="flow-num">08</span><div class="flow-title">Radial fins</div><p class="flow-text">Each lobe's outer arc is divided into 22 and fins run out radially from the lobe centre. A sine graph keeps them shallow where lobes meet and deepest mid arc, and they rise 150 above the roof as a parapet.</p></div>
+          </div>
+
+          <div class="flow-step">
+            <svg class="flow-fig" viewBox="0 0 120 90" role="img" aria-label="Tallest lobe top scaled and extruded twice into a stepped antenna core">
+              <path class="gh" d="M20 88V74Q20 70 26 70H44Q48 70 48 74V88"/>
+              <path class="gh" d="M72 88V76Q72 73 78 73H96Q100 73 100 76V88"/>
+              <path class="ln" d="M42 88V72Q42 69 48 69H72Q78 69 78 72V88"/>
+              <rect class="af" x="50" y="52" width="20" height="17"/>
+              <rect class="ac" x="50" y="52" width="20" height="17"/>
+              <rect class="ac" x="56" y="18" width="8" height="34"/>
+              <path class="gh dash" d="M60 18V3"/>
+              <text x="73" y="63">× 0.5</text>
+              <text x="67" y="36">× 0.4</text>
+              <text x="63" y="9">needle</text>
+            </svg>
+            <div class="flow-cap"><span class="flow-num">09</span><div class="flow-title">Antenna core</div><p class="flow-text">The top of the tallest lobe is scaled to half and extruded, then scaled again and extruded twice as far, giving the stepped antenna core. The spire needle is not part of the definition.</p></div>
+          </div>
+
+        </div>
+        </div>
+      </div>
+
+      <div class="proj-head" data-reveal>
+        <span class="proj-num">02</span>
+        <h4 class="proj-name">Office Headquarters, Central Bank of the Gambia</h4>
+        <div class="proj-info">
+          <dl class="proj-facts">
+            <div><dt>Location</dt><dd>Gambia</dd></div>
+            <div><dt>Area</dt><dd>40,000 sqm</dd></div>
+            <div><dt>Type</dt><dd>Office</dd></div>
+            <div><dt>Status</dt><dd>Concept</dd></div>
+            <div><dt>Client</dt><dd>Confidential</dd></div>
+          </dl>
+          <div class="proj-resp">
+            <p class="proj-resp-h">Responsibilities</p>
+            <ul>
+              <li>Developed 3D models in Rhino and Grasshopper</li>
+              <li>Produced analytical and presentation diagrams</li>
+              <li>Designed and organized architectural plan layouts</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="hscroll proj-gal" data-gallery="nky">
+        <img src="nky/clean/kule-1.jpg" alt="Office Headquarters, Central Bank of the Gambia" loading="lazy" />
+        <img src="nky/clean/kule-2.jpg" alt="Office Headquarters, Central Bank of the Gambia" loading="lazy" />
+      </div>
+
+      <div class="proj-logic case" data-reveal>
+        <h4 class="case-title">A facade that unzips as it climbs</h4>
+        <p class="case-sub">Computational Logic · Rhino + Grasshopper</p>
+        <p class="tp-p">Both masses come from one Grasshopper definition I built in Rhino. A filleted floor plate is stacked up the height and its perimeter is split into strips; rising floor by floor, each strip is pushed out from a corner by an amount read off a graph curve and rotated into a curl, so the skin unzips as it climbs and opens onto the curved glass tower and green terraces behind. The same logic runs again with fewer floors for the shorter block, and the peeled strips sweep down into a shared podium.</p>
+        <p class="tp-team"><b>Tools:</b> Rhino · Grasshopper &nbsp;·&nbsp; <b>Definition:</b> two floor stacks (26 and 15 levels), five graph mappers, 22 lofts &nbsp;·&nbsp; <b>My role:</b> parametric 3D model, analytical diagrams, plan layouts</p>
+
+        <div class="case-stats">
+          <div><b>26 · 15</b><span>levels in two blocks</span></div>
+          <div><b>4</b><span>facade strips per level</span></div>
+          <div><b>0 to 45°</b><span>strip curl</span></div>
+          <div><b>22</b><span>lofts in one definition</span></div>
+        </div>
+
+        <div class="case-body">
+          <figure class="case-render"><img src="nky/kule-tower.jpg" style="object-position: 30% 50%" alt="Office Headquarters render, the peeled facade opening onto the glass tower" /></figure>
+          <div class="flow case-grid">
+
+            <div class="flow-step">
+              <svg class="flow-fig" viewBox="0 0 120 90" role="img" aria-label="Plan footprint with filleted corners">
+                <rect class="gh dash" x="30" y="24" width="60" height="42"/>
+                <rect class="ln" x="30" y="24" width="60" height="42" rx="10"/>
+                <path class="ac" d="M30 34A10 10 0 0 1 40 24M80 24A10 10 0 0 1 90 34M90 56A10 10 0 0 1 80 66M40 66A10 10 0 0 1 30 56"/>
+                <text x="60" y="80" text-anchor="middle">plan · filleted corners</text>
+              </svg>
+              <div class="flow-cap"><span class="flow-num">01</span><div class="flow-title">Base curve</div><p class="flow-text">Plan footprint with filleted corners, the seed profile for both masses.</p></div>
+            </div>
+
+            <div class="flow-step">
+              <svg class="flow-fig" viewBox="0 0 120 90" role="img" aria-label="Floor plates copied up in two stacks, 26 and 15 levels">
+                <path class="gh" d="M8 84H112"/>
+                <path class="ln" d="M26 80H54M26 75H54M26 70H54M26 65H54M26 60H54M26 55H54M26 50H54M26 45H54M26 40H54M26 35H54M26 30H54M26 25H54M26 20H54M26 15H54"/>
+                <path class="ln" d="M68 80H98M68 75H98M68 70H98M68 65H98M68 60H98M68 55H98M68 50H98M68 45H98"/>
+                <path class="ac" d="M16 80V17M13 22L16 16L19 22"/>
+                <text x="16" y="11" text-anchor="middle">z</text>
+                <text class="k" x="40" y="10" text-anchor="middle">26</text>
+                <text class="k" x="83" y="40" text-anchor="middle">15</text>
+              </svg>
+              <div class="flow-cap"><span class="flow-num">02</span><div class="flow-title">Floor stack</div><p class="flow-text">The profile is copied up by floor count and floor height: 26 levels for the tower, 15 for the short block.</p></div>
+            </div>
+
+            <div class="flow-step">
+              <svg class="flow-fig" viewBox="0 0 120 90" role="img" aria-label="Perimeter split into four strips around the glass skin">
+                <rect class="gh" x="37" y="31" width="46" height="28" rx="6"/>
+                <path class="gh" d="M28 32A10 10 0 0 1 38 22M82 22A10 10 0 0 1 92 32M92 58A10 10 0 0 1 82 68M38 68A10 10 0 0 1 28 58"/>
+                <path class="ac" d="M41 22H79M92 35V55M79 68H41M28 55V35"/>
+                <text class="k" x="60" y="17" text-anchor="middle">1</text>
+                <text class="k" x="99" y="47" text-anchor="middle">2</text>
+                <text class="k" x="60" y="78" text-anchor="middle">3</text>
+                <text class="k" x="21" y="47" text-anchor="middle">4</text>
+                <text x="60" y="47" text-anchor="middle">glass</text>
+              </svg>
+              <div class="flow-cap"><span class="flow-num">03</span><div class="flow-title">Facade strips</div><p class="flow-text">Each level's perimeter is split into four strips, the layers that will separate from the glass skin.</p></div>
+            </div>
+
+            <div class="flow-step">
+              <svg class="flow-fig" viewBox="0 0 120 90" role="img" aria-label="Strips pushed out from a corner, more with height, set by a graph curve">
+                <path class="gh" d="M72 12V78H114"/>
+                <path class="gh dash" d="M48 29H101M48 54H91.5M48 72H83.8"/>
+                <path class="ac" d="M76 76C92 76 90 38 110 16"/>
+                <rect class="ln" x="14" y="23" width="32" height="12" rx="3"/>
+                <path class="af" d="M15 35L46 35L46 42Z"/>
+                <path class="ac" d="M15 35L46 42"/>
+                <rect class="ln" x="14" y="48" width="32" height="12" rx="3"/>
+                <path class="af" d="M15 60L46 60L46 63.5Z"/>
+                <path class="ac" d="M15 60L46 63.5"/>
+                <rect class="ln" x="14" y="66" width="32" height="12" rx="3"/>
+                <path class="ac" d="M15 78H46"/>
+                <circle class="dt" cx="15" cy="35" r="1.4"/>
+                <circle class="dt" cx="15" cy="60" r="1.4"/>
+                <circle class="dt" cx="15" cy="78" r="1.4"/>
+                <path class="gh" d="M8 42L14 36.5"/>
+                <text x="1" y="46">corner</text>
+                <circle class="dy" cx="101.1" cy="29.1" r="1.8"/>
+                <circle class="dy" cx="91.5" cy="54.3" r="1.8"/>
+                <circle class="dy" cx="83.8" cy="71.9" r="1.8"/>
+                <text x="104.5" y="31">top</text>
+                <text x="94.5" y="56.5">mid</text>
+                <text x="86.8" y="74">low</text>
+                <text x="93" y="86" text-anchor="middle">peel amount</text>
+              </svg>
+              <div class="flow-cap"><span class="flow-num">04</span><div class="flow-title">Corner peel</div><p class="flow-text">Rising up the tower, each strip is pushed out from one corner. A graph curve sets how far, low, mid and top, so the facade unzips as it climbs.</p></div>
+            </div>
+
+            <div class="flow-step">
+              <svg class="flow-fig" viewBox="0 0 120 90" role="img" aria-label="Strip rotated about its corner end point, 0 to 45 degrees">
+                <path class="gh" d="M22 72H100"/>
+                <path class="gh" d="M44 72V24M44 72L56.4 25.6M44 72L68 30.4"/>
+                <path class="ac" d="M44 72L77.9 38.1"/>
+                <path class="ln" d="M44 54A18 18 0 0 1 56.7 59.3"/>
+                <circle class="dt" cx="44" cy="72" r="1.6"/>
+                <text class="k" x="40" y="50" text-anchor="end">0 to 45°</text>
+                <text x="60" y="84" text-anchor="middle">rotated about the corner</text>
+              </svg>
+              <div class="flow-cap"><span class="flow-num">05</span><div class="flow-title">Section curl</div><p class="flow-text">The strips rotate about their corner end point, 0 to 45 degrees, giving the peel its bend and curl.</p></div>
+            </div>
+
+            <div class="flow-step">
+              <svg class="flow-fig" viewBox="0 0 120 90" role="img" aria-label="Level curves lofted into the peeling skin beside the glass tower">
+                <rect class="gh" x="22" y="12" width="40" height="72" rx="9"/>
+                <path class="af" d="M58 80L60 66L62 52L64 38L66 24L104 12L98 29L92 46L87 63L82 80Z"/>
+                <path class="ln" d="M58 80H82M60 66Q74 67 87 63M62 52Q77 51 92 46M64 38Q81 36 98 29M66 24Q86 20 104 12"/>
+                <path class="ac" d="M58 80C60 60 62 40 66 24M82 80C88 60 94 36 104 12"/>
+                <text x="42" y="50" text-anchor="middle">glass</text>
+              </svg>
+              <div class="flow-cap"><span class="flow-num">06</span><div class="flow-title">Loft</div><p class="flow-text">The level curves are lofted into the peeling white skin and the glass tower behind; one facade is panelled into the punched window pattern.</p></div>
+            </div>
+
+            <div class="flow-step">
+              <svg class="flow-fig" viewBox="0 0 120 90" role="img" aria-label="Same logic run again with fewer floors for the short block">
+                <path class="gh" d="M8 84H112"/>
+                <rect class="ln" x="16" y="14" width="28" height="70" rx="4"/>
+                <path class="gh" d="M16 26H44M16 38H44M16 50H44M16 62H44M16 74H44"/>
+                <rect class="af" x="62" y="46" width="40" height="38" rx="3"/>
+                <rect class="ac" x="62" y="46" width="40" height="38" rx="3"/>
+                <path class="gh" d="M62 55.5H102M62 65H102M62 74.5H102"/>
+                <path class="ln dash" d="M46 22Q62 18 70 40"/>
+                <path class="ln" d="M66.5 36.5L70 40L70.4 35"/>
+                <text class="k" x="30" y="10" text-anchor="middle">26</text>
+                <text class="k" x="82" y="42" text-anchor="middle">15</text>
+              </svg>
+              <div class="flow-cap"><span class="flow-num">07</span><div class="flow-title">Second block</div><p class="flow-text">The same logic runs again with fewer floors for the shorter block. Nothing is scaled: 15 levels against 26.</p></div>
+            </div>
+
+            <div class="flow-step">
+              <svg class="flow-fig" viewBox="0 0 120 90" role="img" aria-label="Slabs on every level, some culled, around one full-height core">
+                <rect class="gh" x="22" y="12" width="76" height="72" rx="4"/>
+                <path class="ln" d="M22 78H98M22 71H98M22 64H98M22 57H98M22 43H98M22 36H98M22 22H98M22 15H98"/>
+                <path class="gh dash" d="M22 50H98M22 29H98"/>
+                <rect class="af" x="52" y="12" width="16" height="72"/>
+                <rect class="ac" x="52" y="12" width="16" height="72"/>
+                <text class="k" x="60" y="8" text-anchor="middle">core</text>
+                <text x="100" y="31">void</text>
+              </svg>
+              <div class="flow-cap"><span class="flow-num">08</span><div class="flow-title">Slabs + core</div><p class="flow-text">A slab on every level, some culled for terraces and voids, around one core lofted the full height.</p></div>
+            </div>
+
+            <div class="flow-step">
+              <svg class="flow-fig" viewBox="0 0 120 90" role="img" aria-label="Peeled strips sweep down into the shared podium">
+                <rect class="gh" x="18" y="10" width="22" height="56" rx="3"/>
+                <rect class="gh" x="66" y="34" width="26" height="32" rx="2"/>
+                <rect class="ln" x="8" y="66" width="104" height="16"/>
+                <path class="ac" d="M40 24C54 30 52 58 60 63H110M40 32C50 38 48 58 54 66"/>
+                <text x="60" y="77" text-anchor="middle">podium · shared base</text>
+              </svg>
+              <div class="flow-cap"><span class="flow-num">09</span><div class="flow-title">Podium</div><p class="flow-text">The strips sweep down into the shared podium: public banking hall, lobby and security, a conference hall and a café.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-head" data-reveal>
+        <span class="proj-num">03</span>
+        <h4 class="proj-name">National Technology &amp; Science Museum</h4>
+        <div class="proj-info">
+          <dl class="proj-facts">
+            <div><dt>Location</dt><dd>Ankara, Türkiye</dd></div>
+            <div><dt>Area</dt><dd>15,000 sqm</dd></div>
+            <div><dt>Year</dt><dd>2025</dd></div>
+            <div><dt>Type</dt><dd>Museum</dd></div>
+            <div><dt>Status</dt><dd>Concept</dd></div>
+          </dl>
+          <div class="proj-resp">
+            <p class="proj-resp-h">Responsibilities</p>
+            <ul>
+              <li>Developed 3D models in Rhino and Grasshopper</li>
+              <li>Produced analytical and presentation diagrams</li>
+              <li>Designed and organized architectural plan layouts</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="hscroll proj-gal" data-gallery="nky">
+        <img src="nky/clean/hbmp-1.jpg" alt="National Technology & Science Museum" loading="lazy" />
+        <img src="nky/clean/hbmp-2.jpg" alt="National Technology & Science Museum" loading="lazy" />
+        <img src="nky/clean/hbmp-3.gif" alt="National Technology & Science Museum, animation" loading="lazy" />
+      </div>
+
+      <div class="proj-logic case" data-reveal>
+        <h4 class="case-title">A museum dug beneath the TODAY layer</h4>
+        <p class="case-sub">Computational Logic · Rhino + Grasshopper</p>
+        <p class="tp-p">The site is historically charged, so the museum is dug into it rather than built on top. A new TODAY layer is laid over the existing buildings and trees, the usable area is cleared 3.00 m below it without harming the historic fabric, and every mature tree keeps its own ground. The rail tracks that wrap the site carry into the design: I continued their curvature in Grasshopper and mapped the new tracks onto the landscape. Around the openings the edge rises as glass and then flares into a parabolic mesh railing, all driven from one top curve.</p>
+        <p class="tp-team"><b>Tools:</b> Rhino · Grasshopper &nbsp;·&nbsp; <b>Definition:</b> rail curves mapped with Flow Along Surface and Project, one top curve driving the glass and mesh edge &nbsp;·&nbsp; <b>My role:</b> parametric 3D model, analytical diagrams, plan layouts</p>
+
+        <div class="case-stats">
+          <div><b>3.00 m</b><span>usable depth under the layer</span></div>
+          <div><b>2</b><span>layers: existing and TODAY</span></div>
+          <div><b>140 cm</b><span>railing post module</span></div>
+          <div><b>15,000</b><span>sqm museum</span></div>
+        </div>
+
+        <div class="case-body">
+          <figure class="case-render"><img src="nky/hbmp-tower.jpg" alt="National Technology &amp; Science Museum, the glass edge flaring into the mesh railing around the sunken court" loading="lazy" /></figure>
+          <div class="flow case-grid">
+            <div class="flow-step">
+              <svg class="flow-fig" viewBox="0 0 120 90" role="img" aria-label="Rail loop around the site with existing buildings and trees">
+                <path class="ln" d="M11 84C14 60 20 30 30 18C38 9 60 6 86 13C101 17 111 27 108 37C106 43 92 44 66 46C45 48 31 58 25 72L22 84"/>
+              <path class="gh" d="M23 80C28 70 40 50 66 46C92 44 106 43 108 37C106 47 92 53 68 58C50 62 38 70 31 82Z"/>
+              <path class="gh" d="M55 55h6v3h-6zM66 52h6v3h-6zM75 50h4v3h-4z"/>
+              <circle class="dt" cx="34" cy="72" r="1.5"/>
+              <circle class="dt" cx="46" cy="63" r="1.5"/>
+              <circle class="dt" cx="84" cy="51" r="1.5"/>
+              <circle class="dt" cx="96" cy="47" r="1.5"/>
+              <text x="44" y="30">rail loop</text>
+              <text x="58" y="72">buildings · trees</text>
+              </svg>
+              <div class="flow-cap"><span class="flow-num">01</span><div class="flow-title">Site</div><p class="flow-text">The site is historically charged ground wrapped by a rail loop. Existing buildings and mature trees are recorded first.</p></div>
+            </div>
+
+            <div class="flow-step">
+              <svg class="flow-fig" viewBox="0 0 120 90" role="img" aria-label="New TODAY layer laid over the site">
+                <path class="gh" d="M11 84C14 60 20 30 30 18C38 9 60 6 86 13C101 17 111 27 108 37C106 43 92 44 66 46C45 48 31 58 25 72L22 84"/>
+              <clipPath id="hbL"><path d="M23 80C28 70 40 50 66 46C92 44 106 43 108 37C106 47 92 53 68 58C50 62 38 70 31 82Z"/></clipPath>
+              <path class="af" d="M23 80C28 70 40 50 66 46C92 44 106 43 108 37C106 47 92 53 68 58C50 62 38 70 31 82Z"/>
+              <path class="gh" clip-path="url(#hbL)" d="M40 30L26 80M49 30L35 80M58 30L44 80M67 30L53 80M76 30L62 80M85 30L71 80M94 30L80 80M103 30L89 80"/>
+              <path class="ac" d="M23 80C28 70 40 50 66 46C92 44 106 43 108 37C106 47 92 53 68 58C50 62 38 70 31 82Z"/>
+              <text class="k" x="56" y="74">TODAY layer</text>
+              </svg>
+              <div class="flow-cap"><span class="flow-num">02</span><div class="flow-title">TODAY layer</div><p class="flow-text">A new TODAY layer is laid over the existing site as the datum everything else is built on.</p></div>
+            </div>
+
+            <div class="flow-step">
+              <svg class="flow-fig" viewBox="0 0 120 90" role="img" aria-label="Usable area set 3.00 m under the layer">
+                <path class="gh" d="M11 84C14 60 20 30 30 18C38 9 60 6 86 13C101 17 111 27 108 37C106 43 92 44 66 46C45 48 31 58 25 72L22 84"/>
+              <path class="ln" d="M23 80C28 70 40 50 66 46C92 44 106 43 108 37C106 47 92 53 68 58C50 62 38 70 31 82Z"/>
+              <path class="af" d="M34 72C42 62 54 55 70 52C84 49 96 47 102 44C98 50 86 53 72 56C58 59 46 64 34 72Z"/>
+              <path class="ac" d="M34 72C42 62 54 55 70 52C84 49 96 47 102 44C98 50 86 53 72 56C58 59 46 64 34 72Z"/>
+              <text class="k" x="56" y="74">h 3.00 m</text>
+              <text x="62" y="30">usable area</text>
+              </svg>
+              <div class="flow-cap"><span class="flow-num">03</span><div class="flow-title">Usable area</div><p class="flow-text">Inside the layer the usable area is defined at a depth of 3.00 m.</p></div>
+            </div>
+
+            <div class="flow-step">
+              <svg class="flow-fig" viewBox="0 0 120 90" role="img" aria-label="Section: excavation with tree islands kept">
+                <path class="gh" d="M6 30H114"/>
+              <path class="af" d="M18 30V62H102V30H84V40H70V30H48V40H36V30Z"/>
+              <path class="ac" d="M18 30V62H102V30M84 30V40H70V30M48 30V40H36V30"/>
+              <path class="gh dash" d="M54 30v-10h10v10"/>
+              <path class="ln" d="M42 30V20M77 30V20"/>
+              <circle class="ln" cx="42" cy="16" r="5"/>
+              <circle class="ln" cx="77" cy="16" r="5"/>
+              <path class="ln" d="M108 30V62M105 30H111M105 62H111"/>
+              <text class="k" x="104" y="76" text-anchor="middle">3.00 m</text>
+              <text x="60" y="84" text-anchor="middle">soil out · trees kept</text>
+              </svg>
+              <div class="flow-cap"><span class="flow-num">04</span><div class="flow-title">Dig, keep trees</div><p class="flow-text">Soil and buildings are removed inside the area without touching the historic fabric. The mature trees stay on their own ground.</p></div>
+            </div>
+
+            <div class="flow-step">
+              <svg class="flow-fig" viewBox="0 0 120 90" role="img" aria-label="New track curves following the rail loop">
+                <path class="ln" d="M11 84C14 60 20 30 30 18C38 9 60 6 86 13C101 17 111 27 108 37C106 43 92 44 66 46C45 48 31 58 25 72L22 84"/>
+              <path class="gh" d="M23 80C28 70 40 50 66 46C92 44 106 43 108 37C106 47 92 53 68 58C50 62 38 70 31 82Z"/>
+              <path class="ac" d="M25.0 81.0C34 62 60 52.0 106 40.5M26.6 80.6C35 61 60 50.6 105 40.3M28.2 80.2C36 60 60 49.2 104 40.1M29.8 79.8C37 59 60 47.8 103 39.9"/>
+              <text class="k" x="40" y="30">loop curvature</text>
+              <text x="60" y="72">new tracks</text>
+              </svg>
+              <div class="flow-cap"><span class="flow-num">05</span><div class="flow-title">Rail curves</div><p class="flow-text">The curvature of the rail loop is continued in Grasshopper, so new tracks follow the same flow across the site.</p></div>
+            </div>
+
+            <div class="flow-step">
+              <svg class="flow-fig" viewBox="0 0 120 90" role="img" aria-label="Track curve mapped onto the landscape surface and thickened">
+                <path class="gh dash" d="M10 26C40 22 80 22 110 26"/>
+              <path class="gh" d="M30 29V56M60 28V55M90 29V57"/>
+              <path class="gh" d="M27.5 52L30 57L32.5 52M57.5 51L60 56L62.5 51M87.5 53L90 58L92.5 53"/>
+              <path class="ln" d="M6 64C22 56 36 70 54 62C72 54 86 66 114 58"/>
+              <path class="af" d="M6 64C22 56 36 70 54 62C72 54 86 66 114 58V62C86 70 72 58 54 66C36 74 22 60 6 68Z"/>
+              <path class="ac" d="M6 64C22 56 36 70 54 62C72 54 86 66 114 58M6 68C22 60 36 74 54 66C72 58 86 70 114 62"/>
+              <text x="60" y="18" text-anchor="middle">track curve</text>
+              <text class="k" x="60" y="84" text-anchor="middle">flow along srf · thickness</text>
+              </svg>
+              <div class="flow-cap"><span class="flow-num">06</span><div class="flow-title">On the landscape</div><p class="flow-text">The tracks are mapped onto the landscape with Flow Along Surface or Project and given a thickness, becoming built landscape elements.</p></div>
+            </div>
+
+            <div class="flow-step">
+              <svg class="flow-fig" viewBox="0 0 120 90" role="img" aria-label="Openings in the ground edged with glass">
+                <path class="gh" d="M11 84C14 60 20 30 30 18C38 9 60 6 86 13C101 17 111 27 108 37C106 43 92 44 66 46C45 48 31 58 25 72L22 84"/>
+              <path class="gh" d="M23 80C28 70 40 50 66 46C92 44 106 43 108 37C106 47 92 53 68 58C50 62 38 70 31 82Z"/>
+              <ellipse class="af" cx="70" cy="53" rx="18" ry="4.2" transform="rotate(-15 70 53)"/>
+              <ellipse class="ac" cx="70" cy="53" rx="18" ry="4.2" transform="rotate(-15 70 53)"/>
+              <circle class="af" cx="37" cy="70" r="3"/>
+              <circle class="ac" cx="37" cy="70" r="3"/>
+              <circle class="af" cx="97" cy="46.5" r="2.4"/>
+              <circle class="ac" cx="97" cy="46.5" r="2.4"/>
+              <circle class="dt" cx="64" cy="55" r="1.3"/>
+              <circle class="dt" cx="76" cy="51.5" r="1.3"/>
+              <circle class="dt" cx="37" cy="70" r="1.2"/>
+              <text class="k" x="60" y="30">glass edge</text>
+              <text x="46" y="82">tree openings</text>
+              </svg>
+              <div class="flow-cap"><span class="flow-num">07</span><div class="flow-title">Glass edges</div><p class="flow-text">Where the ground opens, around the sunken hall and where trees rise, the edges become glass surfaces.</p></div>
+            </div>
+
+            <div class="flow-step">
+              <svg class="flow-fig" viewBox="0 0 120 90" role="img" aria-label="Top curve extended along a parabola and scaled wider">
+                <path class="gh" d="M6 78H114"/>
+              <rect class="af" x="34" y="44" width="6" height="34"/>
+              <path class="ln" d="M34 44V78M40 44V78"/>
+              <path class="gh dash" d="M40 44L40.1 42.5L40.3 41L40.7 39.5L41.2 38L41.9 36.5L42.7 35L43.7 33.5L44.8 32L46.1 30.5L47.5 29L49.1 27.5L50.8 26L52.7 24.5L54.7 23L56.9 21.5L59.2 20L61.7 18.5L64.3 17L67.1 15.5L70 14"/>
+              <path class="ac" d="M40 44L40.1 42.3L40.3 40.6L40.7 38.9L41.2 37.2L41.9 35.5L42.8 33.8L43.8 32.1L45.1 30.4L46.5 28.7L48.2 27L50 25.3L52.2 23.6L54.5 21.9L57.2 20.2L60.2 18.5L63.5 16.8L67.2 15.1L71.2 13.4L75.6 11.7L80.5 10"/>
+              <circle class="dt" cx="40" cy="44" r="1.6"/>
+              <text x="30" y="62" text-anchor="end">glass</text>
+              <text x="44" y="50">top curve</text>
+              <text class="k" x="110" y="26" text-anchor="end">scaled wider</text>
+              </svg>
+              <div class="flow-cap"><span class="flow-num">08</span><div class="flow-title">Parabolic crown</div><p class="flow-text">The top curve of the glass is taken and every point is extended along its circular, parabolic continuation. Past a point it is scaled so the upper edge flares a little wider.</p></div>
+            </div>
+
+            <div class="flow-step">
+              <svg class="flow-fig" viewBox="0 0 120 90" role="img" aria-label="Mesh crown with metal joints and posts every 140 cm">
+                <path class="gh" d="M6 78H114"/>
+              <rect class="gh" x="34" y="44" width="6" height="34"/>
+              <path class="gh" d="M36 46L36.1 44.3L36.3 42.6L36.7 40.9L37.2 39.2L37.9 37.5L38.8 35.8L39.8 34.1L41.1 32.4L42.5 30.7L44.2 29L46 27.3L48.2 25.6L50.5 23.9L53.2 22.2L56.2 20.5L59.5 18.8L63.2 17.1L67.2 15.4L71.6 13.7L76.5 12"/>
+              <path class="gh" d="M40 44L36 46M40.3 40.6L36.3 42.6M41.2 37.2L37.2 39.2M42.8 33.8L38.8 35.8M45.1 30.4L41.1 32.4M48.2 27L44.2 29M52.2 23.6L48.2 25.6M57.2 20.2L53.2 22.2M63.5 16.8L59.5 18.8M71.2 13.4L67.2 15.4M80.5 10L76.5 12"/>
+              <path class="ln" d="M40 44L40.1 42.3L40.3 40.6L40.7 38.9L41.2 37.2L41.9 35.5L42.8 33.8L43.8 32.1L45.1 30.4L46.5 28.7L48.2 27L50 25.3L52.2 23.6L54.5 21.9L57.2 20.2L60.2 18.5L63.5 16.8L67.2 15.1L71.2 13.4L75.6 11.7L80.5 10"/>
+              <path class="ac" d="M40.3 40.6l0 -6M42.8 33.8l0 -6M48.2 27l0 -6M57.2 20.2l0 -6M71.2 13.4l0 -6"/>
+              <circle class="dy" cx="40" cy="44" r="1.5"/>
+              <circle class="dy" cx="48.2" cy="27" r="1.5"/>
+              <circle class="dy" cx="80.5" cy="10" r="1.5"/>
+              <text class="k" x="110" y="26" text-anchor="end">posts · 140 cm</text>
+              <text x="60" y="66">mesh</text>
+              <text x="110" y="50" text-anchor="end">metal joints</text>
+              </svg>
+              <div class="flow-cap"><span class="flow-num">09</span><div class="flow-title">Mesh + railings</div><p class="flow-text">Above the glass the surface becomes a mesh with metal details at the joints, and railing posts are set every 140 cm along it.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-head" data-reveal>
+        <span class="proj-num">04</span>
+        <h4 class="proj-name">TPAO Campus</h4>
+        <div class="proj-info">
+          <dl class="proj-facts">
+            <div><dt>Location</dt><dd>Şırnak, Türkiye</dd></div>
+            <div><dt>Area</dt><dd>80,000 sqm</dd></div>
+            <div><dt>Status</dt><dd>Concept to application</dd></div>
+            <div><dt>Client</dt><dd>Turkish Petroleum Corporation</dd></div>
+          </dl>
+          <div class="proj-resp">
+            <p class="proj-resp-h">Responsibilities</p>
+            <ul>
+              <li>Developed the 3D site model</li>
+              <li>Produced analytical and presentation diagrams</li>
+              <li>Designed and organized plan layouts of the guesthouse, staff housing and guard houses (preliminary design)</li>
+              <li>Set of architectural drawings: floor plans, sections, elevations, reflected ceiling, floor and wall cladding plans, wall plans, system, wet and curtain wall details (AutoCAD)</li>
+              <li>Structural, electrical and mechanical coordination</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="hscroll proj-gal" data-gallery="nky">
+        <img src="nky/clean/tpsk-1.jpg" alt="TPAO Campus" loading="lazy" />
+        <img src="nky/clean/tpsk-2.jpg" alt="TPAO Campus" loading="lazy" />
+      </div>
+
+      <div class="proj-head" data-reveal>
+        <span class="proj-num">05</span>
+        <h4 class="proj-name">Başkent Electricity Headquarters</h4>
+        <div class="proj-info">
+          <dl class="proj-facts">
+            <div><dt>Location</dt><dd>Ankara, Türkiye</dd></div>
+            <div><dt>Area</dt><dd>80,000 sqm</dd></div>
+            <div><dt>Status</dt><dd>Concept to application</dd></div>
+            <div><dt>Client</dt><dd>Başkent Elektrik Corporation</dd></div>
+          </dl>
+          <div class="proj-resp">
+            <p class="proj-resp-h">Responsibilities</p>
+            <ul>
+              <li>Developed 3D alternative models</li>
+              <li>Produced analytical and presentation diagrams</li>
+              <li>Set of architectural drawings: floor plans, sections, elevations, reflected ceiling, floor and wall cladding plans, wall plans, system, wet and curtain wall details (AutoCAD)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="hscroll proj-gal" data-gallery="nky">
+        <img src="nky/clean/belkepa-1.jpg" alt="Başkent Electricity Headquarters" loading="lazy" />
+        <img src="nky/clean/belkepa-2.jpg" alt="Başkent Electricity Headquarters" loading="lazy" />
+      </div>
+
+      <div class="proj-head" data-reveal>
+        <span class="proj-num">06</span>
+        <h4 class="proj-name">VR Krtsanisi Resort Residence</h4>
+        <div class="proj-info">
+          <dl class="proj-facts">
+            <div><dt>Location</dt><dd>Tbilisi, Georgia</dd></div>
+            <div><dt>Area</dt><dd>18,000 sqm</dd></div>
+            <div><dt>Status</dt><dd>Concept to application</dd></div>
+            <div><dt>Client</dt><dd>VR Holding</dd></div>
+            <div><dt>Award</dt><dd>Property Design Awards, rank 1</dd></div>
+          </dl>
+          <div class="proj-resp">
+            <p class="proj-resp-h">Responsibilities</p>
+            <ul>
+              <li>Produced analytical and presentation diagrams</li>
+              <li>Set of architectural drawings: floor plans, sections, elevations, reflected ceiling, floor and wall cladding plans, wall plans, system, wet and curtain wall details (AutoCAD)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="hscroll proj-gal" data-gallery="nky">
+        <img src="nky/clean/gtrp-1.gif" alt="VR Krtsanisi Resort Residence, animation" loading="lazy" />
+        <img src="nky/clean/gtrp-2.jpg" alt="VR Krtsanisi Resort Residence" loading="lazy" />
+        <img src="nky/clean/gtrp-3.jpg" alt="VR Krtsanisi Resort Residence" loading="lazy" />
+      </div>
+
+      <div class="proj-head" data-reveal>
+        <span class="proj-num">07</span>
+        <h4 class="proj-name">Chancery Building &amp; Residential Complex</h4>
+        <div class="proj-info">
+          <dl class="proj-facts">
+            <div><dt>Location</dt><dd>Ankara, Türkiye</dd></div>
+            <div><dt>Area</dt><dd>5,000 sqm</dd></div>
+            <div><dt>Status</dt><dd>Concept to application</dd></div>
+            <div><dt>Client</dt><dd>Embassy (confidential)</dd></div>
+          </dl>
+          <div class="proj-resp">
+            <p class="proj-resp-h">Responsibilities</p>
+            <ul>
+              <li>Converted the model from Archicad to Revit using Grasshopper</li>
+              <li>BIM modelling (preliminary design)</li>
+              <li>Produced analytical and presentation diagrams</li>
+              <li>Set of architectural drawings: floor plans, sections, elevations, reflected ceiling, floor and wall cladding plans, wall plans, system, wet and curtain wall details (AutoCAD, design development)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="hscroll proj-gal" data-gallery="nky">
+        <img src="nky/clean/sebp-1.jpg" alt="Chancery Building & Residential Complex" loading="lazy" />
+        <img src="nky/clean/sebp-2.jpg" alt="Chancery Building & Residential Complex" loading="lazy" />
+      </div>
+
+      <div class="proj-head" data-reveal>
+        <span class="proj-num">08</span>
+        <h4 class="proj-name">Adaptive Reuse for Enriching the Heritage</h4>
+        <div class="proj-info">
+          <dl class="proj-facts">
+            <div><dt>Location</dt><dd>Kerkijihan, Azerbaijan</dd></div>
+            <div><dt>Type</dt><dd>Urban complex</dd></div>
+            <div><dt>Status</dt><dd>Concept</dd></div>
+            <div><dt>Client</dt><dd>Embassy (confidential)</dd></div>
+          </dl>
+          <div class="proj-resp">
+            <p class="proj-resp-h">Responsibilities</p>
+            <ul>
+              <li>3D modelling in Revit (concept)</li>
+              <li>Produced analytical and presentation diagrams</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="hscroll proj-gal" data-gallery="nky">
+        <img src="nky/clean/bkcp-1.jpg" alt="Adaptive Reuse for Enriching the Heritage" loading="lazy" />
+        <img src="nky/clean/bkcp-2.gif" alt="Adaptive Reuse for Enriching the Heritage, animation" loading="lazy" />
+      </div>
+
+      <div class="proj-head" data-reveal>
+        <span class="proj-num">09</span>
+        <h4 class="proj-name">Ankara University State Hospital</h4>
+        <div class="proj-info">
+          <dl class="proj-facts">
+            <div><dt>Location</dt><dd>Ankara, Türkiye</dd></div>
+            <div><dt>Area</dt><dd>22,000 sqm</dd></div>
+            <div><dt>Type</dt><dd>Healthcare</dd></div>
+            <div><dt>Status</dt><dd>Concept</dd></div>
+            <div><dt>Client</dt><dd>Governmental</dd></div>
+          </dl>
+          <div class="proj-resp">
+            <p class="proj-resp-h">Responsibilities</p>
+            <ul>
+              <li>3D modelling in Revit (concept)</li>
+              <li>Produced analytical and presentation diagrams</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="hscroll proj-gal" data-gallery="nky">
+        <img src="nky/clean/auhp-1.jpg" alt="Ankara University State Hospital" loading="lazy" />
+        <img src="nky/clean/auhp-2.gif" alt="Ankara University State Hospital, animation" loading="lazy" />
+        <img src="nky/clean/auhp-3.gif" alt="Ankara University State Hospital, animation" loading="lazy" />
+      </div>
+
+      <div class="proj-head" data-reveal>
+        <span class="proj-num">10</span>
+        <h4 class="proj-name">A Ministry: Rooted from Local Values</h4>
+        <div class="proj-info">
+          <dl class="proj-facts">
+            <div><dt>Location</dt><dd>Bakau, Gambia</dd></div>
+            <div><dt>Area</dt><dd>20,000 sqm</dd></div>
+            <div><dt>Type</dt><dd>Ministry complex, governmental</dd></div>
+            <div><dt>Status</dt><dd>Concept</dd></div>
+          </dl>
+          <div class="proj-resp">
+            <p class="proj-resp-h">Responsibilities</p>
+            <ul>
+              <li>3D modelling of the canopy in Grasshopper</li>
+              <li>Produced analytical and presentation diagrams</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="hscroll proj-gal" data-gallery="nky">
+        <img src="nky/clean/gbmp-1.jpg" alt="A Ministry: Rooted from Local Values" loading="lazy" />
+        <img src="nky/clean/gbmp-2.gif" alt="A Ministry: Rooted from Local Values, animation" loading="lazy" />
+      </div>
+
+      <div class="proj-head" data-reveal>
+        <span class="proj-num">11</span>
+        <h4 class="proj-name">Municipality Additional Service Building</h4>
+        <div class="proj-info">
+          <dl class="proj-facts">
+            <div><dt>Location</dt><dd>Tokat, Türkiye</dd></div>
+            <div><dt>Area</dt><dd>8,000 sqm</dd></div>
+            <div><dt>Type</dt><dd>Office, governmental</dd></div>
+            <div><dt>Status</dt><dd>Preliminary design</dd></div>
+            <div><dt>Client</dt><dd>Municipality</dd></div>
+          </dl>
+          <div class="proj-resp">
+            <p class="proj-resp-h">Responsibilities</p>
+            <ul>
+              <li>Produced analytical and presentation diagrams</li>
+              <li>Designed and organized architectural plan layouts</li>
+              <li>Set of architectural drawings: floor plans, sections, elevations, reflected ceiling, floor and wall cladding plans, wall plans and wet details (AutoCAD)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="hscroll proj-gal" data-gallery="nky">
+        <img src="nky/clean/tbhb-1.jpg" alt="Municipality Additional Service Building" loading="lazy" />
+        <img src="nky/clean/tbhb-2.jpg" alt="Municipality Additional Service Building" loading="lazy" />
       </div>
 
     </section>

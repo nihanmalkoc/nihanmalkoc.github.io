@@ -18,3 +18,10 @@ masters/**/_picks.png
 masters/aia/AIA_DEMO@.mp4
 masters/dataencoding/Mockup..mp4
 masters/generative ai/
+
+# Grasshopper kaynak dosyaları (müşteri işi, yayınlanmaz)
+nky/ghx/
+
+# Ham video kaynaklari (sitede sadece optimize demo mp4 kullanilir)
+masters/**/*.mov
+masters/cbdm/0929-edit/
