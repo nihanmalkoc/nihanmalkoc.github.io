@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=case3" />
+  <link rel="stylesheet" href="styles.css?v=auto2" />
 </head>
 <body>
   <canvas id="pixel-bg" aria-hidden="true"></canvas>
@@ -51,20 +51,76 @@
         </p>
       </div>
 
-      <h3 class="works-heading">Automation Tools</h3>
-      <p class="tp-p">Tools I built to take repetitive production work off the team.</p>
-      <div class="mt-grid">
-        <a class="mt-item" href="professional-delivery-tools.html">
-          <img src="nky/tools/delivery-thumb.svg" alt="AutoCAD Delivery Tools" loading="lazy" />
-          <div class="mt-txt">
-            <strong>AutoCAD Delivery Tools</strong>
-            <span>PowerShell + AutoLISP · Open source</span>
-            <p>Headless batch checking, fixing and binding of drawing delivery sets: a 330-sheet re-issue that kept a team of 10 busy for a full day now runs in about half an hour.</p>
-          </div>
+      <!-- Sayfa ici gecis: projeler asagida kaldigi icin iki bolume dogrudan atlama -->
+      <nav class="jump" aria-label="On this page">
+        <a class="jump-tile" href="#automation">
+          <span class="jump-k">01</span>
+          <strong>Automation Tools</strong>
+          <span class="jump-m">Delivery Sets · Drawing List · Room List<br />~315 h of delivery work done in ~18 h</span>
+          <i aria-hidden="true">↓</i>
+        </a>
+        <a class="jump-tile" href="#projects">
+          <span class="jump-k">02</span>
+          <strong>Selected Projects</strong>
+          <span class="jump-m">11 projects, concept to documentation<br />tower, offices, museum, campus, hospital, embassy</span>
+          <i aria-hidden="true">↓</i>
+        </a>
+      </nav>
+
+      <h3 class="works-heading" id="automation">Automation Tools</h3>
+      <p class="tp-p">Three tools I built to take repetitive delivery work off the team. They run AutoCAD headless and write Excel directly, following office rules that are written down once and checked on every issue.</p>
+
+      <!-- Tum teslimin ozeti: VTKM teslim raporu (30.09.2026), elle birim sure tahmini vs oturum kayitlarindan gerceklesen -->
+      <div class="mt-hero" data-reveal>
+        <p class="mt-hero-k">Last full delivery · 15 buildings · all three tools</p>
+        <div class="mt-hero-n">
+          <div><b>~315 h</b><span>by hand, estimated<br />about 40 person-days</span></div>
+          <i aria-hidden="true">→</i>
+          <div><b>~18 h</b><span>actual, one person with Claude<br />active hours over 5 working days</span></div>
+        </div>
+        <p class="mt-hero-s">473 drawings in the submission folder, 385 sets bound, 224 PDF sheets, 488 sheets added to the drawing list and 2,056 rooms listed. The team's own rough estimate was 10 people × 2 days; either way the delivery took 9 to 17 times fewer hours, including teaching the office rules to the tools for the first time.</p>
+      </div>
+
+      <div class="mt-tools">
+        <a class="mt-tool" href="professional-delivery-tools.html" data-reveal>
+          <img src="nky/tools/delivery-thumb.svg" alt="Delivery sets: checked and bound" loading="lazy" />
+          <span class="mt-n">01</span>
+          <strong>Delivery Sets</strong>
+          <span class="mt-sub">Check · fix · bind · PDF · Open source</span>
+          <dl class="mt-stat">
+            <div><dt>By hand</dt><dd>~160 h<small>385 sets, 224 PDFs</small></dd></div>
+            <div><dt>Re-issue</dt><dd>~30 min<small>was a team of 10 for a full day</small></dd></div>
+          </dl>
+          <p>Checks every set against the office rules (xrefs, naming, title block, draw order), fixes it, binds a clean copy and plots the PDFs. The rules are taught once, in one config.</p>
+          <span class="mt-open">See the tool</span>
+        </a>
+        <a class="mt-tool" href="professional-drawing-list.html" data-reveal>
+          <img src="nky/tools/tml-thumb.svg" alt="Title blocks into the Excel drawing list" loading="lazy" />
+          <span class="mt-n">02</span>
+          <strong>Drawing List (TML)</strong>
+          <span class="mt-sub">Title blocks → Excel</span>
+          <dl class="mt-stat">
+            <div><dt>By hand</dt><dd>~27 h<small>typing and checking rows</small></dd></div>
+            <div><dt>Sheets added</dt><dd>488<small>in package order</small></dd></div>
+          </dl>
+          <p>Reads the title block of every delivered sheet and writes it into the Excel drawing list in the list's own style: package order, legends above their plan, numbering and row format kept.</p>
+          <span class="mt-open">See the tool</span>
+        </a>
+        <a class="mt-tool" href="professional-room-list.html" data-reveal>
+          <img src="nky/tools/rml-thumb.svg" alt="Room tags from the room xrefs into the room list" loading="lazy" />
+          <span class="mt-n">03</span>
+          <strong>Room List (ID-RML)</strong>
+          <span class="mt-sub">Room xrefs → Excel</span>
+          <dl class="mt-stat">
+            <div><dt>By hand</dt><dd>~22 h<small>extracting and checking</small></dd></div>
+            <div><dt>Rooms listed</dt><dd>2,056<small>from 44 room drawings</small></dd></div>
+          </dl>
+          <p>Extracts the room tags (code, name, area, finishes) from the room xrefs of every building and builds the room material list from the office template, one sheet per building.</p>
+          <span class="mt-open">See the tool</span>
         </a>
       </div>
 
-      <h3 class="works-heading">Selected Projects</h3>
+      <h3 class="works-heading" id="projects">Selected Projects</h3>
 
       <!-- Her proje: baslik + kunye + sorumluluklar, altinda temiz gorseller yatay galeride (nky/clean);
            computational logic paneli galeriden sonra. data-gallery="nky": lightbox tum projelerde tek grup · 01 → 11 -->

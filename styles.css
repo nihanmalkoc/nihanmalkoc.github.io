@@ -268,6 +268,47 @@ main, .site-header, .menu-overlay, .contact { position: relative; z-index: 1; }
 .mt-item::after { content: "→"; color: var(--muted); font-weight: 600; align-self: center; }
 .mt-item:hover::after { color: var(--yellow-d); }
 
+/* Otomasyon: tum teslimin ozeti (elle → gerceklesen) + uc arac karti, her birinde kendi istatistigi */
+.mt-hero { border-top: 3px solid var(--yellow); border-bottom: 1.5px solid var(--ink); padding: 1.1rem 0 1.1rem; margin: .2rem 0 1.2rem; }
+.mt-hero-k { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--yellow-d); margin: 0 0 .7rem; }
+.mt-hero-n { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem 1.6rem; }
+.mt-hero-n b { display: inline-block; font-size: clamp(2.2rem, 6vw, 3.6rem); font-weight: 700; line-height: 1; letter-spacing: -.03em; }
+.mt-hero-n div:last-child b { color: var(--ink); box-shadow: inset 0 -.28em 0 var(--yellow); }
+.mt-hero-n span { display: block; margin-top: .45rem; font-size: .8rem; color: var(--muted); line-height: 1.4; }
+.mt-hero-n > i { font-style: normal; font-size: 2rem; color: var(--muted); align-self: flex-start; margin-top: clamp(.2rem, 1.2vw, .7rem); }
+.mt-hero-s { font-size: .88rem; color: #333; line-height: 1.5; margin: 1rem 0 0; max-width: 80ch; }
+.mt-tools { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-bottom: .6rem; }
+.mt-tool { display: flex; flex-direction: column; border: 1.5px solid var(--line); padding: .9rem; color: inherit; transition: border-color .25s, transform .25s; }
+.mt-tool:hover { border-color: var(--yellow); transform: translateY(-3px); }
+.mt-tool img { width: 100%; height: 118px; object-fit: contain; background: #fafafa; border: 1px solid var(--line); margin-bottom: .8rem; }
+.mt-tool .mt-n { font-size: .72rem; font-weight: 700; letter-spacing: .12em; color: var(--yellow-d); }
+.mt-tool strong { display: block; font-size: 1.08rem; font-weight: 600; letter-spacing: -0.01em; margin-top: .1rem; }
+.mt-tool .mt-sub { display: block; font-size: .72rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--yellow-d); margin: .15rem 0 0; }
+.mt-stat { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1.5px solid var(--ink); border-bottom: 1.5px solid var(--ink); margin: .75rem 0 .75rem; }
+.mt-stat div { padding: .6rem .6rem .55rem; border-left: 1px solid var(--line); }
+.mt-stat div:first-child { border-left: 0; padding-left: 0; }
+.mt-stat dt { font-size: .66rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.mt-stat dd { margin: .3rem 0 0; font-size: 1.45rem; font-weight: 700; letter-spacing: -.02em; line-height: 1.05; }
+.mt-stat dd small { display: block; margin-top: .3rem; font-size: .72rem; font-weight: 400; letter-spacing: 0; color: var(--muted); line-height: 1.3; }
+.mt-tool p { font-size: .85rem; color: #333; line-height: 1.45; margin: 0 0 .8rem; }
+.mt-tool .mt-open { margin-top: auto; font-size: .8rem; font-weight: 600; }
+.mt-tool .mt-open::after { content: " →"; color: var(--muted); }
+.mt-tool:hover .mt-open::after { color: var(--yellow-d); }
+@media (max-width: 860px) { .mt-tools { grid-template-columns: minmax(0, 1fr); } .mt-tool img { height: 104px; } }
+
+/* Arac sayfalari arasi gezinme (01 setler · 02 TML · 03 ID-RML) */
+.tool-nav { display: flex; flex-wrap: wrap; gap: .5rem; margin: -.4rem 0 1.6rem; }
+.tool-nav a { border: 1.5px solid var(--line); padding: .4rem .8rem; font-size: .8rem; font-weight: 600; transition: border-color .2s, background .2s; }
+.tool-nav a span { color: var(--yellow-d); margin-right: .4rem; }
+.tool-nav a:hover { border-color: var(--yellow); }
+.tool-nav a[aria-current="page"] { border-color: var(--ink); background: var(--ink); color: #fff; }
+.tool-nav a[aria-current="page"] span { color: var(--yellow); }
+.rule-list { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 1.6rem; margin: 0 0 1.8rem; padding: 0; font-size: .9rem; line-height: 1.45; }
+.rule-list li { padding: .5rem 0 .5rem 1.1rem; border-top: 1px solid var(--line); position: relative; }
+.rule-list li::before { content: ""; position: absolute; left: 0; top: .95rem; width: 6px; height: 6px; background: var(--yellow); }
+.rule-list b { font-weight: 600; }
+@media (max-width: 640px) { .rule-list { grid-template-columns: minmax(0, 1fr); } }
+
 /* Tıklanabilir önizleme (ana sayfa → alt sayfa) */
 .entry-link { cursor: pointer; }
 .entry-link .card { transition: border-color .3s, transform .3s; }
@@ -708,3 +749,16 @@ main, .site-header, .menu-overlay, .contact { position: relative; z-index: 1; }
   .wf-arrow { flex-direction: row; gap: .5rem; }
   .wf-arrow b { transform: rotate(90deg); }
 }
+
+/* Professional: paragraftan sonra iki bolume atlama kutulari (Automation Tools / Selected Projects) */
+.jump { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin: calc(-1 * clamp(1rem, 3vh, 2rem)) 0 clamp(2rem, 5vh, 3.2rem); }
+.jump-tile { position: relative; display: block; border: 1.5px solid var(--ink); padding: 1rem 3.2rem 1.05rem 1.1rem; color: inherit; background: var(--bg); transition: background .2s, border-color .2s, transform .2s; }
+.jump-tile:hover { background: var(--yellow); border-color: var(--yellow); transform: translateY(-3px); }
+.jump-k { display: block; font-size: .72rem; font-weight: 700; letter-spacing: .12em; color: var(--yellow-d); }
+.jump-tile:hover .jump-k { color: var(--ink); }
+.jump-tile strong { display: block; margin-top: .2rem; font-size: clamp(1.25rem, 2.4vw, 1.6rem); font-weight: 700; letter-spacing: -.02em; line-height: 1.15; }
+.jump-m { display: block; margin-top: .45rem; font-size: .82rem; color: var(--muted); line-height: 1.45; }
+.jump-tile:hover .jump-m { color: var(--ink); }
+.jump-tile i { position: absolute; right: 1.1rem; top: 50%; transform: translateY(-50%); font-style: normal; font-size: 1.6rem; line-height: 1; }
+#automation, #projects { scroll-margin-top: 72px; }
+@media (max-width: 640px) { .jump { grid-template-columns: minmax(0, 1fr); } }

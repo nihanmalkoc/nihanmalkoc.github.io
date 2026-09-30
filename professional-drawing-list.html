@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nihan Malkoç, Drawing List (TML)</title>
+  <meta name="description" content="Drawing List (TML), delivered sheets read from their title blocks and written into the Excel drawing list in its own style. PowerShell + AutoLISP + Excel." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=auto1" />
+</head>
+<body>
+  <canvas id="pixel-bg" aria-hidden="true"></canvas>
+
+  <header class="site-header" id="top">
+    <div class="header-left">
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <a href="index.html" class="logo" aria-label="nim!, home">n<span class="li" aria-hidden="true"><i class="i-dot"></i><i class="i-stem"></i></span>m<span class="excl" aria-hidden="true"><i class="excl-bar"></i><i class="excl-dot"></i></span></a>
+    </div>
+    <a class="cv-back" href="professional.html">← Professional</a>
+  </header>
+
+  <nav class="menu-overlay" aria-hidden="true">
+    <ul>
+      <li><a href="index.html#about"><span>01</span> Who I Am</a></li>
+      <li><a href="masters.html"><span>02</span> Masters</a></li>
+      <li><a href="professional.html"><span>03</span> Professional</a></li>
+      <li><a href="bachelors.html"><span>04</span> Bachelors</a></li>
+      <li><a href="cv.html"><span>05</span> Résumé</a></li>
+      <li><a href="index.html#contact"><span>06</span> Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="section works">
+      <div class="section-head">
+        <span class="section-index">03</span>
+        <h2 class="section-title">Drawing List (TML)</h2>
+        <span class="works-sub">Automation tool 02 · PowerShell + AutoLISP + Excel</span>
+      </div>
+      <nav class="tool-nav" aria-label="Automation tools">
+        <a href="professional-delivery-tools.html"><span>01</span>Delivery Sets</a>
+        <a href="professional-drawing-list.html" aria-current="page"><span>02</span>Drawing List (TML)</a>
+        <a href="professional-room-list.html"><span>03</span>Room List (ID-RML)</a>
+      </nav>
+
+      <div class="tp-intro" data-reveal>
+        <p class="tp-lead-big">
+          The drawing list (TML) is the Excel register of every sheet in a delivery: code, revision,
+          scale, date, English and Turkish name and sheet size. This tool reads the <b>title block of every
+          delivered sheet</b> and writes the list from the drawings, <b>in the list's own style</b>, so the
+          list and the drawings stop disagreeing. On the last delivery it added <b>488 missing sheets</b>,
+          about <b>27 hours of typing and checking by hand</b>.
+        </p>
+
+        <ul class="feat-row">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 8h14l-3-3M20 16H6l3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div><strong>Both directions</strong><span>names into title blocks, values into the list</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9h18M3 14h18M9 4v16" stroke-linecap="round"/></svg>
+            <div><strong>The list's own style</strong><span>format copied row by row</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z" stroke-linejoin="round"/><path d="M3 13l9 5 9-5" stroke-linejoin="round"/></svg>
+            <div><strong>Package order</strong><span>legends above their plan</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z" stroke-linejoin="round"/><circle cx="12" cy="12" r="3"/></svg>
+            <div><strong>Dry run first</strong><span>shows the exact rows it will write</span></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="case-stats" data-reveal>
+        <div><b>488</b><span>sheets added to the list on the last delivery</span></div>
+        <div><b>~27 h</b><span>typing and checking the rows by hand, estimated</span></div>
+        <div><b>334</b><span>title blocks given their English sheet names from the list</span></div>
+        <div><b>493</b><span>title blocks in 130 drawings surveyed in one run</span></div>
+      </div>
+
+      <!-- Problem -->
+      <h3 class="works-heading">The Problem</h3>
+      <p class="tp-p">
+        Sheets come from several teams, and one drawing can hold more than one sheet. Every sheet has to
+        appear in the list once, in its package block and in the right order, numbered, with the same name,
+        scale and size as its title block, and legend pages sit directly above the plan they belong to.
+        Typed by hand, the list falls behind: by delivery day <b>488 sheets</b> were missing from it,
+        mostly sets from other teams and new interior sets.
+      </p>
+
+      <!-- How it works -->
+      <h3 class="works-heading">How It Works</h3>
+      <p class="tp-p">
+        An AutoLISP routine reads each title block headless: layout, revision, scale, date, English and
+        Turkish name, and the sheet size from the border block, or from the layout paper when a team uses
+        its own border. PowerShell compares the codes with every worksheet of the list and adds only what
+        is missing, following the rules of the list itself.
+      </p>
+      <div class="tp-loop">
+        <span>Delivered drawings</span><i>→</i>
+        <span>Title block survey</span><i>→</i>
+        <span>Compare with the list</span><i>→</i>
+        <span>Plan the rows</span><i>→</i>
+        <span>Review</span><i>→</i>
+        <span>Write in the list's style</span>
+      </div>
+
+      <ul class="rule-list" data-reveal>
+        <li><b>Worksheet:</b> the nearest folder named like a worksheet, otherwise the building in the sheet code.</li>
+        <li><b>Position:</b> after the last row of its package; a new package becomes its own block in the office package order, with a separator row.</li>
+        <li><b>Legend pages</b> directly above the plan they belong to, in order: 0000, 0001, plan.</li>
+        <li><b>Style:</b> new rows copy the sheet's own row format (borders, fonts, fill, number format, row height); formulas kept.</li>
+        <li><b>Numbering</b> renewed on every changed worksheet; the print area grows with the table.</li>
+        <li><b>Values</b> written the way the list writes them: 1:20 becomes 1/20, text stays text.</li>
+        <li><b>The other direction:</b> sheet names go from the list into the title blocks, fitted to the line.</li>
+        <li><b>Sync:</b> revision, scale, date and size go from the drawings back into the list.</li>
+      </ul>
+
+      <!-- Safety -->
+      <h3 class="works-heading">Designed to Be Safe</h3>
+      <p class="tp-p">
+        The list is never written while it is open in Excel, and a backup copy is taken before every save.
+        A report-only run makes the same changes in memory and saves nothing, so the rows it reports are
+        exactly the rows a real run writes. Run it twice and the second run adds nothing.
+      </p>
+
+      <!-- Results -->
+      <h3 class="works-heading">Results</h3>
+      <p class="tp-p">
+        Tested on a copy of the live list: rows deleted from it came back at exactly their original
+        positions, with the same format, and a survey of the whole delivery (<b>493 title blocks in 130
+        drawings</b>) matched the list with no sheet missing. On the last delivery it added <b>488 sheets</b>,
+        work estimated at about <b>27 hours by hand</b>, and the list became the single source for the sheet
+        names in the title blocks.
+      </p>
+
+      <p class="tp-team">
+        <b>Stack</b> &nbsp;·&nbsp; PowerShell 5.1 · AutoLISP · AutoCAD accoreconsole · Excel
+        &nbsp;·&nbsp; part of the in-house delivery toolkit
+      </p>
+    </section>
+  </main>
+
+  <footer class="section cv-foot">
+    <p class="colophon">© <span id="year"></span> Nihan Malkoç · <a href="professional.html">back to Professional</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

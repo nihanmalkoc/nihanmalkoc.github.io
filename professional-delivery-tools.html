@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nihan Malkoç, AutoCAD Delivery Tools</title>
-  <meta name="description" content="AutoCAD Delivery Tools, headless batch checking, fixing and binding of drawing delivery sets. PowerShell + AutoLISP." />
+  <title>Nihan Malkoç, Delivery Sets</title>
+  <meta name="description" content="Delivery Sets, headless checking, fixing, binding and PDF plotting of AutoCAD delivery sets against the office rules. PowerShell + AutoLISP." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=auto1" />
 </head>
 <body>
   <canvas id="pixel-bg" aria-hidden="true"></canvas>
@@ -36,15 +36,20 @@
     <section class="section works">
       <div class="section-head">
         <span class="section-index">03</span>
-        <h2 class="section-title">AutoCAD Delivery Tools</h2>
-        <span class="works-sub">Practice automation · PowerShell + AutoLISP</span>
+        <h2 class="section-title">Delivery Sets</h2>
+        <span class="works-sub">Automation tool 01 · PowerShell + AutoLISP</span>
       </div>
+      <nav class="tool-nav" aria-label="Automation tools">
+        <a href="professional-delivery-tools.html" aria-current="page"><span>01</span>Delivery Sets</a>
+        <a href="professional-drawing-list.html"><span>02</span>Drawing List (TML)</a>
+        <a href="professional-room-list.html"><span>03</span>Room List (ID-RML)</a>
+      </nav>
 
       <div class="tp-intro" data-reveal>
         <p class="tp-lead-big">
-          A batch toolkit that keeps hundreds of AutoCAD <b>delivery sets</b> consistent:
+          A batch tool that keeps hundreds of AutoCAD <b>delivery sets</b> consistent:
           which base drawings each sheet references, how files, layouts and xrefs are named,
-          title block date and revision, and <b>bound, xref-free copies</b> for issue.
+          title block date and revision, draw order, and <b>bound, xref-free copies with PDFs</b> for issue.
           It runs headless through AutoCAD's console, so a re-issue that kept
           <b>a team of 10 busy for a full day now takes about half an hour</b>.
         </p>
@@ -65,10 +70,18 @@
             <div><strong>Plan before change</strong><span>review, then apply</span></div>
           </li>
           <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" stroke-linecap="round"/></svg>
-            <div><strong>Team reports</strong><span>rules &amp; status in Excel</span></div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z" stroke-linejoin="round"/><path d="M3 13l9 5 9-5" stroke-linejoin="round"/></svg>
+            <div><strong>Bind + PDF</strong><span>bound copy, sheet-size PDF, submission folder</span></div>
           </li>
         </ul>
+      </div>
+
+      <!-- Son tam teslim (teslim raporu, 30.09.2026) -->
+      <div class="case-stats" data-reveal>
+        <div><b>385</b><span>sets checked, fixed and bound on the last delivery</span></div>
+        <div><b>224</b><span>PDF sheets at sheet size, 1:1, office plot style</span></div>
+        <div><b>~12 min</b><span>to bind about 350 sets with 4 processes</span></div>
+        <div><b>~160 h</b><span>the same set work by hand, estimated</span></div>
       </div>
 
       <!-- Problem -->
@@ -78,17 +91,38 @@
         (plan, structure, facade, rooms, dimensions, doors, FFE …) plus a sheet border. Each package
         needs a different stack, and over months of revisions sets drift: a missing xref here, a
         duplicate there, an old border, a layout still named after a copied file. Before every issue
-        someone opened hundreds of drawings by hand to check them, update the title block and bind a
-        clean copy, which was slow and easy to get wrong under deadline pressure.
+        someone opened hundreds of drawings by hand to check them, update the title block, bind a
+        clean copy and plot it, which was slow and easy to get wrong under deadline pressure.
       </p>
+
+      <!-- Kurallar: teslim raporundaki "Sonraki teslimler" listesi -->
+      <h3 class="works-heading">Rules Taught Once</h3>
+      <p class="tp-p">
+        The office's delivery rules used to live in people's heads. They are now written in one config
+        and checked automatically on every set, so the next delivery starts from them instead of from memory.
+      </p>
+      <ul class="rule-list" data-reveal>
+        <li><b>Xrefs</b> as overlay; every package gets its own list of base drawings.</li>
+        <li><b>Draw order:</b> doors above plan and facade; where a package needs it, the room xref above all others.</li>
+        <li><b>Linetype scale</b> 0.1 in the sets, 20 in the base drawings.</li>
+        <li><b>Layout name</b> equal to the file name.</li>
+        <li><b>Title block</b> date and revision per issue; English and Turkish sheet names from the drawing list, fitted to the line.</li>
+        <li><b>Legends</b> at a fixed point on ceiling and floor plans; interior FFE sets open with a legend page.</li>
+        <li><b>Door wipeouts</b> sent to the back before every bind, so no door looks broken on the sheet.</li>
+        <li><b>Output:</b> bound copy in a dated DWG folder, PDF at sheet size, 1:1, office plot style.</li>
+        <li><b>Submission folder</b> by building and package, with one current copy of the drawing list and the room list.</li>
+        <li><b>Drawing list:</b> every delivered sheet in it, in the fixed package order.</li>
+      </ul>
 
       <!-- How it works -->
       <h3 class="works-heading">How It Works</h3>
       <p class="tp-p">
-        The office agrees on its rules once, in a single JSON config: naming patterns, which base
-        drawings each package references, title block tags and draw order. A PowerShell module then
-        generates AutoLISP scripts and runs them through <b>accoreconsole</b>, with no AutoCAD window,
-        several drawings at a time.
+        A PowerShell module reads the rules, generates AutoLISP scripts and runs them through
+        <b>accoreconsole</b>, with no AutoCAD window, several drawings at a time. It reports first,
+        writes a fix plan a person can read, and only then applies it. For the issue it binds every
+        set into a clean copy, freezes the sheet name fields so they do not turn into "Model", plots
+        each title block layout to a PDF at the size of its sheet border and copies the result into
+        the submission folder.
       </p>
       <div class="tp-loop">
         <span>Config</span><i>→</i>
@@ -97,22 +131,18 @@
         <span>Review</span><i>→</i>
         <span>Apply</span><i>→</i>
         <span>Title block</span><i>→</i>
-        <span>Bound delivery set</span>
+        <span>Bind + PDF</span><i>→</i>
+        <span>Submission folder</span>
       </div>
-      <!-- Buraya ekran görüntüleri: plan dosyası, konsol çıktısı, Excel status raporu (örnek proje ile) -->
-      <!--
-      <div class="img-row">
-        <img src="nky/tools/plan.jpg" alt="Generated fix plan" loading="lazy" />
-        <img src="nky/tools/status.jpg" alt="Delivery status workbook" loading="lazy" />
-      </div>
-      -->
 
       <!-- Safety -->
       <h3 class="works-heading">Designed to Be Safe</h3>
       <p class="tp-p">
         Nothing changes until a human has read the plan. Drawings open in AutoCAD are skipped, a
         drawing whose report is incomplete is never planned, and bound copies are written only when
-        every xref bound cleanly and never over an existing file. The source sets always stay unbound.
+        every xref bound cleanly. The source sets always stay unbound and unsaved; existing outputs
+        are kept unless a run is told to replace them, and the plot setting AutoCAD keeps outside the
+        drawing is restored after every PDF run.
       </p>
 
       <!-- Results -->
@@ -120,8 +150,15 @@
       <p class="tp-p">
         Measured on a real re-issue of about <b>330 sheets</b> over a network share, 4 parallel processes:
         title block update ≈ <b>7.5 min</b>, bind and save ≈ <b>10 min</b>, checking the few failures ≈ <b>10 min</b>,
-        roughly <b>half an hour in total</b> for work that used to take <b>a team of 10 people a full day</b>. The Excel rules and status workbooks
-        also gave the team one shared view of what every package should contain and where each set stands.
+        roughly <b>half an hour in total</b> for work that used to take <b>a team of 10 people a full day</b>.
+      </p>
+      <p class="tp-p">
+        On the last full delivery (15 buildings) the tool checked every set against the rules, bound
+        <b>385 sets</b> and plotted <b>224 PDF sheets</b>; AutoCAD opened drawings about <b>28,000 times</b>
+        to check, fix, bind or plot, with nobody clicking. Before the issue it caught 341 title blocks with
+        the wrong date, 33 room xrefs drawn under the others, 12 door drawings with wipeouts in front of
+        the doors, about 12 drawings that would not bind and 3 damaged files. The Excel rules and status
+        workbooks give the team one shared view of what every package should contain and where each set stands.
       </p>
 
       <p class="tp-team">

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nihan Malkoç, Room List (ID-RML)</title>
+  <meta name="description" content="Room List (ID-RML), room tags extracted from the room xrefs and built into the room material list from the office template. PowerShell + AutoLISP + Excel." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=auto1" />
+</head>
+<body>
+  <canvas id="pixel-bg" aria-hidden="true"></canvas>
+
+  <header class="site-header" id="top">
+    <div class="header-left">
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <a href="index.html" class="logo" aria-label="nim!, home">n<span class="li" aria-hidden="true"><i class="i-dot"></i><i class="i-stem"></i></span>m<span class="excl" aria-hidden="true"><i class="excl-bar"></i><i class="excl-dot"></i></span></a>
+    </div>
+    <a class="cv-back" href="professional.html">← Professional</a>
+  </header>
+
+  <nav class="menu-overlay" aria-hidden="true">
+    <ul>
+      <li><a href="index.html#about"><span>01</span> Who I Am</a></li>
+      <li><a href="masters.html"><span>02</span> Masters</a></li>
+      <li><a href="professional.html"><span>03</span> Professional</a></li>
+      <li><a href="bachelors.html"><span>04</span> Bachelors</a></li>
+      <li><a href="cv.html"><span>05</span> Résumé</a></li>
+      <li><a href="index.html#contact"><span>06</span> Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="section works">
+      <div class="section-head">
+        <span class="section-index">03</span>
+        <h2 class="section-title">Room List (ID-RML)</h2>
+        <span class="works-sub">Automation tool 03 · PowerShell + AutoLISP + Excel</span>
+      </div>
+      <nav class="tool-nav" aria-label="Automation tools">
+        <a href="professional-delivery-tools.html"><span>01</span>Delivery Sets</a>
+        <a href="professional-drawing-list.html"><span>02</span>Drawing List (TML)</a>
+        <a href="professional-room-list.html" aria-current="page"><span>03</span>Room List (ID-RML)</a>
+      </nav>
+
+      <div class="tp-intro" data-reveal>
+        <p class="tp-lead-big">
+          The room material list (ID-RML) gives every room of the interior package: code, name, area,
+          perimeter, and floor, ceiling, wall and skirting finishes. All of it already sits in the
+          <b>room tags of the room base drawings</b>. This tool extracts the tags from the xrefs headless
+          and builds the list from the office template, <b>one sheet per building</b>. On the last delivery:
+          <b>2,056 rooms from 44 room drawings</b>, about <b>22 hours of work by hand</b>.
+        </p>
+
+        <ul class="feat-row">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8L3 12z" stroke-linejoin="round"/><circle cx="7.5" cy="8" r="1.5"/></svg>
+            <div><strong>Data from the drawings</strong><span>room tags, no retyping</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 8h14l-3-3M20 16H6l3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div><strong>Old and new tags</strong><span>several attribute names per field</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6l8-3z" stroke-linejoin="round"/><path d="M8.5 12l2.5 2.5 4.5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div><strong>Code check</strong><span>duplicates, wrong building or level</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9h18M3 14h18M9 4v16" stroke-linecap="round"/></svg>
+            <div><strong>Office template</strong><span>header, logos, area totals</span></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="case-stats" data-reveal>
+        <div><b>2,056</b><span>rooms listed on the last delivery</span></div>
+        <div><b>44</b><span>room drawings read as xref data</span></div>
+        <div><b>8</b><span>fields per room, from code to skirting</span></div>
+        <div><b>~22 h</b><span>extracting and checking by hand, estimated</span></div>
+      </div>
+
+      <!-- Problem -->
+      <h3 class="works-heading">The Problem</h3>
+      <p class="tp-p">
+        By hand, someone opens each room drawing, copies every tag into Excel, sorts the rooms by level,
+        totals the areas and checks the codes, for every building and again after every change to the plans.
+        The tags themselves are mixed: older and newer tag blocks name the same field differently, in Turkish
+        or in English, and a room copied from another floor keeps a code that no longer fits.
+      </p>
+
+      <!-- How it works -->
+      <h3 class="works-heading">How It Works</h3>
+      <p class="tp-p">
+        An AutoLISP routine reads every attributed block in the model space of each room drawing, with no
+        AutoCAD window. PowerShell turns the tags into rooms, checks them, and writes each building onto its
+        own sheet copied from the office template.
+      </p>
+      <div class="tp-loop">
+        <span>Room xrefs</span><i>→</i>
+        <span>Read tags headless</span><i>→</i>
+        <span>Check codes</span><i>→</i>
+        <span>Sort by level</span><i>→</i>
+        <span>Fill the template</span><i>→</i>
+        <span>One sheet per building</span>
+      </div>
+
+      <ul class="rule-list" data-reveal>
+        <li><b>Fields</b> mapped to a list of tag names each, so old and new tag blocks can be mixed.</li>
+        <li><b>Areas</b> written as text (21.80m²) become numbers; building, level and number come from the room code.</li>
+        <li><b>Checks:</b> duplicate codes, codes in the wrong format, and tags whose code names another building or level than the drawing they sit in.</li>
+        <li><b>Order:</b> rooms sorted by level, basement to roof, then by room number.</li>
+        <li><b>Template:</b> header with project, building name and date, office and client logos, one formatted row per room.</li>
+        <li><b>Totals:</b> the building area as a sum formula, so the sheet stays live in Excel.</li>
+      </ul>
+
+      <!-- Safety -->
+      <h3 class="works-heading">Designed to Be Safe</h3>
+      <p class="tp-p">
+        It only reads: no drawing is ever changed. Drawings open in AutoCAD are skipped and reported, to be
+        read again once they are closed. The template is never modified and an existing list is never
+        overwritten.
+      </p>
+
+      <!-- Results -->
+      <h3 class="works-heading">Results</h3>
+      <p class="tp-p">
+        On the last delivery the list covered <b>2,056 rooms from 44 room drawings</b> across the buildings,
+        work estimated at about <b>22 hours by hand</b>. Because it reads the drawings instead of a copy of
+        them, the list can be rebuilt whenever the room plans change, and the code check finds the rooms that
+        would have gone into the list with the wrong number.
+      </p>
+
+      <p class="tp-team">
+        <b>Stack</b> &nbsp;·&nbsp; PowerShell 5.1 · AutoLISP · AutoCAD accoreconsole · Excel
+        &nbsp;·&nbsp; part of the in-house delivery toolkit
+      </p>
+    </section>
+  </main>
+
+  <footer class="section cv-foot">
+    <p class="colophon">© <span id="year"></span> Nihan Malkoç · <a href="professional.html">back to Professional</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 220">
+  <rect width="280" height="220" fill="#fafafa"/>
+  <!-- delivered sheets with title blocks -->
+  <g fill="#fff" stroke="#0a0a0a" stroke-width="3">
+    <rect x="30" y="58" width="88" height="66"/>
+    <rect x="22" y="70" width="88" height="66"/>
+    <rect x="14" y="82" width="88" height="66"/>
+  </g>
+  <rect x="66" y="124" width="36" height="24" fill="#ffd400" stroke="#0a0a0a" stroke-width="2.5"/>
+  <path d="M70 132h28M70 140h20" stroke="#0a0a0a" stroke-width="2"/>
+  <!-- arrow -->
+  <path d="M122 116h34" stroke="#0a0a0a" stroke-width="4"/>
+  <path d="M148 104l14 12-14 12" fill="none" stroke="#0a0a0a" stroke-width="4"/>
+  <!-- drawing list: rows, new rows highlighted -->
+  <rect x="174" y="56" width="92" height="120" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+  <rect x="174" y="56" width="92" height="16" fill="#0a0a0a"/>
+  <rect x="175.5" y="120" width="89" height="26" fill="#ffd400"/>
+  <g stroke="#0a0a0a" stroke-width="1.6">
+    <path d="M174 84h92M174 96h92M174 108h92M174 120h92M174 133h92M174 146h92M174 160h92"/>
+    <path d="M192 72v104M232 72v104"/>
+  </g>
+</svg>
