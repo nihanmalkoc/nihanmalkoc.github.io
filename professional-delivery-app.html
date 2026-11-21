@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nihan Malkoç, Delivery App (Teslim Uygulaması)</title>
+  <meta name="description" content="Teslim Uygulaması: a Windows desktop app that runs a whole AutoCAD drawing delivery in nine pages, from choosing the project to the submission folder, with a trial mode that writes nothing to the project. C# WPF + PowerShell + AutoLISP." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=auto1" />
+  <link rel="stylesheet" href="nky/tools/teslim-app.css?v=2" />
+</head>
+<body>
+  <canvas id="pixel-bg" aria-hidden="true"></canvas>
+
+  <header class="site-header" id="top">
+    <div class="header-left">
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <a href="index.html" class="logo" aria-label="nim!, home">n<span class="li" aria-hidden="true"><i class="i-dot"></i><i class="i-stem"></i></span>m<span class="excl" aria-hidden="true"><i class="excl-bar"></i><i class="excl-dot"></i></span></a>
+    </div>
+    <a class="cv-back" href="professional.html">← Professional</a>
+  </header>
+
+  <nav class="menu-overlay" aria-hidden="true">
+    <ul>
+      <li><a href="index.html#about"><span>01</span> Who I Am</a></li>
+      <li><a href="masters.html"><span>02</span> Masters</a></li>
+      <li><a href="professional.html"><span>03</span> Professional</a></li>
+      <li><a href="bachelors.html"><span>04</span> Bachelors</a></li>
+      <li><a href="cv.html"><span>05</span> Résumé</a></li>
+      <li><a href="index.html#contact"><span>06</span> Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="section works">
+      <div class="section-head">
+        <span class="section-index">03</span>
+        <h2 class="section-title">Delivery App</h2>
+        <span class="works-sub">Teslim Uygulaması · C# WPF desktop app · runs the three tools</span>
+      </div>
+      <nav class="tool-nav" aria-label="Automation tools">
+        <a href="professional-delivery-app.html" aria-current="page"><span>00</span>Delivery App</a>
+        <a href="professional-delivery-tools.html"><span>01</span>Delivery Sets</a>
+        <a href="professional-drawing-list.html"><span>02</span>Drawing List (TML)</a>
+        <a href="professional-room-list.html"><span>03</span>Room List (ID-RML)</a>
+      </nav>
+
+      <div class="tp-intro" data-reveal>
+        <p class="tp-lead-big">
+          The three tools made a full delivery possible in hours, but only for someone who could drive PowerShell.
+          <b>Teslim Uygulaması</b> ("delivery app") puts the whole delivery into <b>nine pages</b> anyone in the team can follow:
+          choose the project, scope, names, delivery details, then <b>scan, fix, bind + PDF, lists and submit</b>.
+          A <b>trial mode</b> runs every step without writing a single project file.
+        </p>
+      </div>
+
+      <!-- Uygulamanin kendi arayuzu: gercek ekranlardan HTML kopya. Proje kodu, sunucu yolu ve bina adlari anonim. -->
+      <div class="ta-stage" id="taStage">
+        <div class="ta-frame" id="taFrame">
+          <div class="ta" id="ta" role="application" aria-label="Teslim Uygulaması, interactive replica">
+            <div class="ta-top">
+
+              <span class="ta-title">Teslim Uygulaması</span>
+              <span class="ta-path">PRJ · APP · \\sunucu\projeler\PRJ\01_PRE\01_AR\03_PLOT_APP</span>
+              <button class="ta-btn ta-rules" data-go="5">ⓘ Kurallar</button>
+            </div>
+
+            <div class="ta-body">
+              <nav class="ta-nav" aria-label="Uygulama sayfaları">
+                <div class="ta-grp">HAZIRLIK</div>
+                <button class="ta-item" data-p="1"><span class="ck">✓</span>1&nbsp; Proje seç</button>
+                <button class="ta-item" data-p="2"><span class="ck">✓</span>2&nbsp; Kapsam</button>
+                <button class="ta-item" data-p="3"><span class="ck">✓</span>3&nbsp; Adlar</button>
+                <button class="ta-item" data-p="4"><span class="ck">✓</span>4&nbsp; Teslim bilgileri</button>
+                <div class="ta-grp">İŞLEM</div>
+                <button class="ta-item" data-p="5"><span class="ck">✓</span>5&nbsp; Tara</button>
+                <button class="ta-item" data-p="6"><span class="ck"></span>6&nbsp; Düzelt</button>
+                <button class="ta-item" data-p="7"><span class="ck"></span>7&nbsp; Bind + PDF</button>
+                <button class="ta-item" data-p="8"><span class="ck"></span>8&nbsp; Listeler</button>
+                <button class="ta-item" data-p="9"><span class="ck"></span>9&nbsp; Teslim et</button>
+              </nav>
+
+              <div class="ta-pages">
+                <!-- 1 Proje seç -->
+                <section class="ta-page" data-page="1">
+                  <div class="ta-scroll">
+                    <div class="ta-row" style="justify-content:space-between"><h4>Proje seç</h4><span class="lnk">Geçmişi temizle</span></div>
+                    <p class="ta-sub">Proje klasörünü ve teslim türünü seçin; proje kendiliğinden okunur. <span class="i">i</span></p>
+                    <div class="ta-form">
+                      <span>Proje klasörü</span>
+                      <div class="ta-row"><div class="ta-in" style="width:480px">\\sunucu\projeler\PRJ</div><button class="ta-btn" style="width:90px">Seç...</button><button class="ta-btn" style="width:90px" data-act="reload">Yenile</button></div>
+                      <span>Teslim türü</span>
+                      <div class="ta-row"><div class="ta-seg" data-seg="type"><button>CND</button><button>PRE</button><button class="on">APP</button></div><span class="muted">tür değişince proje yeniden okunur</span></div>
+                      <span>Kod · ofis · proje adı</span>
+                      <div class="ta-row"><div class="ta-in" style="width:110px">PRJ</div><div class="ta-in" style="width:110px">OFS</div><div class="ta-in" style="width:450px"></div></div>
+                    </div>
+                    <p class="blue" style="margin:14px 0 2px" id="taRead">✓ APP okundu: 385 set · 17 bina <span class="i">i</span></p>
+                    <p class="muted" style="margin:0">Önbellek: 385 set hazır <span class="i">i</span></p>
+                    <div class="ta-card" style="margin-top:14px;background:#fff">
+                      <div class="t">Tanıma raporu</div>
+                      <p style="margin:4px 0 0">✓ Paket klasörleri: 31 (00_SPL … 31_STD) · ✓ Bina kodları setlerin adından · ✓ Antet bloğu bulundu · ✓ TML: 29_TML<br/><span class="muted">Tanınmayan: 2 klasör arşiv sayıldı (set ve altlık sayılmaz).</span></p>
+                    </div>
+                  </div>
+                  <div class="ta-foot"><button class="ta-btn pri" data-go="2">İleri ›</button></div>
+                </section>
+
+                <!-- 2 Kapsam -->
+                <section class="ta-page" data-page="2" hidden>
+                  <div class="ta-scroll">
+                    <h4>Kapsam</h4>
+                    <p class="ta-sub">Tam teslim ya da ara teslim; hangi binalar, hangi paketler. <span class="i">i</span></p>
+                    <div class="ta-row" style="margin-bottom:10px"><div class="ta-seg"><button class="on">Tam teslim</button><button>Ara teslim</button></div><span class="blue" id="taScope">2 bina · 11 paket · 24 set</span></div>
+                    <div class="ta-form" style="grid-template-columns:72px 1fr;align-items:start">
+                      <span style="padding-top:3px">Binalar</span>
+                      <div class="ta-chips" data-chips="b"></div>
+                      <span style="padding-top:3px">Paketler</span>
+                      <div class="ta-chips" data-chips="p"></div>
+                    </div>
+                    <div class="ta-card" style="margin-top:16px;background:#fff"><span class="ta-fold">⌄</span><span class="t">Gelişmiş seçenekler</span> &nbsp; Dokunulmayacak set: 0</div>
+                  </div>
+                  <div class="ta-foot"><button class="ta-btn" data-go="1">‹ Geri</button><button class="ta-btn pri" data-go="3">İleri ›</button></div>
+                </section>
+
+                <!-- 3 Adlar -->
+                <section class="ta-page" data-page="3" hidden>
+                  <div class="ta-scroll">
+                    <h4>Adlar</h4>
+                    <p class="ta-sub">Antetlere yazılacak bina, kat ve paket adları ve adın dili. <span class="i">i</span></p>
+                    <div class="ta-h5">Antet adı dili</div>
+                    <p class="ta-sub">Antetlere hangi dilde ad yazılacak? Her teslimde sorulur. <span class="i">i</span></p>
+                    <div class="ta-row"><div class="ta-seg" data-seg="lang"><button class="on">İngilizce + Türkçe</button><button>Yalnız Türkçe</button><button>Yalnız İngilizce</button></div><span class="lnk">Antetlerdeki gibi: EN + TR — Bunu kullan</span></div>
+                    <p class="muted" style="margin:8px 0 2px">Antetlerde: EN + TR · 511 / 511</p>
+                    <hr style="border:0;border-top:1px solid #e3e5e8;margin:14px 0 4px" />
+                    <div class="ta-h5">Bina, kat ve paket adları</div>
+                    <p class="blue" style="margin:0">15 bina, 9 kat kodu, 8 paket adı <span class="i">i</span></p>
+                    <div class="ta-banner" id="taBanner"><span><b>● 7 ad onay bekliyor (5 satır)</b> · sarı hücrelerde binalar farklı yazmış; en çok yazılan kullanılıyor. Onaylayın ya da hücreyi düzeltin.</span><button class="ta-btn" data-act="approve" style="margin-left:auto;white-space:nowrap">Sarıları onayla</button></div>
+                    <p class="muted" style="margin:0 0 8px">Hücre renkleri:<span class="ta-key" style="background:#fbf0d4"></span>onay bekliyor<span class="ta-key" style="background:#e3f2e5"></span>düzelttiğiniz ya da onayladığınız<span class="ta-key" style="background:#e1ebf7"></span>taramada yeni öğrenildi<span class="ta-key" style="background:#fbe3e1"></span>eksik</p>
+                    <p class="bold" style="margin:6px 0 4px">Kat adları</p>
+                    <table class="ta-tbl" id="taFloors">
+                      <tr><th style="width:60px">Onay</th><th style="width:70px">Kat kodu</th><th>İngilizce</th><th>Türkçe</th><th>Binalar (etiket)</th></tr>
+                      <tr><td></td><td>G1</td><td>GROUND FLOOR</td><td>ZEMİN KAT</td><td>A1 G1 (±0.00), A2 G1 (±0.00), B1 G1 (+5.00), C1 G1 (+5.00) …</td></tr>
+                      <tr class="wait"><td>bekliyor</td><td>B1</td><td class="cell-y">BASEMENT FLOOR</td><td>BODRUM KAT</td><td>A1 B1 (−4.50), B1 B1 (−0.50), C2 B1 (−4.50)</td></tr>
+                      <tr><td></td><td>01</td><td>FIRST FLOOR</td><td>BİRİNCİ KAT</td><td>A1 01 (+4.50), A2 01 (+4.50), C1 01 (+9.50) …</td></tr>
+                      <tr class="wait"><td>bekliyor</td><td>M1</td><td class="cell-y">MEZZANINE</td><td class="cell-y">ARA KAT</td><td>B2 M1 (+3.20)</td></tr>
+                      <tr><td></td><td>R1</td><td>ROOF</td><td>ÇATI</td><td>A1 R1 (+7.90), A2 R1 (+7.90), C1 R1 (+14.90) …</td></tr>
+                    </table>
+                  </div>
+                  <div class="ta-foot"><button class="ta-btn" data-go="2">‹ Geri</button><button class="ta-btn pri" data-go="4">İleri ›</button></div>
+                </section>
+
+                <!-- 4 Teslim bilgileri -->
+                <section class="ta-page" data-page="4" hidden>
+                  <div class="ta-scroll">
+                    <h4>Teslim bilgileri</h4>
+                    <p class="ta-sub">Set türleri, teslimin adı, klasörleri ve çıktıları; sonra taramaya geçin. <span class="i">i</span></p>
+                    <div class="ta-card"><span class="ta-fold">⌄</span><span class="t">Setler</span> &nbsp; <span class="blue">737 altlık · PLN'den üretilecek 7 / 7 tür · ek set türü kapalı <span class="i">i</span></span></div>
+                    <div class="ta-card">
+                      <div class="t">Teslim</div>
+                      <p class="ta-sub" style="margin:2px 0 10px">Bu teslimin adı, klasörleri ve antet tarihi.</p>
+                      <div class="ta-form" style="grid-template-columns:150px 1fr">
+                        <span>Teslim adı</span><div class="ta-in" style="width:260px">APP-REVİZYON-02</div>
+                        <span>Teslim klasörü</span><div class="ta-row"><div class="ta-in" style="width:560px">\\sunucu\projeler\PRJ\01_PRE\15_SUB\20261102\01_ARCHITECTURAL</div><button class="ta-btn">Öner</button><button class="ta-btn">Aç</button></div>
+                        <span></span><span class="amber" style="font-size:12px">Deneme modu: bu klasöre yazılmaz. Teslim et adımının kopyası çalışma klasörüne gider.</span>
+                        <span>Çıktı klasörü · antet</span><div class="ta-row"><div class="ta-in" style="width:130px">20261102</div><span>antet tarihi</span><div class="ta-in" style="width:120px">02.11.2026</div><span>revizyonu</span><div class="ta-in" style="width:80px">00_1</div></div>
+                      </div>
+                    </div>
+                    <div class="ta-card">
+                      <div class="t">Çıktılar</div>
+                      <p class="ta-sub" style="margin:2px 0 8px">Hangi paketler DWG, hangileri PDF; listeler, kopya ve çalışma modu. <span class="i">i</span></p>
+                      <div class="ta-row" style="align-items:flex-start;gap:18px">
+                        <table class="ta-tbl" style="width:250px;background:#fff" id="taOut"><tr><th>Paket</th><th>Set</th><th>DWG (bind)</th><th>PDF</th></tr></table>
+                        <div>
+                          <p class="bold" style="margin:0 0 6px">Toplam 24 set · DWG 24 · PDF 24</p>
+                          <p style="margin:0 0 4px">DWG: <span class="lnk">Hepsi</span> <span class="lnk">Hiçbiri</span> &nbsp; PDF: <span class="lnk">DWG ile aynı</span> <span class="lnk">Hepsi</span> <span class="lnk">Hiçbiri</span></p>
+                          <p class="muted" style="margin:0 0 12px">PDF her teslimde sorulur: normalde DWG'si verilen hepsi ("DWG ile aynı"). <span class="i">i</span></p>
+                          <p class="muted" style="margin:0 0 4px">Listeler ve kopya</p>
+                          <p style="margin:0 0 10px">☐ TML &nbsp; ☐ ID-RML &nbsp; ☑ Teslim klasörüne kopya</p>
+                          <p class="muted" style="margin:0 0 4px">Aynı anda</p>
+                          <div class="ta-row" style="margin-bottom:10px"><div class="ta-in" style="width:70px">8 ▾</div><span>bu bilgisayar için önerilen 8</span></div>
+                          <p class="muted" style="margin:0 0 4px">Mod</p>
+                          <p style="margin:0">☑ Deneme modu (çıktılar çalışma klasörüne; proje dosyaları değişmez)</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ta-foot"><button class="ta-btn" data-go="3">‹ Geri</button><button class="ta-btn pri" data-go="5">Taramaya geç</button></div>
+                </section>
+
+                <!-- 5 Tara -->
+                <section class="ta-page" data-page="5" hidden>
+                  <div class="ta-scroll">
+                    <h4>Tara</h4>
+                    <p class="ta-sub">Tarama hiçbir çizimi değiştirmez; her kuralın durumunu gösterir. <span class="i">i</span></p>
+                    <div class="ta-row" style="justify-content:space-between"><span>☐ TML ile karşılaştır (Excel) &nbsp; ☑ Altlıkları oku (00_BC)</span><span class="ta-row"><button class="ta-btn">ⓘ Tüm kurallar</button><span>☐ Tam tarama (önbelleği kullanma)</span><button class="ta-btn pri" data-act="scan">Taramayı başlat</button></span></div>
+                    <p class="blue" style="margin:8px 0 0" id="taScanSum">24 set tarandı: 9 kuralda sorun, 2 kuralda bilgi <span class="i">i</span></p>
+                    <div class="ta-tabs"><span class="on">Kurallar</span><span>Xref düzeltme planı</span><span>Xref listesi</span><span>Antet bilgileri</span><span>Draw order</span><span>TML'de eksik paftalar</span><span>Altlıklar</span><span>Eksik paftalar</span><span>Boş klasörler</span></div>
+                    <table class="ta-tbl" id="taRules"><tr><th style="width:250px">Kural</th><th>Kapsam</th><th style="width:62px">Durum</th><th style="width:150px">Sonuç</th><th style="width:170px">Öneri</th></tr></table>
+                    <p class="muted" style="margin:8px 0 0" id="taRuleSets">Bir kurala tıklayınca ilgili setler burada listelenir.</p>
+                  </div>
+                  <div class="ta-foot"><button class="ta-btn">Raporları aç</button><button class="ta-btn pri" data-go="6">Düzeltmelere geç</button></div>
+                </section>
+
+                <!-- 6 Düzelt -->
+                <section class="ta-page" data-page="6" hidden>
+                  <div class="ta-scroll">
+                    <h4>Düzelt</h4>
+                    <p class="ta-sub">Bütün düzeltmeler tek "Uygula" onayıyla, önce yedek alınarak yapılır. <span class="i">i</span></p>
+                    <p class="blue" style="margin:0 0 6px">80 işlem, 24 dosya · antet dili İngilizce + Türkçe · Deneme modu: yalnız plan <span class="i">i</span></p>
+                    <p class="amber" style="margin:0 0 8px">Deneme modu: Uygula kapalı; düzeltmeler yalnız plan olarak gösterilir, setlere yazılmaz.</p>
+                    <div class="ta-row" style="margin-bottom:8px"><span>Antet adları yazılacak:</span><div class="ta-chips blue"><span class="ta-chip">A1<small>12</small></span><span class="ta-chip">A2<small>11</small></span><span class="ta-chip">03_PLN<small>4</small></span><span class="ta-chip">07_FFD<small>2</small></span><span class="ta-chip">09_RCP<small>4</small></span><span class="ta-chip">10_FLP<small>2</small></span><span class="ta-chip">11_WLP<small>4</small></span><span class="ta-chip">12_WCP<small>4</small></span></div></div>
+                    <table class="ta-tbl" id="taPlan"><tr><th style="width:86px">İşlem</th><th style="width:120px">Set</th><th>Ayrıntı</th><th style="width:200px">Dosya</th></tr></table>
+                  </div>
+                  <div class="ta-foot"><button class="ta-btn">Planı aç</button><button class="ta-btn" disabled>Uygula...</button><button class="ta-btn pri" data-go="7">Bind + PDF'e geç</button></div>
+                </section>
+
+                <!-- 7 Bind + PDF -->
+                <section class="ta-page" data-page="7" hidden>
+                  <div class="ta-scroll">
+                    <h4>Bind + PDF</h4>
+                    <p class="ta-sub">Seçilen paketler bind edilir; PDF'leri bind'li kopyadan alınır. <span class="i">i</span></p>
+                    <p class="blue" style="margin:0 0 4px">DWG 24 · PDF 24 set · çıktı çalışma klasörüne (Deneme modu), DWG\20261102 ve PDF\20261102 <span class="i">i</span></p>
+                    <p class="amber" style="margin:0 0 8px">Deneme modu: bind kopyaları setlerin bugünkü hâlinden üretilir ve yalnız çalışma klasörüne yazılır.</p>
+                    <div class="ta-row" style="justify-content:space-between"><span>☐ Sadece değişen setler</span><button class="ta-btn pri" data-act="bind">Bind + PDF başlat</button></div>
+                    <div class="ta-tabs"><span class="on">Setler</span><span>Üretilen dosyalar</span></div>
+                    <div id="taBindWrap"><div class="ta-empty">Henüz bind yapılmadı. "Bind + PDF başlat" seçilen paketlerin setlerini bind eder ve PDF'lerini alır;<br/>sonuç her set için bir satır olarak burada listelenir (durum, PDF, çıktı yolu).</div></div>
+                  </div>
+                  <div class="ta-foot"><button class="ta-btn">Çıktı klasörü</button><button class="ta-btn pri" data-go="8">Listelere geç</button></div>
+                </section>
+
+                <!-- 8 Listeler -->
+                <section class="ta-page" data-page="8" hidden>
+                  <div class="ta-scroll">
+                    <h4>Listeler</h4>
+                    <p class="ta-sub">TML ve ID-RML en son yapılır ve çizimlerle bire bir eşleşir. <span class="i">i</span></p>
+                    <p class="bold" style="margin:10px 0 2px">TML (pafta listesi)</p>
+                    <p style="margin:0 0 4px">Rapor: 24 set listede · <span class="amber">2 pafta listede yok</span> · listede çizimi olmayan 0 satır (silinmez, yalnız listelenir).</p>
+                    <div class="ta-row" style="margin-bottom:14px"><button class="ta-btn">Kontrol et</button><button class="ta-btn">Satırları ekle...</button><span class="muted">Excel'de açıkken yazılmaz; önce yedek alınır.</span></div>
+                    <p class="bold" style="margin:10px 0 2px">ID-RML (mahal malzeme listesi)</p>
+                    <p style="margin:0 0 4px">Bu teslimde istenmedi (Teslim bilgileri, "Listeler ve kopya").</p>
+                  </div>
+                  <div class="ta-foot"><button class="ta-btn pri" data-go="9">Teslime geç</button></div>
+                </section>
+
+                <!-- 9 Teslim et -->
+                <section class="ta-page" data-page="9" hidden>
+                  <div class="ta-scroll">
+                    <h4>Teslim et</h4>
+                    <p class="ta-sub">Çıktılar ve listeler teslim klasörüne kopyalanır; önce ön izleme. <span class="i">i</span></p>
+                    <p class="blue" style="margin:0 0 4px">Kopyalanacak: DWG 11 paket · PDF 11 paket · liste yok · Deneme: yerel klasöre <span class="i">i</span></p>
+                    <p class="muted" style="margin:0">Gerçek teslim hedefi (Deneme'de yazılmaz): \\sunucu\projeler\PRJ\01_PRE\15_SUB\20261102\01_ARCHITECTURAL</p>
+                    <p class="amber bold" style="margin:0 0 8px">Deneme teslim kopyası: …\calisma\20261102_nihanm\deneme\TESLIM · henüz kopyalanmadı</p>
+                    <div class="ta-row" style="justify-content:flex-end;margin-bottom:8px"><button class="ta-btn" data-act="preview">Ön izleme</button><button class="ta-btn" disabled>Kopyala...</button><button class="ta-btn">Teslim klasörünü aç</button><button class="ta-btn pri">Özet rapor</button></div>
+                    <div id="taSubWrap"><div class="ta-empty">Henüz ön izleme yapılmadı. "Ön izleme" neyin teslim klasörüne kopyalanacağını dosya dosya burada listeler; hiçbir şey yazılmaz.<br/>Liste doğruysa "Kopyala..." onayınızla kopyalar; sonuç aynı listede görünür.</div></div>
+                  </div>
+                </section>
+              </div>
+            </div>
+
+            <div class="ta-log"><span id="taLog">14:01:10 · == Tara bitti (23 s): 24 set: 0 okundu, 24 önbellekten; 9 kuralda sorun, 2 kuralda bilgi; xref satırı 162, plan 51 işlem, eksik pafta 0, TML eksik 0</span><span class="lnk">Ayrıntılar ▾</span></div>
+            <div class="ta-status"><span class="ta-mode">DENEME MODU · çıktılar yerel klasöre, proje dosyaları değişmez</span><span class="msg" id="taMsg">Tarama (24 set): bitti (23 s)</span><span class="ta-prog"><i id="taProg"></i></span><button class="ta-btn" disabled style="height:100%">Duraklat</button></div>
+          </div>
+        </div>
+      </div>
+      <p class="ta-hint"><span><b>Interactive replica</b> of the app's own interface, rebuilt in HTML from its screens.</span><span>Click the pages on the left; "Taramayı başlat", "Bind + PDF başlat" and "Ön izleme" run with sample data.</span><span>Project code, server path and building names are anonymised.</span></p>
+
+      <ol class="ta-captions" id="taCaps">
+        <li data-p="1"><b><span>01</span>Proje seç · Choose project</b>Folder and delivery type; the project is read at once and a recognition report says what was understood and what was not. <em>Remembers the last 14 days.</em></li>
+        <li data-p="2"><b><span>02</span>Kapsam · Scope</b>Full or interim delivery, buildings and packages as chips whose counts filter each other; sets the delivery must never touch.</li>
+        <li data-p="3"><b><span>03</span>Adlar · Names</b>One naming standard for buildings, floors and packages, learned from the title blocks; names the drawings disagree on wait in yellow for one approval.</li>
+        <li data-p="4"><b><span>04</span>Teslim bilgileri · Delivery details</b>Name, folders, title block date and revision, DWG and PDF per package. "Taramaya geç" stays off and names what is still missing.</li>
+        <li data-p="5"><b><span>05</span>Tara · Scan</b>Every office rule as a checklist with its status and the sets behind it. Reads only; a shared cache lets several computers reuse a scan.</li>
+        <li data-p="6"><b><span>06</span>Düzelt · Fix</b>A plan a person can read first: xrefs, relative paths, draw order, legends, title block names that run past the line. One "Uygula", backups first.</li>
+        <li data-p="7"><b><span>07</span>Bind + PDF</b>Bound copies and sheet-size PDFs per package, with a fallback method for the few sets that fail and the saved view of every copy.</li>
+        <li data-p="8"><b><span>08</span>Listeler · Lists</b>Drawing list and room list made last, so they match the drawings one to one. Rows are added, never deleted.</li>
+        <li data-p="9"><b><span>09</span>Teslim et · Submit</b>Preview file by file, then copy after confirmation into the submission folder, per building, with a summary report.</li>
+      </ol>
+
+      <div class="case-stats" data-reveal>
+        <div><b>9</b><span>pages from project to submission folder, in the order a delivery is done</span></div>
+        <div><b>0</b><span>project files written in trial mode, enforced by the app, not by convention</span></div>
+        <div><b>70</b><span>office projects scanned read-only so it recognises each one's own folder layout</span></div>
+        <div><b>5</b><span>rounds of use and feedback on a live project, 5 – 13 October</span></div>
+      </div>
+
+      <h3 class="works-heading">From Service to Product</h3>
+      <p class="tp-p">
+        The last full delivery was done with the scripts and Claude, by me: about 18 active hours for work estimated at around
+        315 hours by hand. That made the next problem obvious. The speed lived in one person who knew which function to call in
+        which order. The app takes that order, the office rules and the safety checks, and turns them into pages the team can
+        click through. It runs the same PowerShell modules underneath, so the rules stay in one place and a fix to a tool is a
+        fix to the app.
+      </p>
+      <ul class="timeline-mini" data-reveal>
+        <li><time>30 Sep 2026</time>Full delivery with the three tools: 385 sets bound, 224 PDF sheets.</li>
+        <li><time>2 Oct</time>First plan of the app; bind + PDF core tested on a single set.</li>
+        <li><time>5 – 13 Oct</time>Five rounds of use and feedback. Round 4 rebuilt the screen from six crowded steps into the nine pages above, from the notes of its first round of use: <i>"the interface is too confusing … 1 choose project, 2 scope, 3 building names …"</i></li>
+        <li><time>15 Oct</time>Read-only compatibility scan of 70 office projects; the app learns to recognise any project's layout and says what it could not read.</li>
+        <li class="y"><time>2 Nov</time>Version 5i built and tested. 5h is installed in the office.</li>
+      </ul>
+
+      <h3 class="works-heading">Designed for the Person Using It</h3>
+      <ul class="rule-list" data-reveal>
+        <li><b>Pages open in order.</b> Only "Proje seç" is open at first; each later page opens when the one before it is finished.</li>
+        <li><b>Nothing hidden below the fold.</b> The next-step buttons are pinned to the bottom of the window; no page scrolls sideways at 1280×860 or 900×600.</li>
+        <li><b>Missing answers are named, not just blocked.</b> An amber dot on the page, and a line beside the button: "Eksik: antet adı dili (Adlar) · PDF seçimi", each item a link to its page.</li>
+        <li><b>Plain Turkish, no step numbers in the text.</b> Messages name the page ("Düzelt adımında") and use words for the modules' codes.</li>
+        <li><b>Trial mode first.</b> Every step runs and every output appears, in a local work folder. The real project is read only.</li>
+        <li><b>Confirm, back up, then write.</b> Every changed file is copied to the run folder before a change; protected sets are never written; no drawing is saved while one of its xrefs is not loaded.</li>
+      </ul>
+
+      <h3 class="works-heading">How It Is Built</h3>
+      <p class="tp-p">
+        A WPF app (C#, .NET Framework 4.8, so it runs on every office PC without an installer) hosts the three PowerShell
+        modules in its own runspace and calls their functions directly. Those generate AutoLISP and run AutoCAD headless
+        through accoreconsole, several drawings at a time. The office rules live in one JSON file next to the app; project
+        names and settings live in a shared folder, together with a scan cache that several computers can use. Every version is
+        tested headless and with the real window drawn off-screen at two sizes on three projects, then installed with a
+        verified backup and a written way back.
+      </p>
+      <div class="tp-loop">
+        <span>Teslim Uygulaması (WPF)</span><i>→</i>
+        <span>PowerShell runspace</span><i>→</i>
+        <span>3 modules</span><i>→</i>
+        <span>AutoLISP</span><i>→</i>
+        <span>accoreconsole ×8</span><i>→</i>
+        <span>DWG · PDF · Excel</span>
+      </div>
+
+      <p class="tp-team">
+        <b>Stack</b> &nbsp;·&nbsp; C# WPF (.NET Framework 4.8) · PowerShell 5.1 · AutoLISP · AutoCAD accoreconsole · Excel
+        &nbsp;·&nbsp; <b>Built with</b> Claude Code &nbsp;·&nbsp; <b>Tools</b> open source (MIT),
+        <a href="https://github.com/nihanmalkoc/autocad-delivery-tools" target="_blank" rel="noopener">github.com/nihanmalkoc/autocad-delivery-tools</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="section cv-foot">
+    <p class="colophon">© <span id="year"></span> Nihan Malkoç · <a href="professional.html">back to Professional</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+  (function () {
+    var ta = document.getElementById('ta'), stage = document.getElementById('taStage'), frame = document.getElementById('taFrame');
+    var W = 1180, H = 760;
+    function fit() { var s = Math.min(1, stage.clientWidth / W); ta.style.transform = 'scale(' + s + ')'; frame.style.height = (H * s) + 'px'; }
+    window.addEventListener('resize', fit); fit();
+
+    var $ = function (s, r) { return (r || ta).querySelector(s); }, $$ = function (s, r) { return Array.prototype.slice.call((r || ta).querySelectorAll(s)); };
+    var caps = $$('#taCaps li', document);
+    function go(p) {
+      p = String(p);
+      $$('.ta-page').forEach(function (s) { s.hidden = s.dataset.page !== p; });
+      $$('.ta-item').forEach(function (b) { b.setAttribute('aria-current', b.dataset.p === p ? 'true' : 'false'); });
+      caps.forEach(function (c) { c.classList.toggle('on', c.dataset.p === p); });
+    }
+    $$('.ta-item').forEach(function (b) { b.addEventListener('click', function () { go(b.dataset.p); }); });
+    $$('[data-go]').forEach(function (b) { b.addEventListener('click', function () { go(b.dataset.go); }); });
+    caps.forEach(function (c) { c.addEventListener('click', function () { go(c.dataset.p); stage.scrollIntoView({ behavior: 'smooth', block: 'center' }); }); });
+    $$('.ta-seg').forEach(function (g) { g.addEventListener('click', function (e) { if (e.target.tagName !== 'BUTTON') return; $$('button', g).forEach(function (b) { b.classList.toggle('on', b === e.target); }); }); });
+
+    // Kapsam cipleri
+    var B = [['Tümü'],['A1',12,1],['A2',12,1],['B1',24],['B2',27],['C1',9],['C2',9],['D1',27],['GEN',4],['H1',41],['K1',27],['R1',27],['S1',41],['S2',48],['S3',41],['T1',18],['W1',17]];
+    var P = [['Tümü',0,1],['00_SPL',0],['01_ARE',0],['02_EMS',0],['03_PLN',4],['04_SEC',2],['05_ELV',2],['06_DEP',2],['07_FFD',2],['08_HVP',0],['09_RCP',2],['10_FLP',2],['11_WLP',2],['12_WCP',2],['13_SMD',2],['14_WET',0],['15_CWD',0],['16_IGP',0],['17_STR',0],['18_DOR',0],['19_ID-FPL',0],['20_ID-FFE',2],['21_ID-FED',0],['27_ID-RML liste',-1],['28_GNS',0],['29_TML liste',-1],['30_FFS',0],['31_STD',0]];
+    function chips(box, list) {
+      list.forEach(function (c) {
+        var el = document.createElement('span'); el.className = 'ta-chip' + (c[2] ? ' on' : '') + (c[1] === 0 && c[0] !== 'Tümü' ? ' zero' : '') + (c[1] === -1 ? ' it' : '');
+        el.innerHTML = c[0] + (c[1] > 0 || (c[1] === 0 && c[0] !== 'Tümü') ? '<small>' + c[1] + '</small>' : '');
+        if (c[1] !== -1) el.addEventListener('click', function () { el.classList.toggle('on'); upd(); });
+        box.appendChild(el);
+      });
+    }
+    chips($('[data-chips="b"]'), B); chips($('[data-chips="p"]'), P);
+    function upd() {
+      var b = $$('[data-chips="b"] .ta-chip.on').filter(function (c) { return c.textContent.indexOf('Tümü') < 0; });
+      var n = 0; b.forEach(function (c) { n += +(c.querySelector('small') || {}).textContent || 0; });
+      $('#taScope').textContent = b.length + ' bina · 11 paket · ' + Math.round(n) + ' set';
+    }
+
+    // Teslim bilgileri: cikti tablosu
+    var out = $('#taOut');
+    [['03_PLN',4],['04_SEC',2],['05_ELV',2],['06_DEP',2],['07_FFD',2],['09_RCP',2],['10_FLP',2],['11_WLP',2],['12_WCP',2],['13_SMD',2],['20_ID-FFE',2]].forEach(function (r) {
+      var tr = document.createElement('tr'); tr.innerHTML = '<td>' + r[0] + '</td><td>' + r[1] + '</td><td style="text-align:center">☑</td><td style="text-align:center">☑</td>'; out.appendChild(tr);
+    });
+
+    // Adlar: onay
+    $('[data-act="approve"]').addEventListener('click', function () {
+      $$('#taFloors .cell-y').forEach(function (c) { c.className = 'cell-g'; });
+      $$('#taFloors tr.wait td:first-child').forEach(function (c) { c.textContent = '✓'; });
+      $('#taBanner').innerHTML = '<span style="color:#2e7d3c;font-weight:600">✓ Bütün adlar onaylandı · proje ayarlarına kaydedildi</span>';
+    });
+
+    // Tara: kurallar
+    var R = [
+      ['g','Xref'],
+      ['Paket kuralına göre eksik altlık','Paket kuralı olan setler','ok','18 set kontrol edildi','Düzelt adımı',''],
+      ['Kuralda olmayan xref (Lay, LEG ve LAB hariç)','Paket kuralı olan setler','bad','2 set','Düzelt adımı','A1 FFD G100 · A2 FFD G100'],
+      ['Çift xref','Paket kuralı olan setler','ok','18 set kontrol edildi','Düzelt adımı',''],
+      ['Bulunamayan xref','Tüm setler','ok','24 set kontrol edildi','Yolu elle kontrol et',''],
+      ['Hepsi overlay (attach olmamalı)','Tüm setler, tüm xref\'ler','ok','24 set kontrol edildi','Elle overlay\'e çevir',''],
+      ['Altlıklar 0,0,0 · ölçek 1 · açı 0 · göreli yol','Paket kuralı olan setlerde model\'deki altlık xref\'leri','bad','5 set','Mutlak yol: göreliye çevir (Düzelt adımı)','A2 FFD G100 · A1 RCP G100 · A2 RCP G100 · A1 FLP G100 · A2 FLP G100'],
+      ['Lejant / etiket (LEG_RCP, LEG_FLP, LEG_DEP)','09_RCP, 10_FLP, 06_DEP, 07_FFD setleri · kağıt alanında','bad','5 set','Eksikse ekle (Düzelt adımı)','A1 RCP G100 · A2 RCP G100 · A1 FLP G100 · A2 FLP G100 · A1 DEP G100'],
+      ['00_BC\'de altlığı olmayan tip','Paket kuralı olan setler','inf','2 set','Altlık ekibine sor','B2 SMD G100 · B2 SMD R1'],
+      ['g','Draw order'],
+      ['Paftanın kendi xref\'i diğer altlıkların üstünde','06_DEP, 07_FFD, 09_RCP, 10_FLP, 11_WLP, 12_WCP, 20_ID-FFE','bad','16 set','Düzelt adımı','16 set: alttan üste diğer altlıklar < kendi xref\'i < DR < RM < DIM'],
+      ['Kapı wipeout\'ları en arkada (DR altlıkları)','DR altlıkları','bad','3 altlık','Düzelt adımı','XR_PRJ_A1_DR_G1 · XR_PRJ_A2_DR_G1 · XR_PRJ_B1_DR_01'],
+      ['g','Antet'],
+      ['Antet tarihi ve revizyonu','Tüm setlerin antetleri','bad','24 set','Düzelt adımı','24 sette tarih 14.10.2026 → 02.11.2026'],
+      ['Antet adı adlandırma standardına uygun','Tüm setler','bad','12 set','Düzelt adımı','12 sette bina ya da paket adı standarttan farklı'],
+      ['Antet adı çizgiyi aşmıyor','Tüm setler, ölçülerek','bad','3 set','Sığdır · Kısa ad · Elle yaz','A1 WLP G100 · A2 WLP G100 · A1 WCP G100'],
+      ['Layout adı dosya adıyla aynı','Tüm setler','ok','24 set kontrol edildi','Düzelt adımı',''],
+      ['LTSCALE (DWG 20, PDF basarken 0.1)','Tüm setler','inf','24 set','Bilgi','']
+    ];
+    var rt = $('#taRules');
+    function drawRules(anim) {
+      $$('tr', rt).slice(1).forEach(function (r) { r.remove(); });
+      R.forEach(function (r, i) {
+        var tr = document.createElement('tr');
+        if (r[0] === 'g') tr.innerHTML = '<td class="grp" colspan="5">' + r[1] + '</td>';
+        else {
+          var lab = { ok: 'Uygun', bad: 'Sorun', inf: 'Bilgi' }[r[2]];
+          tr.innerHTML = '<td>' + r[0] + '</td><td>' + r[1] + '</td><td><span class="pill ' + r[2] + '">' + lab + '</span></td><td>' + r[3] + '</td><td>' + r[4] + '</td>';
+          tr.className = 'click';
+          tr.addEventListener('click', function () {
+            $$('tr', rt).forEach(function (x) { x.classList.remove('sel'); }); tr.classList.add('sel');
+            $('#taRuleSets').innerHTML = r[5] ? '<span class="bold">' + r[0] + ':</span> ' + r[5] : 'Bu kuralda sorunlu set yok.';
+          });
+        }
+        if (anim) { tr.style.opacity = 0; setTimeout(function () { tr.style.transition = 'opacity .2s'; tr.style.opacity = 1; }, 60 * i); }
+        rt.appendChild(tr);
+      });
+    }
+    drawRules(false);
+
+    function run(label, n, ms, each, done) {
+      var bar = document.getElementById('taProg'), msg = document.getElementById('taMsg'), i = 0;
+      bar.style.width = '0'; msg.textContent = label + ' (' + n + ' set): 0 / ' + n;
+      var t = setInterval(function () {
+        i++; bar.style.width = (100 * i / n) + '%'; msg.textContent = label + ' (' + n + ' set): ' + i + ' / ' + n; if (each) each(i);
+        if (i >= n) { clearInterval(t); msg.textContent = label + ' (' + n + ' set): bitti'; if (done) done(); }
+      }, ms);
+    }
+    function now() { var d = new Date(); return ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2) + ':' + ('0' + d.getSeconds()).slice(-2); }
+    $('[data-act="scan"]').addEventListener('click', function () {
+      $('#taScanSum').textContent = 'Taranıyor…';
+      $$('tr', rt).slice(1).forEach(function (r) { r.remove(); });
+      run('Tarama', 24, 70, null, function () {
+        drawRules(true);
+        $('#taScanSum').innerHTML = '24 set tarandı: 9 kuralda sorun, 2 kuralda bilgi <span class="i">i</span>';
+        $('#taLog').textContent = now() + ' · == Tara bitti (2 s): 24 set: 0 okundu, 24 önbellekten; 9 kuralda sorun, 2 kuralda bilgi; xref satırı 162, plan 51 işlem, eksik pafta 0, TML eksik 0';
+      });
+    });
+
+    // Düzelt: plan
+    var pl = $('#taPlan');
+    function g(t) { var tr = document.createElement('tr'); tr.innerHTML = '<td></td><td></td><td class="grp" colspan="2">' + t + '</td>'; pl.appendChild(tr); }
+    function row(a, cls, s, d, f) { var tr = document.createElement('tr'); tr.innerHTML = '<td><span class="pill ' + cls + '">' + a + '</span></td><td>' + s + '</td><td>' + d + '</td><td>…' + f + '</td>'; pl.appendChild(tr); }
+    g('Xref · 5 göreli yol · 2 sette kaldır · 0 sette ekle · 0 sette çift · 0 sette lejant');
+    row('Kaldır','act','A1 FFD G100','XR_PRJ_A1_FFE_2_G100','AR_A1_FFD_G100_00_0.dwg');
+    row('Kaldır','act','A2 FFD G100','XR_PRJ_A2_FFE_2_G100','AR_A2_FFD_G100_00_0.dwg');
+    row('Göreli yol','rel','A2 FFD G100','XR_PRJ_LAB_FFD -> ..\\..\\..\\07_LAY\\XR_PRJ_LAB_FFD.dwg','AR_A2_FFD_G100_00_0.dwg');
+    row('Göreli yol','rel','A1 RCP G100','XR_PRJ_LEG_RCP -> ..\\..\\..\\07_LAY\\XR_PRJ_LEG_RCP.dwg','AR_A1_RCP_G100_00_0.dwg');
+    row('Göreli yol','rel','A2 RCP G100','XR_PRJ_LEG_RCP -> ..\\..\\..\\07_LAY\\XR_PRJ_LEG_RCP.dwg','AR_A2_RCP_G100_00_0.dwg');
+    row('Göreli yol','rel','A1 FLP G100','XR_PRJ_LEG_FLP -> ..\\..\\..\\07_LAY\\XR_PRJ_LEG_FLP.dwg','AR_A1_FLP_G100_00_0.dwg');
+    row('Göreli yol','rel','A2 FLP G100','XR_PRJ_LEG_FLP -> ..\\..\\..\\07_LAY\\XR_PRJ_LEG_FLP.dwg','AR_A2_FLP_G100_00_0.dwg');
+    g('Draw order · alttan üste: diğer altlıklar &lt; paftanın kendi xref\'i &lt; DR &lt; RM &lt; DIM · 16 set');
+    [['A1 FFD G100','FFD < DR < RM'],['A2 FFD G100','FFD < DR < RM'],['A1 PLN G100','DR < RM < DIM'],['A2 PLN G100','DR < RM < DIM'],['A1 DEP G100','DEP en arkada · DEP < DR < RM'],['A1 RCP G100','RCP < RM'],['A2 RCP G100','RCP < RM'],['A1 FLP G100','FLP < DR < RM < DIM']].forEach(function (r) {
+      row('Draw order','act',r[0],'alttan üste: diğer altlıklar < ' + r[1], 'AR_' + r[0].replace(/ /g,'_') + '_00_0.dwg');
+    });
+    g('Antet · tarih 02.11.2026 · revizyon 00_1 · adlar adlandırma standardına göre · 24 set');
+    row('Antet','rel','A1 WLP G100','EN-NAME: BLOCK A1 GROUND FLOOR WALL LAYOUT → sığdır (genişlik 0.86)','AR_A1_WLP_G100_00_0.dwg');
+    row('Antet','rel','A2 WLP G100','NAME: A2 BLOĞU ZEMİN KAT DUVAR PLANI → kısa ad','AR_A2_WLP_G100_00_0.dwg');
+
+    // Bind + PDF
+    var sets = ['A1 PLN G100','A2 PLN G100','A1 PLN R1','A2 PLN R1','A1 SEC 01','A2 SEC 01','A1 ELV 01','A2 ELV 01','A1 DEP G100','A2 DEP G100','A1 FFD G100','A2 FFD G100','A1 RCP G100','A2 RCP G100','A1 FLP G100','A2 FLP G100','A1 WLP G100','A2 WLP G100','A1 WCP G100','A2 WCP G100','A1 SMD G100','A2 SMD G100','A1 ID-FFE G100','A2 ID-FFE G100'];
+    $('[data-act="bind"]').addEventListener('click', function () {
+      var w = $('#taBindWrap'); w.innerHTML = '<table class="ta-tbl" id="taBind"><tr><th style="width:150px">Set</th><th style="width:90px">Durum</th><th style="width:70px">PDF</th><th style="width:140px">Akış</th><th>Görünüm</th></tr></table>';
+      var tb = $('#taBind');
+      run('Bind + PDF', sets.length, 140, function (i) {
+        var s = sets[i - 1], fb = s === 'A2 SEC 01';
+        var tr = document.createElement('tr');
+        tr.innerHTML = '<td>' + s + '</td><td><span class="pill ' + (fb ? 'act' : 'ok') + '">' + (fb ? 'Yedek yöntem' : 'Tamam') + '</span></td><td><span class="pill ok">A1</span></td><td>düzelt → bind → pdf</td><td>Model · güvenli zoom</td>';
+        tb.appendChild(tr); w.scrollTop = w.scrollHeight;
+      }, function () {
+        $('#taLog').textContent = now() + ' · == Bind + PDF bitti: 24 set bind, 24 PDF; 1 set yedek yöntemle; çıktı çalışma klasöründe (Deneme)';
+      });
+    });
+
+    // Teslim et: on izleme
+    $('[data-act="preview"]').addEventListener('click', function () {
+      $('#taSubWrap').innerHTML = '<table class="ta-tbl"><tr><th>Bina</th><th>DWG</th><th>PDF</th><th>Kopyalanacak</th><th>Güncel</th><th>Atlanan</th><th>Silinecek</th></tr>' +
+        '<tr><td>A1</td><td>12</td><td>12</td><td>24</td><td>0</td><td>0</td><td>0</td></tr><tr><td>A2</td><td>12</td><td>12</td><td>24</td><td>0</td><td>0</td><td>0</td></tr>' +
+        '<tr><td class="bold">Toplam</td><td class="bold">24</td><td class="bold">24</td><td class="bold">48</td><td>0</td><td>0</td><td>0</td></tr></table>' +
+        '<p class="amber" style="margin:8px 0 0">Ön izleme: hiçbir şey yazılmadı. Deneme modunda "Kopyala..." yalnız çalışma klasörüne kopyalar.</p>';
+      $('#taMsg').textContent = 'Ön izleme: 48 dosya kopyalanacak';
+    });
+
+    go((location.hash.match(/^#p([1-9])$/) || [0, 1])[1]);
+  })();
+  </script>
+</body>
+</html>

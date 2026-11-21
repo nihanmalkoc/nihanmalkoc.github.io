@@ -1,0 +1,138 @@
+/* Teslim Uygulamasi: WPF arayuzunun HTML kopyasi (gercek ekranlardan, 5d/5i). Yalniz .ta icinde gecerli. */
+.ta-stage { position: relative; width: 100%; margin: 1.6rem 0 .6rem; }
+.ta-frame { border: 1px solid #b9c2cf; box-shadow: 0 18px 50px -24px rgba(10,30,70,.45); overflow: hidden; background: #fff; }
+.ta {
+  --ta-blue: #1d4f91; --ta-blue-d: #173f75; --ta-link: #1a5fb4; --ta-line: #c9ced6; --ta-soft: #f3f4f6;
+  --ta-amber: #9a6a00; --ta-amber-bg: #fbf0d4;
+  width: 1180px; height: 760px; transform-origin: 0 0;
+  font-family: "Segoe UI", "Segoe UI Variable", Tahoma, system-ui, sans-serif; font-size: 13px; color: #1b1b1b;
+  display: grid; grid-template-rows: 50px 1fr 26px 28px; background: #fff; line-height: 1.35;
+}
+.ta * { box-sizing: border-box; }
+.ta button { font: inherit; }
+
+/* baslik */
+.ta-top { display: flex; align-items: center; gap: 16px; padding: 0 12px; border-bottom: 1px solid var(--ta-line); }
+.ta-logo { display: inline-grid; place-items: center; height: 30px; padding: 0 12px; border-radius: 50%/60%; background: var(--ta-blue); color: #fff; font-weight: 700; letter-spacing: .14em; font-size: 15px; }
+.ta-title { font-size: 19px; font-weight: 600; color: var(--ta-blue); letter-spacing: -.01em; }
+.ta-path { color: #444; font-size: 12.5px; }
+.ta-rules { margin-left: auto; }
+
+/* gövde */
+.ta-body { display: grid; grid-template-columns: 166px 1fr; min-height: 0; }
+.ta-nav { border-right: 1px solid var(--ta-line); padding: 8px 0; overflow: hidden; }
+.ta-grp { font-size: 11px; font-weight: 600; color: #555; letter-spacing: .03em; padding: 10px 12px 6px; }
+.ta-item { display: flex; gap: 6px; width: calc(100% - 4px); margin-left: 2px; text-align: left; border: 1px solid transparent; background: none; padding: 7px 10px; cursor: pointer; color: #1b1b1b; font-size: 13px; }
+.ta-item .ck { width: 10px; color: #1b1b1b; }
+.ta-item:hover { background: #eef2f8; }
+.ta-item[aria-current="true"] { background: var(--ta-soft); border-color: #dfe2e7; }
+.ta-item.off { color: #777; }
+
+.ta-pages { display: flex; flex-direction: column; min-height: 0; }
+.ta-page { display: flex; flex-direction: column; min-height: 0; flex: 1; }
+.ta-page[hidden] { display: none; }
+.ta-scroll { flex: 1; overflow: auto; padding: 14px 12px 12px; }
+.ta-scroll::-webkit-scrollbar { width: 12px; } .ta-scroll::-webkit-scrollbar-thumb { background: #cdd1d6; border: 3px solid #fff; }
+.ta h4 { font-size: 17px; font-weight: 600; margin: 0 0 10px; color: #111; }
+.ta .ta-sub { color: #444; margin: 0 0 8px; }
+.ta .i { display: inline-grid; place-items: center; width: 11px; height: 11px; border: 1px solid var(--ta-link); border-radius: 50%; color: var(--ta-link); font-size: 8px; font-weight: 700; margin-left: 4px; vertical-align: 1px; }
+.ta .blue { color: var(--ta-link); }
+.ta .amber { color: var(--ta-amber); }
+.ta .bold { font-weight: 600; }
+.ta .muted { color: #666; }
+.ta a, .ta .lnk { color: var(--ta-link); text-decoration: underline; cursor: pointer; }
+.ta-h5 { color: var(--ta-blue); font-weight: 600; font-size: 14px; margin: 14px 0 4px; }
+
+/* düğmeler */
+.ta-btn { border: 1px solid #a9a9a9; background: #e5e5e5; padding: 5px 16px; cursor: pointer; color: #111; font-size: 12.5px; }
+.ta-btn:hover { background: #d9e5f3; border-color: #6d8fbf; }
+.ta-btn.pri { background: var(--ta-blue); border-color: var(--ta-blue); color: #fff; font-weight: 600; }
+.ta-btn.pri:hover { background: var(--ta-blue-d); }
+.ta-btn[disabled] { color: #999; background: #f0f0f0; border-color: #ddd; cursor: default; }
+.ta-seg { display: inline-flex; border: 1px solid #b5b5b5; }
+.ta-seg button { border: 0; border-right: 1px solid #b5b5b5; background: #fff; padding: 5px 13px; cursor: pointer; }
+.ta-seg button:last-child { border-right: 0; }
+.ta-seg button.on { background: var(--ta-blue); color: #fff; font-weight: 600; }
+.ta-foot { display: flex; justify-content: flex-end; gap: 8px; padding: 8px 12px; border-top: 1px solid #e3e5e8; }
+
+/* form */
+.ta-form { display: grid; grid-template-columns: 180px 1fr; gap: 8px 0; align-items: center; max-width: 900px; }
+.ta-in { border: 1px solid #a8a8a8; padding: 3px 6px; background: #fff; min-height: 22px; }
+.ta-row { display: flex; gap: 8px; align-items: center; }
+
+/* çipler */
+.ta-chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.ta-chip { border: 1px solid #c3c7cd; border-radius: 12px; padding: 2px 9px; background: #fff; cursor: pointer; font-size: 12.5px; }
+.ta-chip small { color: #777; font-size: 11px; margin-left: 2px; }
+.ta-chip.on { background: #dbe8f8; border-color: #6d8fbf; }
+.ta-chip.zero { color: #888; }
+.ta-chip.it { font-style: italic; color: #888; }
+.ta-chips.blue .ta-chip { background: #dbe8f8; border-color: #6d8fbf; cursor: default; }
+
+/* kartlar */
+.ta-card { border: 1px solid #d6dae0; background: #f7f8fa; padding: 10px 12px; margin-bottom: 10px; }
+.ta-card > .t { color: var(--ta-blue); font-weight: 600; font-size: 14px; }
+.ta-fold { display: inline-grid; place-items: center; width: 16px; height: 16px; border: 1.5px solid #333; border-radius: 50%; font-size: 9px; margin-right: 6px; vertical-align: -2px; }
+
+/* tablolar */
+.ta-tabs { display: flex; gap: 2px; border-bottom: 1px solid #dfe2e7; margin: 8px 0 0; }
+.ta-tabs span { padding: 6px 10px; color: #222; cursor: pointer; white-space: nowrap; }
+.ta-tabs span.on { color: var(--ta-link); border-bottom: 2px solid var(--ta-link); }
+.ta-tbl { width: 100%; border-collapse: collapse; border: 1px solid #c8ccd2; font-size: 12.5px; }
+.ta-tbl th { background: #fff; text-align: left; font-weight: 400; border: 1px solid #dfe2e7; padding: 4px 5px; color: #222; }
+.ta-tbl td { border-bottom: 1px solid #e3e6ea; padding: 3px 5px; vertical-align: top; }
+.ta-tbl tr:nth-child(even) td { background: #f5f6f8; }
+.ta-tbl td.grp { color: var(--ta-blue); font-weight: 600; background: #fff !important; }
+.ta-tbl td.gc { color: var(--ta-blue); font-weight: 600; text-align: center; background: #fff !important; }
+.ta-tbl tr.click { cursor: pointer; } .ta-tbl tr.click:hover td { background: #e4edf8; }
+.ta-tbl tr.sel td { background: #cfe0f5 !important; }
+.pill { display: inline-block; padding: 1px 6px; font-weight: 600; font-size: 12px; }
+.pill.ok { color: #2e7d3c; background: #e3f2e5; }
+.pill.bad { color: #b3261e; background: #fbe3e1; }
+.pill.inf { color: #2f5ea0; background: #e1ebf7; }
+.pill.act { color: #8a5a00; background: #fbecc8; }
+.pill.rel { color: #2f5ea0; background: #e1ebf7; }
+.ta-empty { display: grid; place-items: center; text-align: center; color: #444; border: 1px solid #d3d7dd; min-height: 180px; padding: 20px; }
+.ta-banner { background: var(--ta-amber-bg); border-left: 3px solid #d9a400; padding: 8px 10px; display: flex; align-items: center; gap: 10px; margin: 8px 0; }
+.ta-banner b { color: var(--ta-amber); }
+.ta-key { display: inline-block; width: 13px; height: 13px; border: 1px solid #ccc; vertical-align: -2px; margin: 0 4px 0 10px; }
+.cell-y { background: #fbf0d4 !important; }
+.cell-g { background: #e3f2e5 !important; }
+
+/* alt şeritler */
+.ta-log { border-top: 1px solid #e3e5e8; display: flex; align-items: center; padding: 0 12px; font-family: Consolas, "Cascadia Mono", monospace; font-size: 11.5px; color: #222; white-space: nowrap; overflow: hidden; }
+.ta-log .lnk { margin-left: auto; font-family: "Segoe UI", system-ui, sans-serif; font-size: 12px; padding-left: 12px; }
+.ta-status { display: grid; grid-template-columns: auto 1fr 220px auto; align-items: center; background: #e6eaf0; font-size: 12.5px; }
+.ta-mode { background: var(--ta-amber-bg); color: var(--ta-amber); font-weight: 600; padding: 0 10px; height: 100%; display: flex; align-items: center; }
+.ta-mode.real { background: #fbe3e1; color: #b3261e; }
+.ta-prog { height: 14px; border: 1px solid #bbb; background: #f4f4f4; margin-right: 12px; }
+.ta-prog i { display: block; height: 100%; width: 0; background: #2e7d3c; transition: width .3s linear; }
+.ta-status .msg { padding-left: 10px; }
+
+.ta-hint { font-size: .78rem; color: var(--muted); display: flex; gap: .8rem; flex-wrap: wrap; margin-top: .5rem; }
+.ta-hint b { color: var(--ink); font-weight: 600; }
+
+/* sayfa açıklamaları (portfolyo tarafı) */
+.ta-captions { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: .9rem 1.4rem; margin: 1.6rem 0 0; padding: 0; list-style: none; counter-reset: c; }
+.ta-captions li { border-top: 1.5px solid var(--line); padding-top: .55rem; font-size: .86rem; color: #333; line-height: 1.45; cursor: pointer; transition: border-color .2s; }
+.ta-captions li:hover, .ta-captions li.on { border-color: var(--yellow); }
+.ta-captions b { display: block; font-size: .92rem; color: var(--ink); }
+.ta-captions b span { color: var(--yellow-d); font-weight: 700; margin-right: .35rem; font-size: .78rem; letter-spacing: .08em; }
+.ta-captions em { font-style: normal; color: var(--muted); font-size: .78rem; }
+@media (max-width: 860px) { .ta-captions { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .ta-captions { grid-template-columns: 1fr; } }
+
+.timeline-mini { list-style: none; padding: 0; margin: 1rem 0 0; border-left: 2px solid var(--line); }
+.timeline-mini li { position: relative; padding: 0 0 .9rem 1.1rem; font-size: .92rem; line-height: 1.5; }
+.timeline-mini li::before { content: ""; position: absolute; left: -6px; top: .45rem; width: 10px; height: 10px; background: var(--ink); }
+.timeline-mini li.y::before { background: var(--yellow); }
+.timeline-mini time { display: block; font-size: .74rem; font-weight: 600; letter-spacing: .08em; color: var(--muted); text-transform: uppercase; }
+
+/* Kopyada calismayan dugme, baglanti ve sekmeler tiklanabilir gorunmesin; yalniz calisanlar (data-go, data-act) imlec ve hover alir */
+.ta .ta-btn { cursor: default; }
+.ta .ta-btn:not([data-go]):not([data-act]):hover { background: #e5e5e5; border-color: #a9a9a9; }
+.ta .ta-btn.pri:not([data-go]):not([data-act]):hover { background: var(--ta-blue); border-color: var(--ta-blue); }
+.ta .ta-btn[data-go], .ta .ta-btn[data-act] { cursor: pointer; }
+.ta .lnk { cursor: default; text-decoration: none; }
+.ta .ta-tabs span { cursor: default; }
+.ta .ta-chips.blue .ta-chip { cursor: default; }

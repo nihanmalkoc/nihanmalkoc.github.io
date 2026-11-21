@@ -762,3 +762,31 @@ main, .site-header, .menu-overlay, .contact { position: relative; z-index: 1; }
 .jump-tile i { position: absolute; right: 1.1rem; top: 50%; transform: translateY(-50%); font-style: normal; font-size: 1.6rem; line-height: 1; }
 #automation, #projects { scroll-margin-top: 72px; }
 @media (max-width: 640px) { .jump { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- Teslim Uygulamasi karti (professional.html) ---------- */
+.mt-app { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 1.4rem; border: 1.5px solid var(--ink); padding: 1rem; margin-bottom: 1rem; color: inherit; transition: border-color .25s, transform .25s; }
+.mt-app:hover { border-color: var(--yellow); transform: translateY(-3px); }
+.mt-app-shot { border: 1px solid #b9c2cf; font-family: "Segoe UI", system-ui, sans-serif; font-size: 11px; background: #fff; display: flex; flex-direction: column; min-height: 210px; }
+.mt-app-bar { display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-bottom: 1px solid #c9ced6; }
+.mt-app-bar i { font-style: normal; background: #1d4f91; color: #fff; font-weight: 700; letter-spacing: .12em; padding: 2px 7px; border-radius: 50%/60%; font-size: 9px; }
+.mt-app-bar b { color: #1d4f91; font-size: 13px; font-weight: 600; }
+.mt-app-in { display: grid; grid-template-columns: 118px 1fr; flex: 1; }
+.mt-app-in li { white-space: nowrap; }
+.mt-app-in ul { list-style: none; margin: 0; padding: 6px 0; border-right: 1px solid #c9ced6; }
+.mt-app-in li { padding: 2px 8px; color: #777; }
+.mt-app-in li.ok { color: #1b1b1b; } .mt-app-in li.ok::before { content: "✓ "; }
+.mt-app-in li.on { background: #f3f4f6; }
+.mt-app-in > div { padding: 8px; }
+.mt-app-in em { font-style: normal; font-weight: 600; font-size: 13px; display: block; margin-bottom: 6px; }
+.mt-app-in p { margin: 0; display: grid; gap: 4px; }
+.mt-app-in p span { display: block; height: 14px; padding-left: 4px; font-weight: 600; font-size: 9.5px; line-height: 14px; border-left: 46px solid #f1f2f4; }
+.mt-app-in .g { color: #2e7d3c; background: #e3f2e5; } .mt-app-in .r { color: #b3261e; background: #fbe3e1; } .mt-app-in .b { color: #2f5ea0; background: #e1ebf7; }
+.mt-app-mode { background: #fbf0d4; color: #9a6a00; font-weight: 600; padding: 3px 8px; font-size: 10px; }
+.mt-app-txt { display: flex; flex-direction: column; }
+.mt-app .mt-n { font-size: .72rem; font-weight: 700; letter-spacing: .12em; color: var(--yellow-d); text-transform: uppercase; }
+.mt-app strong { font-size: 1.3rem; font-weight: 600; letter-spacing: -0.01em; margin-top: .15rem; }
+.mt-app .mt-sub { font-size: .72rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--yellow-d); margin: .2rem 0 .7rem; }
+.mt-app p { font-size: .9rem; color: #333; line-height: 1.5; margin: 0 0 .9rem; }
+.mt-app .mt-open { margin-top: auto; font-size: .8rem; font-weight: 600; }
+.mt-app .mt-open::after { content: " →"; color: var(--muted); }
+@media (max-width: 760px) { .mt-app { grid-template-columns: 1fr; } }
